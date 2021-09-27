@@ -9,10 +9,9 @@ public class Player extends GameObject{
     public void tick() {
         x+=velX;
         y+=velY;
-        if(x>=Game.WIDTH) x=Game.WIDTH;
-        if(x<=0) x=0;
-        if(y>=Game.HEIGHT) y=Game.HEIGHT;
-        if(y<=0) y=0;
+
+        x=Game.clamp((int)x,0,Game.WIDTH-30);
+        y=Game.clamp((int)y,0,Game.HEIGHT-67);
 
 
 
@@ -22,6 +21,7 @@ public class Player extends GameObject{
     public void render(Graphics g) {
         g.setColor(Color.white);
         g.fillRect((int)x,(int)y,32,32);
+
 
     }
 }

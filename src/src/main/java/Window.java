@@ -12,9 +12,9 @@ public class Window extends JFrame{
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setAutoRequestFocus(true);
         setVisible(true);
-        setResizable(true);
+        setResizable(false);
         setLocationRelativeTo(null);
-
+        setDefaultLookAndFeelDecorated(true);
         add(game);
 
     }

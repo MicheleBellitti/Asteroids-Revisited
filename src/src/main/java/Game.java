@@ -12,7 +12,7 @@ import java.util.Random;
 
 public class Game extends Canvas implements Runnable {
     public static int WIDTH = 800;
-    public static int HEIGHT = 608;
+    public static int HEIGHT = 600;
     public static int ENEMY_NUMBER = 15;
     private int J = 1;
     private static String title = "GiocoDiEsempio";
@@ -29,7 +29,7 @@ public class Game extends Canvas implements Runnable {
         this.addKeyListener(new MyKeyListener(this.handler));
         this.addMouseListener(new MyMouseListener(this.handler));
         this.handler.addGameObject(new Player(350.0F, (float) (HEIGHT - 75), 0.0F, 0.0F, ID.Player));
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 50; i++) {
             this.handler.addGameObject(new Enemy((float) (this.J * 8), 0.0F, 0.0F, 2.0F, ID.Enemy));
             this.J += 5;
         }
@@ -110,7 +110,13 @@ public class Game extends Canvas implements Runnable {
         }
 
     }
-
+    public static int clamp(int val,int min,int max){
+        if(val>=max)
+            return val=max;
+        else if(val<=min)
+            return val=min;
+        else return val;
+    }
     private void tick() {
         this.handler.tick();
     }

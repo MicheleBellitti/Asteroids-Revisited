@@ -6,8 +6,15 @@ import java.security.Key;
 
 public class MyKeyListener extends KeyAdapter  {
     private Handler handler;
+     private boolean[] keyDown=new boolean[4];
     public MyKeyListener(Handler handler){
         this.handler=handler;
+        keyDown[0]=false;
+        keyDown[1]=false;
+        keyDown[2]=false;
+        keyDown[3]=false;
+
+
     }
     @Override
     public void keyPressed(KeyEvent e) {
@@ -18,13 +25,17 @@ public class MyKeyListener extends KeyAdapter  {
             if (tmp.getId() == ID.Player) {
                 if (key == KeyEvent.VK_W) {
                     tmp.setVelY(-5);
+                    keyDown[0]=true;
                 }
                 if (key == KeyEvent.VK_S) {
                     tmp.setVelY(5);
+                    keyDown[1]=true;
                 }
                 if (key == KeyEvent.VK_A)
                     tmp.setVelX(-5);
+                keyDown[2]=true;
                 if (key == KeyEvent.VK_D) {
+                    keyDown[3]=true;
                     tmp.setVelX(5);
                 }
             }
@@ -40,6 +51,10 @@ public class MyKeyListener extends KeyAdapter  {
                 if (key == KeyEvent.VK_RIGHT) {
                     tmp.setVelX(5);
                 }
+
+            }
+            if (key == KeyEvent.VK_ESCAPE) {
+                System.exit(1);
             }
         }
     }
@@ -52,46 +67,38 @@ public class MyKeyListener extends KeyAdapter  {
             GameObject tmp = handler.objList.get(i);
             if (tmp.getId() == ID.Player) {
                 if (key == KeyEvent.VK_W) {
-                    tmp.setVelY(0);
+                    keyDown[0]=false;//tmp.setVelY(0);
                 }
                 if (key == KeyEvent.VK_S) {
-                    tmp.setVelY(0);
+                    keyDown[1]=false; //tmp.setVelY(0);
                 }
                 if (key == KeyEvent.VK_A)
-                    tmp.setVelX(0);
+                    keyDown[2]=false; //tmp.setVelX(0);
                 if (key == KeyEvent.VK_D) {
-                    tmp.setVelX(0);
+                    keyDown[3]=false; // tmp.setVelX(0);
                 }
             }
             if (tmp.getId() == ID.Player2) {
                 if (key == KeyEvent.VK_UP) {
-                    tmp.setVelY(0);
+                    keyDown[0]=false;//tmp.setVelY(0);
                 }
                 if (key == KeyEvent.VK_DOWN) {
-                    tmp.setVelY(0);
+                    keyDown[1]=false; //tmp.setVelY(0);
                 }
                 if (key == KeyEvent.VK_LEFT)
-                    tmp.setVelX(0);
+                    keyDown[2]=false; //tmp.setVelX(0);
                 if (key == KeyEvent.VK_RIGHT) {
-                    tmp.setVelX(0);
+                    keyDown[3]=false; // tmp.setVelX(0);
                 }
             }
-            if(tmp.getId()==ID.Enemy){
-                float oldVelX,oldVelY;
-                oldVelX=GameObject.VEL_ENEMY;
-                oldVelY=GameObject.VEL_ENEMY;
-                if(key==KeyEvent.VK_CONTROL){
-
-                    tmp.setVelX(0);
-                    tmp.setVelY(0);
-
-
-                }
-                if(key==KeyEvent.VK_SPACE){
-                    tmp.setVelX(oldVelX);
-                    tmp.setVelY(oldVelY);
-
-                }
+            if(!keyDown[0] || !keyDown[1]){
+                tmp.setVelY(0);
+            }
+            if(!keyDown[2] || !keyDown[3]){
+                tmp.setVelX(0);
+            }
+            if (key == KeyEvent.VK_ESCAPE) {
+                System.exit(0);
             }
         }
     }

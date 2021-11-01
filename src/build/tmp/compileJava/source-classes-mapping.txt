@@ -1,17 +1,17 @@
-Handler.java
- Handler
+Enemy.java
+ Enemy
 ID.java
  ID
-Window.java
- Window
+Handler.java
+ Handler
 Bullet.java
  Bullet
 MyMouseListener.java
  MyMouseListener
 GameObject.java
  GameObject
-Enemy.java
- Enemy
+Window.java
+ Window
 Player.java
  Player
 Player2.java

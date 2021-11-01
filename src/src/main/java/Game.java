@@ -24,8 +24,9 @@ public class Game extends Canvas implements Runnable {
 
     public Game() {
         new Window(WIDTH, HEIGHT, title, this);
+
         this.start();
-        this.gameOver = this.check(this.handler);
+
         this.addKeyListener(new MyKeyListener(this.handler));
         this.addMouseListener(new MyMouseListener(this.handler));
         this.handler.addGameObject(new Player(350.0F, (float) (HEIGHT - 75), 0.0F, 0.0F, ID.Player));
@@ -34,13 +35,9 @@ public class Game extends Canvas implements Runnable {
             this.J += 5;
         }
 
-
-        if (this.gameOver) {
-            System.out.println("GAME OVER!");
-            this.stop();
-        }
+        this.stop();
     }
-    public boolean check(Handler handler) {
+    /*public boolean check(Handler handler) {
         for(int i = 0; i < handler.objList.size(); ++i) {
             GameObject tmp = (GameObject)handler.objList.get(i);
             if (tmp.getId() == ID.Enemy) {
@@ -60,8 +57,18 @@ public class Game extends Canvas implements Runnable {
         }
 
         return false;
-    }
-
+    }*/
+    public GameObject getPlayer(Handler handler) {
+        GameObject target=null;
+        for (int i = 0; i < handler.objList.size(); i++) {
+            GameObject tmp = handler.objList.get(i);
+            if (tmp.getId() == ID.Player) {
+                target = tmp;
+                break;
+            }
+        }
+            return target;
+        }
     private synchronized void start() {
         if (!this.running) {
             this.thread = new Thread(this);

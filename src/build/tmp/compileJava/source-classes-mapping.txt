@@ -6,19 +6,19 @@ GameObject.java
  GameObject
 MyKeyListener.java
  MyKeyListener
-MyMouseListener.java
- MyMouseListener
-Handler.java
- Handler
-Window.java
- Window
-Hud.java
- Hud
-Player.java
- Player
-Game.java
- Game
-Player2.java
- Player2
 Enemy.java
  Enemy
+Hud.java
+ Hud
+Handler.java
+ Handler
+Player.java
+ Player
+Player2.java
+ Player2
+MyMouseListener.java
+ MyMouseListener
+Window.java
+ Window
+Game.java
+ Game

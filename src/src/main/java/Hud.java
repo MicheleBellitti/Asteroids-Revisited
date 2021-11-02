@@ -5,7 +5,7 @@ public class Hud {
     static int HEALTH;
     public Hud(){
         HEALTH=255;
-        i=0;
+        i=1;
 
     }
     public  void tick(){

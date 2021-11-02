@@ -15,7 +15,7 @@ public class Game extends Canvas implements Runnable {
     public static int HEIGHT = 600;
     public static int ENEMY_NUMBER = 15;
     private int J = 1;
-    private static String title = "GiocoDiEsempio";
+    private static String title = "Cancer Game";
     private Thread thread;
     private boolean running = false;
     private boolean gameOver = false;

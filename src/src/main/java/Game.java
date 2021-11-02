@@ -26,7 +26,7 @@ public class Game extends Canvas implements Runnable {
         new Window(WIDTH, HEIGHT, title, this);
 
         this.start();
-        Hud hud=new Hud();
+
         this.addKeyListener(new MyKeyListener(this.handler));
         this.addMouseListener(new MyMouseListener(this.handler));
         this.handler.addGameObject(new Player(350.0F, (float) (HEIGHT - 75), 0.0F, 0.0F, ID.Player));

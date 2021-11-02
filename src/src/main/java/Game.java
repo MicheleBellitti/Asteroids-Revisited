@@ -26,7 +26,7 @@ public class Game extends Canvas implements Runnable {
         new Window(WIDTH, HEIGHT, title, this);
 
         this.start();
-
+        Hud hud=new Hud();
         this.addKeyListener(new MyKeyListener(this.handler));
         this.addMouseListener(new MyMouseListener(this.handler));
         this.handler.addGameObject(new Player(350.0F, (float) (HEIGHT - 75), 0.0F, 0.0F, ID.Player));
@@ -36,6 +36,20 @@ public class Game extends Canvas implements Runnable {
         }
 
         this.stop();
+    }
+    public static int Ecollision(GameObject p,Handler handler){
+        int hits=0;
+        Rectangle player = new Rectangle((int)p.getX(), (int)p.getY(), 32, 32);
+        for(int i=0;i<handler.objList.size();i++) {
+            GameObject tmp = handler.objList.get(i);
+            if (tmp.getId() != ID.Enemy) {
+                continue;
+            }
+            Rectangle e=new Rectangle((int)tmp.getX(),(int)tmp.getY(),16,16);
+            if(player.intersects(e)) hits++;
+        }
+        return hits;
+
     }
     /*public boolean check(Handler handler) {
         for(int i = 0; i < handler.objList.size(); ++i) {

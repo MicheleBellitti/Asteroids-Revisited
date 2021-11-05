@@ -137,6 +137,7 @@ public class Game extends Canvas implements Runnable {
         else if(val<=min)
             return val=min;
         else return val;
+
     }
     private void tick() {
         this.handler.tick();

@@ -142,7 +142,7 @@ public class Game extends Canvas implements Runnable {
     private void tick() {
         this.handler.tick();
         this.hud.tick();
-        hud.HEALTH-=2*Ecollision(getPlayer(this.handler),this.handler); // Collisiion code
+        hud.HEALTH-=2*Ecollision(getPlayer(this.handler),this.handler); // Collision code
     }
 
     private void render() {

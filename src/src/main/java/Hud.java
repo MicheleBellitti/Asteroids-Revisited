@@ -43,7 +43,7 @@ public class Hud {
        else if(HEALTH>=255/5) g.setColor(Color.yellow.darker());
        else g.setColor(Color.red);
         g.fillRect(10,20,HEALTH,40);
-        g.setColor(Color.WHITE);
+        g.setColor(Color.WHITE); // Commento
         g.drawString("Level:"+ level,10,80);
         g.drawString("Score:"+ score,10,100);
     }

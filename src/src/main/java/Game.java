@@ -15,13 +15,13 @@ public class Game extends Canvas implements Runnable {
     public static int HEIGHT = 600;
     public static int ENEMY_NUMBER = 15;
     private int J = 1;
-    private static String title = "Cancer Game";
+    private static String title = "Easy Game";
     private Thread thread;
     private boolean running = false;
     private boolean gameOver = false;
     Random r1 = new Random();
     private Handler handler = new Handler();
-
+    private Hud hud=new Hud();
     public Game() {
         new Window(WIDTH, HEIGHT, title, this);
 
@@ -140,6 +140,7 @@ public class Game extends Canvas implements Runnable {
     }
     private void tick() {
         this.handler.tick();
+        this.hud.tick();
     }
 
     private void render() {
@@ -151,6 +152,7 @@ public class Game extends Canvas implements Runnable {
             g.setColor(Color.BLUE);
             g.fillRect(0, 0, WIDTH, HEIGHT);
             this.handler.render(g);
+            this.hud.render(g);
             bs.show();
             g.dispose();
         }

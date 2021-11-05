@@ -1,17 +1,39 @@
 import java.awt.*;
 
 public class Hud {
-    private  int i;
+    private  int score;
+    private  int level;
     static int HEALTH;
     public Hud(){
         HEALTH=255;
-        i=1;
+        score=0;
+        level=1;
 
     }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
     public  void tick(){
         HEALTH--;
         HEALTH=Game.clamp(HEALTH,1,255);
-        i++;
+        score++;
+        if(score==200*level){
+            level++;
+        }
     }
     public void render(Graphics g){
         g.setColor(Color.WHITE);
@@ -22,8 +44,8 @@ public class Hud {
        else g.setColor(Color.red);
         g.fillRect(10,20,HEALTH,40);
         g.setColor(Color.WHITE);
-        g.drawString("Level:"+ i/200,10,80);
-        g.drawString("Score:"+ i,10,100);
+        g.drawString("Level:"+ level,10,80);
+        g.drawString("Score:"+ score,10,100);
     }
 }
 

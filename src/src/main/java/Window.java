@@ -4,8 +4,8 @@ import java.awt.*;
 public class Window extends JFrame{
     public Window (int width, int height, String title, Game game)  {
 
-        ImageIcon icon = new ImageIcon("C:\\Users\\Michele\\IdeaProjects\\Project\\src\\src\\test\\resources\\R.jpg");
-        setIconImage(icon.getImage());
+        //ImageIcon icon = new ImageIcon("C:\\Users\\Michele\\IdeaProjects\\Project\\src\\src\\test\\resources\\R.jpg");
+       // setIconImage(icon.getImage());
         setTitle(title);
         setPreferredSize(new Dimension(width, height));
         setMaximumSize(new Dimension(width*width,height*height));

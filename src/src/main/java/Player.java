@@ -16,6 +16,7 @@ public class Player extends GameObject{
         y=Game.clamp((int)y,0,Game.HEIGHT-67);
 
 
+
     }
 
     @Override

@@ -4,20 +4,20 @@ ID.java
  ID
 GameObject.java
  GameObject
+Handler.java
+ Handler
 MyKeyListener.java
  MyKeyListener
+MyMouseListener.java
+ MyMouseListener
 Enemy.java
  Enemy
 Hud.java
  Hud
-Handler.java
- Handler
 Player.java
  Player
 Player2.java
  Player2
-MyMouseListener.java
- MyMouseListener
 Window.java
  Window
 Game.java

@@ -10,15 +10,15 @@ MyKeyListener.java
  MyKeyListener
 MyMouseListener.java
  MyMouseListener
-Enemy.java
- Enemy
+Window.java
+ Window
 Hud.java
  Hud
 Player.java
  Player
-Player2.java
- Player2
-Window.java
- Window
 Game.java
  Game
+Player2.java
+ Player2
+Enemy.java
+ Enemy

@@ -52,6 +52,14 @@ public class Game extends Canvas implements Runnable {
         return hits;
 
     }
+    public  void freezeGame(){
+        for(int i=0;i<handler.objList.size();++i){
+            GameObject obj=handler.objList.get(i);
+            obj.setVelY(0f);
+            obj.setVelX(0f);
+
+        }
+    }
     /*public boolean check(Handler handler) {
         for(int i = 0; i < handler.objList.size(); ++i) {
             GameObject tmp = (GameObject)handler.objList.get(i);
@@ -145,6 +153,7 @@ public class Game extends Canvas implements Runnable {
         this.hud.tick();
         hud.HEALTH-=2*Ecollision(getPlayer(this.handler),this.handler); // Collision code
         this.spawner.tick();
+        if(hud.getLevel()==3) freezeGame();
     }
 
     private void render() {

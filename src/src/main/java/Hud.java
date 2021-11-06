@@ -31,11 +31,7 @@ public class Hud {
     public  void tick(){
 
         HEALTH=Game.clamp(HEALTH,1,255);
-       score++;
-
-        if(score==200*level){
-            level++;
-        }
+        score++;
     }
     public void render(Graphics g){
         g.setColor(Color.WHITE);

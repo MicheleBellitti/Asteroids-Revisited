@@ -11,11 +11,14 @@ public class Spawner {
         this.hud=hud;
         }
         public void tick(){
-        if(hud.getLevel()%2==0 && !deployed){
-            handler.addGameObject(new Enemy(r.nextInt(Game.WIDTH),r.nextInt(Game.HEIGHT),5,5,ID.Enemy));
-            deployed=true;
+
+            if(hud.getScore()== hud.getLevel()*200){
+                if(hud.getLevel()%2==0) {
+                    handler.addGameObject(new Enemy(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), 5, 5, ID.Enemy));
+                }
+                hud.setLevel(hud.getLevel()+1);
             }
-        else deployed=false;
+
 
         }
 

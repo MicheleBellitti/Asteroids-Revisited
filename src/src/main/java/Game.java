@@ -22,11 +22,12 @@ public class Game extends Canvas implements Runnable {
     Random r1 = new Random();
     private Handler handler = new Handler();
     private Hud hud=new Hud();
+    private Spawner spawner;
     public Game() {
         new Window(WIDTH, HEIGHT, title, this);
 
         this.start();
-
+        this.spawner=new Spawner(handler,hud);
         this.addKeyListener(new MyKeyListener(this.handler));
         this.addMouseListener(new MyMouseListener(this.handler));
         this.handler.addGameObject(new Player(350.0F, (float) (HEIGHT - 75), 0.0F, 0.0F, ID.Player));
@@ -143,6 +144,7 @@ public class Game extends Canvas implements Runnable {
         this.handler.tick();
         this.hud.tick();
         hud.HEALTH-=2*Ecollision(getPlayer(this.handler),this.handler); // Collision code
+        this.spawner.tick();
     }
 
     private void render() {

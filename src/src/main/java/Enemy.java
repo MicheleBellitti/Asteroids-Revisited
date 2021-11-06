@@ -1,11 +1,28 @@
 import java.awt.*;
 
 public class Enemy extends GameObject {
-
+private int height=16,width=16;
     public Enemy(float x, float y,float vx,float vy, ID id) {
         super(x, y,vx,vy,id);
 
     }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public void setWidth(int width) {
+        this.width = width;
+    }
+
     @Override
     public void tick() {
         x+=velX;
@@ -17,6 +34,6 @@ public class Enemy extends GameObject {
     @Override
     public void render(Graphics g) {
         g.setColor(Color.red);
-        g.fillOval((int)x,(int)y,16,16);
+        g.fillOval((int)x,(int)y,width,height);
     }
 }

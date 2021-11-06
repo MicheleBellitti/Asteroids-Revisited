@@ -3,6 +3,7 @@ import java.awt.*;
 public abstract class GameObject {
     public static final float VEL_ENEMY=15;
     protected float x,y,velX,velY;
+    protected int height,width;
     protected ID id;
     public GameObject(float x,float y,float velx,float vely,ID id){
         this.x=x;
@@ -14,6 +15,21 @@ public abstract class GameObject {
     public abstract void tick();
     public abstract void render(Graphics g);
 
+    public int getHeight() {
+        return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public void setWidth(int width) {
+        this.width = width;
+    }
     public float getX() {
         return x;
     }

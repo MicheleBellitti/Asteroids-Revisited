@@ -13,10 +13,28 @@ public class Spawner {
         public void tick(){
 
             if(hud.getScore()== hud.getLevel()*200){
-                if(hud.getLevel()%2==0) {
+                hud.setLevel(hud.getLevel()+1);
+             if(hud.getLevel()%2==0) {
+                    System.out.println(hud.getLevel());
                     handler.addGameObject(new Enemy(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), 5, 5, ID.Enemy));
                 }
-                hud.setLevel(hud.getLevel()+1);
+             else if(hud.getLevel()%3==0){
+                 for(int i=0;i<handler.objList.size();i++){
+                     GameObject gm=handler.objList.get(i);
+                     if(gm.getId()==ID.Enemy){
+                         gm.setVelX(gm.getVelX()*2);
+                         gm.setVelY(gm.getVelY()*2);
+                     }
+                 }
+             }
+             else if(hud.getLevel()>1){
+                 GameObject gm=new Enemy((float)r.nextInt(Game.WIDTH),(float)r.nextInt(Game.HEIGHT),r.nextInt(4),r.nextInt(4),ID.Enemy);
+                 gm.setWidth(gm.getWidth()+hud.getLevel());
+                 gm.setHeight(gm.getHeight()+hud.getLevel());
+                 handler.addGameObject(gm);
+
+             }
+
             }
 
 

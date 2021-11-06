@@ -32,6 +32,7 @@ public class Hud {
 
         HEALTH=Game.clamp(HEALTH,1,255);
         score++;
+
     }
     public void render(Graphics g){
         g.setColor(Color.WHITE);

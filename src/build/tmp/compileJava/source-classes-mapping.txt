@@ -1,26 +1,26 @@
 MyKeyListener.java
  MyKeyListener
-Handler.java
- Handler
+ID.java
+ ID
 GameObject.java
  GameObject
 Bullet.java
  Bullet
 MyMouseListener.java
  MyMouseListener
-ID.java
- ID
+Handler.java
+ Handler
 Window.java
  Window
 Hud.java
  Hud
 Player.java
  Player
+Enemy.java
+ Enemy
+Player2.java
+ Player2
 Game.java
  Game
 Spawner.java
  Spawner
-Player2.java
- Player2
-Enemy.java
- Enemy

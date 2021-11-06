@@ -153,7 +153,7 @@ public class Game extends Canvas implements Runnable {
         this.hud.tick();
         hud.HEALTH-=2*Ecollision(getPlayer(this.handler),this.handler); // Collision code
         this.spawner.tick();
-        if(hud.getLevel()==3) freezeGame();
+       // if(hud.getLevel()>=10) freezeGame();
     }
 
     private void render() {

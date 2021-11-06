@@ -15,6 +15,7 @@ public class Hud {
         return score;
     }
 
+
     public void setScore(int score) {
         this.score = score;
     }
@@ -30,7 +31,8 @@ public class Hud {
     public  void tick(){
 
         HEALTH=Game.clamp(HEALTH,1,255);
-        score++;
+       score++;
+
         if(score==200*level){
             level++;
         }

@@ -162,7 +162,7 @@ public class Game extends Canvas implements Runnable {
             this.createBufferStrategy(3);
         } else {
             Graphics g = bs.getDrawGraphics();
-            g.setColor(Color.BLACK.brighter());
+            g.setColor(Color.BLACK.darker());
             g.fillRect(0, 0, WIDTH, HEIGHT);
             this.handler.render(g);
             this.hud.render(g);

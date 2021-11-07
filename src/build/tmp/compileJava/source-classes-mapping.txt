@@ -14,13 +14,13 @@ Window.java
  Window
 Hud.java
  Hud
-Player.java
- Player
 Enemy.java
  Enemy
 Player2.java
  Player2
-Game.java
- Game
 Spawner.java
  Spawner
+Player.java
+ Player
+Game.java
+ Game

@@ -31,9 +31,10 @@ public class MyKeyListener extends KeyAdapter  {
                     tmp.setVelY(5);
                     keyDown[1]=true;
                 }
-                if (key == KeyEvent.VK_A)
-                tmp.setVelX(-5);
-                keyDown[2]=true;
+                if (key == KeyEvent.VK_A) {
+                    tmp.setVelX(-5);
+                    keyDown[2] = true;
+                }
                 if (key == KeyEvent.VK_D) {
                     tmp.setVelX(5);
                     keyDown[3]=true;
@@ -82,10 +83,10 @@ public class MyKeyListener extends KeyAdapter  {
                     keyDown[3]=false; //tmp.setVelX(0);
                 }
                 if(!keyDown[0] && !keyDown[1]){
-                    tmp.setVelX(0);
+                    tmp.setVelY(0);
                 }
                 if(!keyDown[2] && !keyDown[3]){
-                    tmp.setVelY(0);
+                    tmp.setVelX(0);
                 }
             }
             if (tmp.getId() == ID.Player2) {

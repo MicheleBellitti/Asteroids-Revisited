@@ -36,6 +36,7 @@ public class Hud {
     }
     public void render(Graphics g){
         g.setColor(Color.WHITE);
+
         g.drawString("HP",275,40);
         g.drawRect(10,20,255,40);
        if(HEALTH>=255/2) g.setColor(Color.GREEN);

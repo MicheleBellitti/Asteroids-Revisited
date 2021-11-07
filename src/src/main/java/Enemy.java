@@ -33,7 +33,7 @@ private int height=16,width=16;
 
     @Override
     public void render(Graphics g) {
-        g.setColor(Color.red);
+        g.setColor(Color.gray);
         g.fillOval((int)x,(int)y,width,height);
     }
 }

@@ -31,9 +31,9 @@ public class Game extends Canvas implements Runnable {
         this.addKeyListener(new MyKeyListener(this.handler));
         this.addMouseListener(new MyMouseListener(this.handler));
         this.handler.addGameObject(new Player(350.0F, (float) (HEIGHT - 75), 0.0F, 0.0F, ID.Player));
-        for (int i = 0; i < 50; i++) {
-            this.handler.addGameObject(new Enemy((float) (this.J * 8), 0.0F, 0.0F, 2.0F, ID.Enemy));
-            this.J += 5;
+        for (int i = 0; i < 3; i++) {
+            this.handler.addGameObject(new Enemy((float)r1.nextInt(WIDTH), 0.0F, 2*J, 2.0F, ID.Enemy));
+            this.J *= -1;
         }
 
         this.stop();
@@ -162,7 +162,7 @@ public class Game extends Canvas implements Runnable {
             this.createBufferStrategy(3);
         } else {
             Graphics g = bs.getDrawGraphics();
-            g.setColor(Color.BLUE);
+            g.setColor(Color.BLACK.brighter());
             g.fillRect(0, 0, WIDTH, HEIGHT);
             this.handler.render(g);
             this.hud.render(g);

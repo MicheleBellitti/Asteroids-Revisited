@@ -17,6 +17,7 @@ public class StartMenu  {
         width[1] = 100;
         height[1] = 100;
         x[2] = 0;
+        //ciao
         y[2] = 0;
         width[2] = 100;
         height[2] = 100;

@@ -23,12 +23,14 @@ public class Game extends Canvas implements Runnable {
     private boolean gameOver = false;
     Random r1 = new Random();
     private Handler handler = new Handler();
-    private Hud hud=new Hud();
+    private Hud hud;
     private Spawner spawner;
     public Game() {
         new Window(WIDTH, HEIGHT, title, this);
         mn= new StartMenu();
+        hud=new Hud();
         this.start();
+
         this.spawner=new Spawner(handler,hud);
         this.addKeyListener(new MyKeyListener(this.handler));
         this.addMouseListener(new MyMouseListener(this.handler));
@@ -151,10 +153,14 @@ public class Game extends Canvas implements Runnable {
 
     }
     private void tick() {
-        this.handler.tick();
-        this.hud.tick();
-        hud.HEALTH-=2*Ecollision(getPlayer(this.handler),this.handler); // Collision code
-        this.spawner.tick();
+        if(Game.state) {
+            this.handler.tick();
+            this.hud.tick();
+            hud.HEALTH -= 2 * Ecollision(getPlayer(this.handler), this.handler); // Collision code
+            this.spawner.tick();
+            if(Hud.HEALTH==1) Game.state=false;
+        }
+
         // if(hud.getLevel()>=10) freezeGame();
     }
 

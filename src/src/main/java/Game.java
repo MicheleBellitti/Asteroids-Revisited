@@ -15,6 +15,8 @@ public class Game extends Canvas implements Runnable {
     public static int HEIGHT = 600;
     public static int ENEMY_NUMBER = 15;
     private int J = 1;
+    private StartMenu mn;
+    public static boolean state=false;
     private static String title = "Easy Game";
     private Thread thread;
     private boolean running = false;
@@ -25,7 +27,7 @@ public class Game extends Canvas implements Runnable {
     private Spawner spawner;
     public Game() {
         new Window(WIDTH, HEIGHT, title, this);
-
+        mn= new StartMenu();
         this.start();
         this.spawner=new Spawner(handler,hud);
         this.addKeyListener(new MyKeyListener(this.handler));
@@ -90,8 +92,8 @@ public class Game extends Canvas implements Runnable {
                 break;
             }
         }
-            return target;
-        }
+        return target;
+    }
     private synchronized void start() {
         if (!this.running) {
             this.thread = new Thread(this);
@@ -153,7 +155,7 @@ public class Game extends Canvas implements Runnable {
         this.hud.tick();
         hud.HEALTH-=2*Ecollision(getPlayer(this.handler),this.handler); // Collision code
         this.spawner.tick();
-       // if(hud.getLevel()>=10) freezeGame();
+        // if(hud.getLevel()>=10) freezeGame();
     }
 
     private void render() {
@@ -164,8 +166,11 @@ public class Game extends Canvas implements Runnable {
             Graphics g = bs.getDrawGraphics();
             g.setColor(Color.BLACK.darker());
             g.fillRect(0, 0, WIDTH, HEIGHT);
-            this.handler.render(g);
-            this.hud.render(g);
+            if(state==true) {
+                this.handler.render(g);
+                this.hud.render(g);
+            }
+            if(state==false) this.mn.render(g);
             bs.show();
             g.dispose();
         }

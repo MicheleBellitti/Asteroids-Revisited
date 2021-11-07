@@ -28,6 +28,12 @@ public class MyMouseListener extends MouseAdapter {
             tmpBullet.setVelX((float) (bullVel*Math.cos(angle)));
             tmpBullet.setVelY((float) (bullVel*Math.sin(angle)));
         }
+        if(Game.state==false) {
+            if (mx >= 400 && mx <= 600) {
+              if(my >= 300 && my <= 500){ Game.state=true;}
+
+            }
+        }
         else FindPlayer();
     }
     public void mousePressed(MouseEvent e){

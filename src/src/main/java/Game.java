@@ -56,6 +56,13 @@ public class Game extends Canvas implements Runnable {
         return hits;
 
     }
+    public static boolean bCollision(GameObject b,GameObject e){
+
+        Rectangle enemy=new Rectangle((int)e.getX(),(int)e.getY(),e.getWidth(),e.getHeight());
+        Rectangle bullet=new Rectangle((int)b.getX(),(int)b.getY(),b.getWidth(),b.getHeight());
+        return bullet.intersects(enemy);
+
+    }
     public  void freezeGame(){
         for(int i=0;i<handler.objList.size();++i){
             GameObject obj=handler.objList.get(i);
@@ -85,11 +92,11 @@ public class Game extends Canvas implements Runnable {
 
         return false;
     }*/
-    public GameObject getPlayer(Handler handler) {
+    public GameObject getObject(Handler handler,ID id) {
         GameObject target=null;
         for (int i = 0; i < handler.objList.size(); i++) {
             GameObject tmp = handler.objList.get(i);
-            if (tmp.getId() == ID.Player) {
+            if (tmp.getId() == id) {
                 target = tmp;
                 break;
             }
@@ -156,8 +163,30 @@ public class Game extends Canvas implements Runnable {
         if(Game.state) {
             this.handler.tick();
             this.hud.tick();
-            hud.HEALTH -= 2 * Ecollision(getPlayer(this.handler), this.handler); // Collision code
             this.spawner.tick();
+            Hud.HEALTH -= 2 * Ecollision(getObject(this.handler,ID.Player), this.handler); // Collision code
+            GameObject b=null;
+            GameObject e;
+            for(int i=0;i<this.handler.objList.size();i++){ // bullet loop
+
+                if(this.handler.objList.get(i).getId()==ID.Bullet) {
+                    b = handler.objList.get(i);
+                }
+               for(int j=0;j<this.handler.objList.size();j++){
+
+                    if(this.handler.objList.get(i).getId()==ID.Enemy) {
+                        e = handler.objList.get(i);
+
+                        if(b!=null && e!=null){
+                            System.out.println(bCollision(b, e));
+                            if (bCollision(b, e)) {
+                                this.hud.setScore(hud.getScore()+50);
+                                this.handler.removeGameObject(e);
+                            }
+                        }
+                    }
+                }
+            }
             if(Hud.HEALTH==1) Game.state=false;
         }
 
@@ -172,15 +201,16 @@ public class Game extends Canvas implements Runnable {
             Graphics g = bs.getDrawGraphics();
             g.setColor(Color.BLACK.darker());
             g.fillRect(0, 0, WIDTH, HEIGHT);
-            if(state==true) {
+            if(!state) {
                 this.handler.render(g);
                 this.hud.render(g);
             }
-            if(state==false) this.mn.render(g);
+            if(!state) this.mn.render(g);
             bs.show();
             g.dispose();
         }
     }
+
 
     public static void main(String[] args) {
         new Game();

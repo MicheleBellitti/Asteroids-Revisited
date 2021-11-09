@@ -151,10 +151,13 @@ public class Game extends Canvas implements Runnable {
 
     }
     private void tick() {
-        this.handler.tick();
-        this.hud.tick();
-        hud.HEALTH-=2*Ecollision(getPlayer(this.handler),this.handler); // Collision code
-        this.spawner.tick();
+        if(state==true) {
+            this.handler.tick();
+            this.hud.tick();
+            hud.HEALTH -= 2 * Ecollision(getPlayer(this.handler), this.handler); // Collision code
+            this.spawner.tick();
+        }
+        if(Hud.HEALTH==1) state=false;
         // if(hud.getLevel()>=10) freezeGame();
     }
 

@@ -22,15 +22,16 @@ public class Game extends Canvas implements Runnable {
     private boolean running = false;
     private boolean gameOver = false;
     Random r1 = new Random();
-    private Handler handler = new Handler();
+    private Handler handler ;
     private Hud hud;
     private Spawner spawner;
     public Game() {
         new Window(WIDTH, HEIGHT, title, this);
+
+        this.start();
+        handler=new Handler();
         mn= new StartMenu();
         hud=new Hud();
-        this.start();
-
         this.spawner=new Spawner(handler,hud);
         this.addKeyListener(new MyKeyListener(this.handler));
         this.addMouseListener(new MyMouseListener(this.handler));
@@ -71,27 +72,7 @@ public class Game extends Canvas implements Runnable {
 
         }
     }
-    /*public boolean check(Handler handler) {
-        for(int i = 0; i < handler.objList.size(); ++i) {
-            GameObject tmp = (GameObject)handler.objList.get(i);
-            if (tmp.getId() == ID.Enemy) {
-                Rectangle enemy = new Rectangle((int)tmp.getX(), (int)tmp.getY(), 16, 16);
-                enemy.toString();
-                for(int j = 0; j < handler.objList.size(); ++j) {
-                    GameObject tmpPlayer = (GameObject)handler.objList.get(j);
-                    if (tmpPlayer.getId() == ID.Player || tmpPlayer.getId() == ID.Player2) {
-                        Rectangle player = new Rectangle((int)tmpPlayer.getX(), (int)tmpPlayer.getY(), 32, 32);
-                        if (player.intersects(enemy)) {
-                            handler.removeGameObject(tmpPlayer);
-                            return true;
-                        }
-                    }
-                }
-            }
-        }
 
-        return false;
-    }*/
     public GameObject getObject(Handler handler,ID id) {
         GameObject target=null;
         for (int i = 0; i < handler.objList.size(); i++) {
@@ -165,7 +146,7 @@ public class Game extends Canvas implements Runnable {
             this.hud.tick();
             this.spawner.tick();
             Hud.HEALTH -= 2 * Ecollision(getObject(this.handler,ID.Player), this.handler); // Collision code
-            GameObject b=null;
+            /*GameObject b=null;
             GameObject e;
             for(int i=0;i<this.handler.objList.size();i++){ // bullet loop
 
@@ -186,7 +167,7 @@ public class Game extends Canvas implements Runnable {
                         }
                     }
                 }
-            }
+            }*/
             if(Hud.HEALTH==1) Game.state=false;
         }
 

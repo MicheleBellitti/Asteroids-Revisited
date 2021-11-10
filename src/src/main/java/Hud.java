@@ -31,6 +31,7 @@ public class Hud {
     public  void tick(){
 
         HEALTH=Game.clamp(HEALTH,1,255);
+
         score++;
 
     }

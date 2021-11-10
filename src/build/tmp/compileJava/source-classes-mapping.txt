@@ -18,13 +18,13 @@ Hud.java
  Hud
 Player.java
  Player
+Enemy.java
+ Enemy
+Player2.java
+ Player2
+MyMouseListener.java
+ MyMouseListener
 Game.java
  Game
 Spawner.java
  Spawner
-MyMouseListener.java
- MyMouseListener
-Player2.java
- Player2
-Enemy.java
- Enemy

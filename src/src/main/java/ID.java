@@ -3,5 +3,6 @@ public enum ID {
     Player2(),
     Bullet(),
     Enemy(),
+    Coin(),
     // stuff
 }

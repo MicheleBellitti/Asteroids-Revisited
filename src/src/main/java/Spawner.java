@@ -27,6 +27,9 @@ public class Spawner {
                      }
                  }
              }
+             else if(hud.getLevel()%7==0){
+                 handler.addGameObject(new Coin(r.nextInt(Game.WIDTH),r.nextInt(Game.HEIGHT),0,0,ID.Coin));
+             }
              else if(hud.getLevel()>1){
                  GameObject gm=new Enemy((float)r.nextInt(Game.WIDTH),(float)r.nextInt(Game.HEIGHT),r.nextInt(4),r.nextInt(4),ID.Enemy);
                  gm.setWidth(gm.getWidth()+hud.getLevel());

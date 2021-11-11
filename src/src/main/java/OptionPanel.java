@@ -7,7 +7,7 @@ public class OptionPanel extends StartMenu{
     int[] width= new int[4];
     int[] height= new int[4];
     String[] nomi= new String[4];
-    public OptionPanel() {
+     public OptionPanel() {
         nomi[0]="LUMINOSITA";
         nomi[1]="DIFFICOLTA";
         nomi[2]="LINGUA";

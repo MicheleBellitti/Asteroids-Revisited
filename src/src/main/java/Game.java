@@ -163,7 +163,7 @@ public class Game extends Canvas implements Runnable {
                 this.handler.render(g);
                 this.hud.render(g);
             }
-            if(state==false) this.mn.render(g);
+             if(state==false) this.mn.render(g);
             bs.show();
             g.dispose();
         }

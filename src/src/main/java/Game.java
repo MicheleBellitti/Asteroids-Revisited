@@ -65,26 +65,7 @@ public class Game extends Canvas implements Runnable {
 
         }
     }
-    public GameObject Collision(GameObject p,Handler handler,ID id){
-        Rectangle player=new Rectangle((int)p.getX(),(int)p.getY(),p.getWidth(),p.getHeight());
-        Rectangle r2=null;
-        GameObject gm=null;
-            for(int i=0;i<this.handler.objList.size();i++){
-                if(this.handler.objList.get(i).getId()==id){
-                    gm=this.handler.objList.get(i);
-                }
-            }
-            if(gm!=null){
-                r2=new Rectangle((int)gm.getX(),(int)gm.getY(),gm.getWidth(),gm.getHeight());
 
-            }
-            if(r2!= null){
-                if(player.intersects(r2)){
-                 return gm;
-                }
-            }
-            return null;
-    }
     public GameObject getPlayer(Handler handler) {
         GameObject target=null;
         for (int i = 0; i < handler.objList.size(); i++) {
@@ -181,11 +162,8 @@ public class Game extends Canvas implements Runnable {
             this.hud.tick();
             Hud.HEALTH -= 2 * Ecollision(getPlayer(this.handler), this.handler); // Collision code
             this.spawner.tick();
-            GameObject tmp=null;
-            if((tmp=this.Collision(getPlayer(this.handler),this.handler,ID.Coin))!=null){
-                this.handler.removeGameObject(tmp);
-            }
-            System.out.println(tmp);
+
+
         }
         // if(hud.getLevel()>=10) freezeGame();
     }

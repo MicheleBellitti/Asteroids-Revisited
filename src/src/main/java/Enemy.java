@@ -1,7 +1,7 @@
 import java.awt.*;
 
 public class Enemy extends GameObject {
-private int height=16,width=16;
+private int height=32,width=32;
     public Enemy(float x, float y,float vx,float vy, ID id) {
         super(x, y,vx,vy,id);
 

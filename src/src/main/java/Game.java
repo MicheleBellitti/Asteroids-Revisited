@@ -8,6 +8,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.awt.image.BufferStrategy;
+import java.util.Iterator;
 import java.util.Random;
 
 public class Game extends Canvas implements Runnable {
@@ -23,7 +24,7 @@ public class Game extends Canvas implements Runnable {
     private boolean gameOver = false;
     Random r1 = new Random();
     private Handler handler = new Handler();
-    private Hud hud=new Hud();
+    private Hud hud;
     private Spawner spawner;
     OptionPanel op;
     public Game() {
@@ -31,6 +32,7 @@ public class Game extends Canvas implements Runnable {
         mn= new StartMenu();
         op = new OptionPanel();
         this.start();
+        hud =new Hud();
         this.spawner=new Spawner(handler,hud);
         this.addKeyListener(new MyKeyListener(this.handler));
         this.addMouseListener(new MyMouseListener(this.handler));
@@ -42,12 +44,12 @@ public class Game extends Canvas implements Runnable {
 
         this.stop();
     }
-    public static int Ecollision(GameObject p,Handler handler){
+    public int Ecollision(GameObject p,Handler handler,ID id){
         int hits=0;
         Rectangle player = new Rectangle((int)p.getX(), (int)p.getY(), 32, 32);
         for(int i=0;i<handler.objList.size();i++) {
             GameObject tmp = handler.objList.get(i);
-            if (tmp.getId() != ID.Enemy) {
+            if (tmp.getId() != id) {
                 continue;
             }
             Rectangle e=new Rectangle((int)tmp.getX(),(int)tmp.getY(),16,16);
@@ -56,7 +58,22 @@ public class Game extends Canvas implements Runnable {
         return hits;
 
     }
+    public int Ccollision(GameObject p,Handler handler,ID id){
+        Rectangle player = new Rectangle((int)p.getX(), (int)p.getY(), 32, 32);
+        for(int i=0;i<handler.objList.size();i++) {
+            GameObject tmp = handler.objList.get(i);
+            if (tmp.getId() != id) {
+                continue;
+            }
+            Rectangle e=new Rectangle((int)tmp.getX(),(int)tmp.getY(),16,16);
+            if(player.intersects(e)) {
+                handler.removeGameObject(tmp);
+                this.hud.setScore(hud.getScore()+3000);
+            }
+        }
 
+      return 0;
+    }
     public  void freezeGame(){
         for(int i=0;i<handler.objList.size();++i){
             GameObject obj=handler.objList.get(i);
@@ -65,55 +82,12 @@ public class Game extends Canvas implements Runnable {
 
         }
     }
-    /*public boolean check(Handler handler) {
-        for(int i = 0; i < handler.objList.size(); ++i) {
-            GameObject tmp = (GameObject)handler.objList.get(i);
-            if (tmp.getId() == ID.Enemy) {
-                Rectangle enemy = new Rectangle((int)tmp.getX(), (int)tmp.getY(), 16, 16);
-                enemy.toString();
-                for(int j = 0; j < handler.objList.size(); ++j) {
-                    GameObject tmpPlayer = (GameObject)handler.objList.get(j);
-                    if (tmpPlayer.getId() == ID.Player || tmpPlayer.getId() == ID.Player2) {
-                        Rectangle player = new Rectangle((int)tmpPlayer.getX(), (int)tmpPlayer.getY(), 32, 32);
-                        if (player.intersects(enemy)) {
-                            handler.removeGameObject(tmpPlayer);
-                            return true;
-                        }
-                    }
-                }
-            }
-        }
 
-        return false;
-    }*/
     public GameObject getPlayer(Handler handler) {
         GameObject target=null;
         for (int i = 0; i < handler.objList.size(); i++) {
             GameObject tmp = handler.objList.get(i);
             if (tmp.getId() == ID.Player) {
-                target = tmp;
-                break;
-            }
-        }
-        return target;
-    }
-    public GameObject getBullet(Handler handler) {
-        GameObject target=null;
-        for (int i = 0; i < handler.objList.size(); i++) {
-            GameObject tmp = handler.objList.get(i);
-            if (tmp.getId() == ID.Bullet) {
-                target = tmp;
-                break;
-            }
-        }
-
-        return target;
-    }
-    public GameObject getEnemy(Handler handler) {
-        GameObject target=null;
-        for (int i = 0; i < handler.objList.size(); i++) {
-            GameObject tmp = handler.objList.get(i);
-            if (tmp.getId() == ID.Enemy) {
                 target = tmp;
                 break;
             }
@@ -176,12 +150,22 @@ public class Game extends Canvas implements Runnable {
         else return val;
 
     }
+
+
+
     private void tick() {
         if(!StartMenu.on && Game.on) {
             this.handler.tick();
             this.hud.tick();
-            hud.HEALTH -= 2 * Ecollision(getPlayer(this.handler), this.handler); // Collision code
+            hud.HEALTH -= 2 * Ecollision(getPlayer(this.handler), this.handler,ID.Enemy);
+            Ccollision(getPlayer(this.handler),this.handler,ID.Coin);
             this.spawner.tick();
+        }
+        if(Hud.HEALTH==1) {
+            Game.on=false;
+            Hud.HEALTH = 255;
+            hud.setLevel(1);
+            hud.setScore(0);
         }
         // if(hud.getLevel()>=10) freezeGame();
     }

@@ -31,12 +31,12 @@ public class OptionPanel extends StartMenu{
         on=false;
     }
     public void render(Graphics g){
-        g.setColor(Color.red);
+        g.setColor(Color.YELLOW);
         g.drawString("ASTEROIDS",340,75);
         for(int i=0;i<4;i++){
-            g.setColor(Color.white);
+            g.setColor(Color.YELLOW);
             g.fillRect(x[i],y[i],width[i],height[i]);
-            g.setColor(Color.red);
+            g.setColor(Color.BLACK);
             g.drawString(nomi[i],x[i]+15,y[i]+30);
         }
 

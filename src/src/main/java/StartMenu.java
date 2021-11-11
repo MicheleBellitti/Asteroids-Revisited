@@ -32,16 +32,15 @@ public class StartMenu  {
         y[2]= 400;
         width[2] = 120;
         height[2] = 50;
-
         on=true;
     }
     public void render(Graphics g) {
         g.setColor(Color.red);
         g.drawString("ASTEROIDS",340,75);
          for(int i=0;i<3;i++) {
-          g.setColor(Color.WHITE);
-          g.fillRect(x[i], y[i], width[i], height[i]);
-          g.setColor(Color.RED);
+          g.setColor(Color.red);
+          g.fill3DRect(x[i], y[i], width[i], height[i],true);
+          g.setColor(Color.BLACK);
           g.drawString(nomi[i],x[i]+33,y[i]+30);
       }
 

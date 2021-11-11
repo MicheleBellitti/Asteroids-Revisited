@@ -40,9 +40,8 @@ public class MyMouseListener extends MouseAdapter {
             }
             if(mx >= 320 && mx <= 440 ){
                 if(my>= 400  && my <=450){
+                    StartMenu.on=false;
                     OptionPanel.on=true;
-                   StartMenu.on=false;
-// 400   600 300  500
                 }
 
             }

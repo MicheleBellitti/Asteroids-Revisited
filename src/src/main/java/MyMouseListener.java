@@ -16,7 +16,7 @@ public class MyMouseListener extends MouseAdapter {
             }
         }
     }
-    public void mouseClicked(MouseEvent e) {
+     public void mouseClicked(MouseEvent e) {
 
         int mx,my;
         mx=e.getX();

@@ -1,19 +1,19 @@
+ID.java
+ ID
+Handler.java
+ Handler
 MyKeyListener.java
  MyKeyListener
-OptionPanel.java
- OptionPanel
 Coin.java
  Coin
 GameObject.java
  GameObject
 Bullet.java
  Bullet
-ID.java
- ID
 StartMenu.java
  StartMenu
-Handler.java
- Handler
+OptionPanel.java
+ OptionPanel
 Window.java
  Window
 Hud.java

@@ -17,9 +17,12 @@ public class MyMouseListener extends MouseAdapter {
         }
     }
     public void mouseClicked(MouseEvent e) {
+
         int mx,my;
         mx=e.getX();
         my=e.getY();
+        System.out.println(mx);
+        System.out.println(my);
         if(tmp!=null){
             GameObject tmpBullet=new Bullet(tmp.getX() + 16, tmp.getY() + 16, 0,0 , ID.Bullet);
             handler.addGameObject(tmpBullet);
@@ -28,9 +31,19 @@ public class MyMouseListener extends MouseAdapter {
             tmpBullet.setVelX((float) (bullVel*Math.cos(angle)));
             tmpBullet.setVelY((float) (bullVel*Math.sin(angle)));
         }
-        if(Game.state==false) {
-            if (mx >= 400 && mx <= 600) {
-              if(my >= 300 && my <= 500){ Game.state=true;}
+        if(StartMenu.on==true) {
+            if (mx >= 325 && mx <=425 ) {
+                if (my >= 150 && my <= 200 ) {
+                    StartMenu.on = false;
+                    Game.on=true;
+                }
+            }
+            if(mx >= 320 && mx <= 440 ){
+                if(my>= 400  && my <=450){
+                    OptionPanel.on=true;
+                   StartMenu.on=false;
+// 400   600 300  500
+                }
 
             }
         }

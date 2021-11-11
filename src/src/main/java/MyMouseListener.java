@@ -31,7 +31,7 @@ public class MyMouseListener extends MouseAdapter {
             tmpBullet.setVelX((float) (bullVel*Math.cos(angle)));
             tmpBullet.setVelY((float) (bullVel*Math.sin(angle)));
         }
-        if(StartMenu.on==true) {
+        if(StartMenu.on) {
             if (mx >= 325 && mx <=425 ) {
                 if (my >= 150 && my <= 200 ) {
                     StartMenu.on = false;

@@ -145,6 +145,8 @@ public class Game extends Canvas implements Runnable {
         if(Hud.HEALTH==1) {
             state = false;
             Hud.HEALTH = 255;
+            hud.setLevel(1);
+            hud.setScore(0);
         }
         // if(hud.getLevel()>=10) freezeGame();
     }

@@ -44,32 +44,7 @@ public class Spawner {
             }
 
         }
-            /*GameObject c = null;
-            for (int i = 0; i < this.handler.objList.size(); i++) {
-                if (this.handler.objList.get(i).getId() == ID.Coin) {
-                    c = this.handler.objList.get(i);
-                    if (cCollision(getObject(this.handler, ID.Player), c, this.handler))
-                        System.out.println(cCollision(getObject(this.handler, ID.Player), c, this.handler));
-                        this.handler.removeGameObject(c);
-                }
-            }
 
-
-
-        }
-            public GameObject getObject(Handler handler,ID id) {
-                GameObject target=null;
-                for (int i = 0; i < handler.objList.size(); i++) {
-                    GameObject tmp = handler.objList.get(i);
-                    if (tmp.getId() == id) {
-                        target = tmp;
-                        break;
-                    }
-                }
-                return target;
-            }
-
-             */
     }
 
 }

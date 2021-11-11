@@ -65,27 +65,26 @@ public class Game extends Canvas implements Runnable {
 
         }
     }
-    /*public boolean check(Handler handler) {
-        for(int i = 0; i < handler.objList.size(); ++i) {
-            GameObject tmp = (GameObject)handler.objList.get(i);
-            if (tmp.getId() == ID.Enemy) {
-                Rectangle enemy = new Rectangle((int)tmp.getX(), (int)tmp.getY(), 16, 16);
-                enemy.toString();
-                for(int j = 0; j < handler.objList.size(); ++j) {
-                    GameObject tmpPlayer = (GameObject)handler.objList.get(j);
-                    if (tmpPlayer.getId() == ID.Player || tmpPlayer.getId() == ID.Player2) {
-                        Rectangle player = new Rectangle((int)tmpPlayer.getX(), (int)tmpPlayer.getY(), 32, 32);
-                        if (player.intersects(enemy)) {
-                            handler.removeGameObject(tmpPlayer);
-                            return true;
-                        }
-                    }
+    public GameObject Collision(GameObject p,Handler handler,ID id){
+        Rectangle player=new Rectangle((int)p.getX(),(int)p.getY(),p.getWidth(),p.getHeight());
+        Rectangle r2=null;
+        GameObject gm=null;
+            for(int i=0;i<this.handler.objList.size();i++){
+                if(this.handler.objList.get(i).getId()==id){
+                    gm=this.handler.objList.get(i);
                 }
             }
-        }
+            if(gm!=null){
+                r2=new Rectangle((int)gm.getX(),(int)gm.getY(),gm.getWidth(),gm.getHeight());
 
-        return false;
-    }*/
+            }
+            if(r2!= null){
+                if(player.intersects(r2)){
+                 return gm;
+                }
+            }
+            return null;
+    }
     public GameObject getPlayer(Handler handler) {
         GameObject target=null;
         for (int i = 0; i < handler.objList.size(); i++) {
@@ -180,8 +179,13 @@ public class Game extends Canvas implements Runnable {
         if(!StartMenu.on && Game.on) {
             this.handler.tick();
             this.hud.tick();
-            hud.HEALTH -= 2 * Ecollision(getPlayer(this.handler), this.handler); // Collision code
+            Hud.HEALTH -= 2 * Ecollision(getPlayer(this.handler), this.handler); // Collision code
             this.spawner.tick();
+            GameObject tmp=null;
+            if((tmp=this.Collision(getPlayer(this.handler),this.handler,ID.Coin))!=null){
+                this.handler.removeGameObject(tmp);
+            }
+            System.out.println(tmp);
         }
         // if(hud.getLevel()>=10) freezeGame();
     }

@@ -4,27 +4,29 @@ Handler.java
  Handler
 MyKeyListener.java
  MyKeyListener
-StartMenu.java
- StartMenu
+Coin.java
+ Coin
 GameObject.java
  GameObject
 Bullet.java
  Bullet
-Coin.java
- Coin
-Window.java
- Window
-Hud.java
- Hud
-Player.java
- Player
-Game.java
- Game
-Spawner.java
- Spawner
-MyMouseListener.java
- MyMouseListener
-Player2.java
- Player2
+StartMenu.java
+ StartMenu
 Enemy.java
  Enemy
+Hud.java
+ Hud
+Player2.java
+ Player2
+Player.java
+ Player
+Spawner.java
+ Spawner
+Window.java
+ Window
+OptionPanel.java
+ OptionPanel
+Game.java
+ Game
+MyMouseListener.java
+ MyMouseListener

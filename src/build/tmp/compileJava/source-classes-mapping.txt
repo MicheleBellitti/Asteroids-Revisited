@@ -1,19 +1,19 @@
-ID.java
- ID
-Handler.java
- Handler
 MyKeyListener.java
  MyKeyListener
+OptionPanel.java
+ OptionPanel
 Coin.java
  Coin
 GameObject.java
  GameObject
-Bullet.java
- Bullet
+Enemy.java
+ Enemy
+Handler.java
+ Handler
+ID.java
+ ID
 StartMenu.java
  StartMenu
-OptionPanel.java
- OptionPanel
 Window.java
  Window
 Hud.java
@@ -24,9 +24,9 @@ Game.java
  Game
 Spawner.java
  Spawner
-MyMouseListener.java
- MyMouseListener
 Player2.java
  Player2
-Enemy.java
- Enemy
+Bullet.java
+ Bullet
+MyMouseListener.java
+ MyMouseListener

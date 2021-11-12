@@ -50,6 +50,7 @@ public abstract class GameObject {
         return velX;
     }
 
+
     public void setVelX(float velX) {
         this.velX = velX;
     }

@@ -3,6 +3,7 @@
 // (powered by FernFlower decompiler)
 //
 
+import javax.sound.midi.SysexMessage;
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Graphics;
@@ -27,6 +28,7 @@ public class Game extends Canvas implements Runnable {
     private Hud hud;
     private Spawner spawner;
     OptionPanel op;
+    int cnt=-1;
     public Game() {
         new Window(WIDTH, HEIGHT, title, this);
         mn= new StartMenu();
@@ -58,7 +60,7 @@ public class Game extends Canvas implements Runnable {
         return hits;
 
     }
-    public int Ccollision(GameObject p,Handler handler,ID id){
+    public void Ccollision(GameObject p,Handler handler,ID id){
         Rectangle player = new Rectangle((int)p.getX(), (int)p.getY(), 32, 32);
         for(int i=0;i<handler.objList.size();i++) {
             GameObject tmp = handler.objList.get(i);
@@ -68,12 +70,54 @@ public class Game extends Canvas implements Runnable {
             Rectangle e=new Rectangle((int)tmp.getX(),(int)tmp.getY(),16,16);
             if(player.intersects(e)) {
                 handler.removeGameObject(tmp);
-                this.hud.setScore(hud.getScore()+3000); //
+                this.hud.setScore(hud.getScore()+3000);
             }
         }
 
-      return 0;
     }
+
+    //
+
+    public void Bcollision(Handler handler) {
+        int bx,by,bwidth,bheight;
+        int ex,ey,ewidth,eheight;
+       for(int i=0;i<handler.objList.size();i++){
+         if(handler.objList.get(i).getId()==ID.Bullet){
+             bx=(int)handler.objList.get(i).getX();
+             by=(int)handler.objList.get(i).getY();
+             bwidth=7;
+             bheight=7;
+             System.out.println("BULLET: " + bx +" "+ by + " " + bwidth + " " +bheight);
+             for(int p=0;p<handler.objList.size();p++) {
+                 if(handler.objList.get(p).getId()==ID.Enemy){
+                     ex=(int)handler.objList.get(p).getX();
+                     ey=(int)handler.objList.get(p).getY();
+                     ewidth= handler.objList.get(p).getWidth();
+                     eheight=(int)handler.objList.get(p).getHeight();
+                     System.out.println(ex +" "+ ey + " " + ewidth + " " +eheight);
+                      Rectangle pro= new Rectangle(bx,by,bwidth,bheight);
+                     Rectangle nem= new Rectangle(ex,ey,ewidth,eheight);
+                     if(pro.intersects(nem)){
+                         hud.setScore(hud.getScore()+50);
+                        handler.removeGameObject(handler.objList.get(i));
+                         handler.removeGameObject(handler.objList.get(p));
+                     }
+
+                 }
+
+
+             }
+         }
+
+       }
+
+
+
+
+
+    }
+    //
+
     public  void freezeGame(){
         for(int i=0;i<handler.objList.size();++i){
             GameObject obj=handler.objList.get(i);
@@ -83,16 +127,13 @@ public class Game extends Canvas implements Runnable {
         }
     }
 
-    public GameObject getPlayer(Handler handler) {
-        GameObject target=null;
-        for (int i = 0; i < handler.objList.size(); i++) {
-            GameObject tmp = handler.objList.get(i);
-            if (tmp.getId() == ID.Player) {
-                target = tmp;
-                break;
+    public GameObject getObject(Handler handler,ID id,int index) {
+        for (int i = index; i < handler.objList.size(); i++) {
+            if (handler.objList.get(i).getId() == id) {
+                return handler.objList.get(i);
             }
         }
-        return target;
+        return null;
     }
     private synchronized void start() {
         if (!this.running) {
@@ -142,6 +183,15 @@ public class Game extends Canvas implements Runnable {
         }
 
     }
+    int BulletCount(Handler handler){
+        int num=0;
+        for(int i=0;i<handler.objList.size();i++){
+            if(handler.objList.get(i).getId()==ID.Bullet){++num;}
+        }
+
+        return num;
+
+    }
     public static int clamp(int val,int min,int max){
         if(val>=max)
             return val=max;
@@ -152,14 +202,26 @@ public class Game extends Canvas implements Runnable {
     }
 
 
-
+    public void RemoveBullet(Handler handler){
+        for(int i=0;i<handler.objList.size();++i){
+            if(handler.objList.get(i).getId()==ID.Bullet) {
+               int xpos=  (int)handler.objList.get(i).getX();
+                int ypos=  (int)handler.objList.get(i).getY();
+                if(xpos <=0 || xpos >=800 || ypos <=0 || ypos >=600) handler.removeGameObject(handler.objList.get(i));
+                }
+            }
+        }
     private void tick() {
         if(!StartMenu.on && Game.on) {
             this.handler.tick();
-            this.hud.tick();
-            hud.HEALTH -= 2 * Ecollision(getPlayer(this.handler), this.handler,ID.Enemy);
-            Ccollision(getPlayer(this.handler),this.handler,ID.Coin);
             this.spawner.tick();
+            this.hud.tick();
+            hud.HEALTH -= 2 * Ecollision(getObject(this.handler,ID.Player,0), this.handler,ID.Enemy);
+            Ccollision(getObject(this.handler,ID.Player,0),this.handler,ID.Coin);
+            RemoveBullet(this.handler);
+            Bcollision(this.handler);
+            System.out.println("ci sono in totale "+ BulletCount(handler)+ "bullet");
+
         }
         if(Hud.HEALTH==1) {
             Game.on=false;

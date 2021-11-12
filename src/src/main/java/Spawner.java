@@ -23,7 +23,6 @@ public class Spawner {
         if (hud.getScore() == hud.getLevel() * 200) {
             hud.setLevel(hud.getLevel() + 1);
             if (hud.getLevel() % 2 == 0) {
-                System.out.println(hud.getLevel());
                 handler.addGameObject(new Enemy(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), 5, 5, ID.Enemy));
             } else if (hud.getLevel() % 3 == 0) {
                 for (int i = 0; i < handler.objList.size(); i++) {

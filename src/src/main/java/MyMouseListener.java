@@ -10,19 +10,18 @@ public class MyMouseListener extends MouseAdapter {
     }
     public void FindPlayer(){
         for(int i=0;i<handler.objList.size();i++){
-            if(handler.objList.get(i).getId()==ID.Player || handler.objList.get(i).getId()==ID.Player2){
+            if(handler.objList.get(i).getId()==ID.Player || handler.objList.get(i).getId()==ID.Enemy){
                 tmp= handler.objList.get(i);
                 break;
             }
         }
     }
-     public void mouseClicked(MouseEvent e) {
+    public void mouseClicked(MouseEvent e) {
 
         int mx,my;
         mx=e.getX();
         my=e.getY();
-        System.out.println(mx);
-        System.out.println(my);
+
         if(tmp!=null){
             GameObject tmpBullet=new Bullet(tmp.getX() + 16, tmp.getY() + 16, 0,0 , ID.Bullet);
             handler.addGameObject(tmpBullet);
@@ -31,9 +30,11 @@ public class MyMouseListener extends MouseAdapter {
             tmpBullet.setVelX((float) (bullVel*Math.cos(angle)));
             tmpBullet.setVelY((float) (bullVel*Math.sin(angle)));
         }
+
+
         if(StartMenu.on==true) {
             if (mx >= 325 && mx <=425 ) {
-                if (my >= 150 && my <= 200 ) {
+                    if (my >= 150 && my <= 200 ) {
                     StartMenu.on = false;
                     Game.on=true;
                 }
@@ -47,8 +48,9 @@ public class MyMouseListener extends MouseAdapter {
             }
         }
         else FindPlayer();
+
     }
-    public void mousePressed(MouseEvent e){
+    public void mousePressed(MouseEvent e) {
         int mx,my;
         mx=e.getX();
         my=e.getY();
@@ -62,5 +64,4 @@ public class MyMouseListener extends MouseAdapter {
         }
         else FindPlayer();
     }
-
 }

@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Handler {
     public List<GameObject> objList=new LinkedList<GameObject>();
-
+    public List<GameObject> bulletList=new LinkedList<GameObject>();
     public void tick(){
 
         for(int i=0;i<objList.size();i++){

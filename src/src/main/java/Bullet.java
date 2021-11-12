@@ -1,7 +1,8 @@
 import java.awt.*;
 
 public class Bullet extends GameObject{
-    private int width,height;
+    private int width=7;
+    private  int height=7;
     public Bullet(float x, float y, float velx, float vely, ID id) {
         super(x, y, velx, vely, id);
     }
@@ -11,9 +12,21 @@ public class Bullet extends GameObject{
     x+=velX;
     y+=velY;
     }
+
+    @Override
+    public String toString() {
+        return "Bullet{" +
+                "x=" + x +
+                ", y=" + y +
+                "" +
+                ", height=" + height +
+                ", width=" + width +
+                '}';
+    }
+
     @Override
     public void render(Graphics g) {
         g.setColor(Color.yellow);
-        g.fillRect((int)x,(int)y,7,7);
+        g.fillRect((int)x,(int)y,width,height);
     }
 }

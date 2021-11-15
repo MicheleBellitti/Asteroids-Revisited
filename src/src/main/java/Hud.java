@@ -33,7 +33,7 @@ public int getKills(){return kills;}
     public  void tick(){
 
         HEALTH=Game.clamp(HEALTH,1,255);
-        if(getScore()==100*getLevel()) setLevel(++level);
+
         //score++;
 
     }

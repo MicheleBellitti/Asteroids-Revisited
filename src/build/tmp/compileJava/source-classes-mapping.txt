@@ -1,36 +1,38 @@
+StartMenu.java
+ StartMenu
 MyKeyListener.java
  MyKeyListener
 OptionMouseListener.java
  OptionMouseListener
 OptionPanel.java
  OptionPanel
-Coin.java
- Coin
+Sfondo.java
+ Sfondo
 GameObject.java
  GameObject
 Bullet.java
  Bullet
 ID.java
  ID
-StartMenu.java
- StartMenu
+Coin.java
+ Coin
 Handler.java
  Handler
 SfondoMouseListener.java
  SfondoMouseListener
 Window.java
  Window
-Hud.java
- Hud
+MyMouseListener.java
+ MyMouseListener
 Player.java
  Player
+Enemy.java
+ Enemy
+Player2.java
+ Player2
+Hud.java
+ Hud
 Game.java
  Game
 Spawner.java
  Spawner
-MyMouseListener.java
- MyMouseListener
-Player2.java
- Player2
-Enemy.java
- Enemy

@@ -82,7 +82,6 @@ public class Game extends Canvas implements Runnable {
 
     }
 
-    //
 
     public void Bcollision(Handler handler) {
         int bx,by,bwidth,bheight;
@@ -93,20 +92,20 @@ public class Game extends Canvas implements Runnable {
              by=(int)handler.objList.get(i).getY();
              bwidth=7;
              bheight=7;
-             System.out.println("BULLET: " + bx +" "+ by + " " + bwidth + " " +bheight);
+             //System.out.println("BULLET: " + bx +" "+ by + " " + bwidth + " " +bheight);
              for(int p=0;p<handler.objList.size();p++) {
                  if(handler.objList.get(p).getId()==ID.Enemy){
                      ex=(int)handler.objList.get(p).getX();
                      ey=(int)handler.objList.get(p).getY();
                      ewidth= handler.objList.get(p).getWidth();
                      eheight=(int)handler.objList.get(p).getHeight();
-                     System.out.println(ex +" "+ ey + " " + ewidth + " " +eheight);
+                     //System.out.println(ex +" "+ ey + " " + ewidth + " " +eheight);
                       Rectangle pro= new Rectangle(bx,by,bwidth,bheight);
                      Rectangle nem= new Rectangle(ex,ey,ewidth,eheight);
                      if(pro.intersects(nem)){
                          hud.setScore(hud.getScore()+100);
                          hud.setKills(hud.getKills()+1);
-                        handler.removeGameObject(handler.objList.get(i));
+                         handler.removeGameObject(handler.objList.get(i));
                          handler.removeGameObject(handler.objList.get(p));
                      }
 
@@ -221,7 +220,7 @@ public class Game extends Canvas implements Runnable {
     private void tick() {
         if(!StartMenu.on && Game.on) {
             tickTimer++;
-            System.out.println(tickTimer);
+            //System.out.println(tickTimer);
             this.handler.tick();
             this.spawner.tick();
             this.hud.tick();

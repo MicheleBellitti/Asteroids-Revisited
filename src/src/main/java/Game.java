@@ -15,6 +15,7 @@ import java.util.Random;
 public class Game extends Canvas implements Runnable {
     public static int WIDTH = 800;
     public static int HEIGHT = 600;
+    static Color color= Color.BLACK;
     private int tickTimer=0;
     public static int ENEMY_NUMBER = 15;
     private int J = 1;
@@ -29,15 +30,19 @@ public class Game extends Canvas implements Runnable {
     private Hud hud;
     private Spawner spawner;
     OptionPanel op;
+    Sfondo sf;
     int cnt=-1;
     public Game() {
         new Window(WIDTH, HEIGHT, title, this);
         mn= new StartMenu();
         op = new OptionPanel();
+        sf=new Sfondo();
         this.start();
         hud =new Hud();
         this.spawner=new Spawner(handler,hud);
         this.addKeyListener(new MyKeyListener(this.handler));
+        this.addMouseListener(new OptionMouseListener(this.handler));
+        this.addMouseListener(new SfondoMouseListener(this.handler));
         this.addMouseListener(new MyMouseListener(this.handler));
         this.handler.addGameObject(new Player(350.0F, (float) (HEIGHT - 75), 0.0F, 0.0F, ID.Player));
         for (int i = 0; i < 3; i++) {
@@ -100,6 +105,7 @@ public class Game extends Canvas implements Runnable {
                      Rectangle nem= new Rectangle(ex,ey,ewidth,eheight);
                      if(pro.intersects(nem)){
                          hud.setScore(hud.getScore()+100);
+                         hud.setKills(hud.getKills()+1);
                         handler.removeGameObject(handler.objList.get(i));
                          handler.removeGameObject(handler.objList.get(p));
                      }
@@ -245,14 +251,17 @@ public class Game extends Canvas implements Runnable {
             this.createBufferStrategy(3);
         } else {
             Graphics g = bs.getDrawGraphics();
-            g.setColor(Color.BLACK.darker());
+           g.setColor(Color.black);
             g.fillRect(0, 0, WIDTH, HEIGHT);
             if(!StartMenu.on  && Game.on) {
+                g.setColor(color);
+                g.fillRect(0, 0, WIDTH, HEIGHT);
                 this.handler.render(g);
                 this.hud.render(g);
             }
             if(StartMenu.on && !Game.on) this.mn.render(g);
             if(OptionPanel.on && !StartMenu.on) this.op.render(g);
+            if(!OptionPanel.on && Sfondo.on) this.sf.render(g);
             bs.show();
             g.dispose();
         }

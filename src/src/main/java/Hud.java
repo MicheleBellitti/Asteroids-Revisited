@@ -3,10 +3,10 @@ import java.awt.*;
 public class Hud {
     private  int score;
     private  int level;
-    private int enemieskilled;
+    private int kills;
     static int HEALTH;
     public Hud(){
-        enemieskilled = 0;
+      kills=0;
         HEALTH=255;
         score=0;
         level=1;
@@ -16,8 +16,8 @@ public class Hud {
     public int getScore() {
         return score;
     }
-    public void setEnemieskilled(int enemieskilled){this.enemieskilled=enemieskilled;}
-    public int getEnemieskilled(){return enemieskilled;}
+    public void setKills(int kills){this.kills=kills;}
+public int getKills(){return kills;}
     public void setScore(int score) {
         this.score = score;
     }
@@ -33,7 +33,7 @@ public class Hud {
     public  void tick(){
 
         HEALTH=Game.clamp(HEALTH,1,255);
-        if(score==200*level) setLevel(++level);
+        if(getScore()==100*getLevel()) setLevel(++level);
         //score++;
 
     }
@@ -48,7 +48,7 @@ public class Hud {
         g.setColor(Color.WHITE); // Commento
         g.drawString("Level:"+ level,10,80);
         g.drawString("Score:"+ score,10,100);
-        g.drawString("Kills:"+ enemieskilled,10,120);
+        g.drawString("Kills:"+ kills,10,120);
     }
 }
 

@@ -14,19 +14,19 @@ ID.java
  ID
 StartMenu.java
  StartMenu
+Player2.java
+ Player2
 Window.java
  Window
 Hud.java
  Hud
 Player.java
  Player
+Enemy.java
+ Enemy
+MyMouseListener.java
+ MyMouseListener
 Game.java
  Game
 Spawner.java
  Spawner
-MyMouseListener.java
- MyMouseListener
-Player2.java
- Player2
-Enemy.java
- Enemy

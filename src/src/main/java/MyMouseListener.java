@@ -21,7 +21,6 @@ public class MyMouseListener extends MouseAdapter {
         int mx,my;
         mx=e.getX();
         my=e.getY();
-
         if(tmp!=null){
             GameObject tmpBullet=new Bullet(tmp.getX() + 16, tmp.getY() + 16, 0,0 , ID.Bullet);
             handler.addGameObject(tmpBullet);
@@ -34,7 +33,7 @@ public class MyMouseListener extends MouseAdapter {
 
         if(StartMenu.on==true) {
             if (mx >= 325 && mx <=425 ) {
-                    if (my >= 150 && my <= 200 ) {
+                if (my >= 150 && my <= 200 ) {
                     StartMenu.on = false;
                     Game.on=true;
                 }
@@ -46,7 +45,17 @@ public class MyMouseListener extends MouseAdapter {
                 }
 
             }
+
         }
+        if(!StartMenu.on){
+            if(mx >= 640 && mx <= 710){
+                if(my>= 500  && my <= 545){
+                    OptionPanel.on=false;
+                    StartMenu.on=true;
+                }
+        }
+        }
+
         else FindPlayer();
 
     }

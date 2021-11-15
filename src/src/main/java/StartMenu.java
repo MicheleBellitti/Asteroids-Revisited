@@ -2,17 +2,18 @@ import java.awt.*;
 
 public class StartMenu  {
     //private String[] checking = new String[3];
-    int[] x = new int[3];
-    int[] y = new int[3];
-    int[] width = new int[3];
-    int[] height = new int[3];
-    String [] nomi= new String[3];
+    int[] x = new int[4];
+    int[] y = new int[4];
+    int[] width = new int[4];
+    int[] height = new int[4];
+    String [] nomi= new String[4];
     ID StartMenu;
     static boolean on;
     public StartMenu() {
         nomi[0]="PLAY";
         nomi[1]="LEADERBOARD";
         nomi[2]="OPTIONS";
+        nomi[3]="BACK";
         ID StartMenu;
 
         //PLAY
@@ -32,12 +33,18 @@ public class StartMenu  {
         y[2]= 400;
         width[2] = 120;
         height[2] = 50;
+
+       /* x[3]=0;
+        x[3]=0;
+        width[3]=100;
+        height[3]=50;
+*/
         on=true;
     }
     public void render(Graphics g) {
         g.setColor(Color.red);
         g.drawString("ASTEROIDS",340,75);
-         for(int i=0;i<3;i++) {
+         for(int i=0;i<4;i++) {
           g.setColor(Color.red);
           g.fill3DRect(x[i], y[i], width[i], height[i],true);
           g.setColor(Color.BLACK);

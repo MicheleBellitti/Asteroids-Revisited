@@ -6,8 +6,8 @@ Coin.java
  Coin
 GameObject.java
  GameObject
-Enemy.java
- Enemy
+Bullet.java
+ Bullet
 Handler.java
  Handler
 ID.java
@@ -24,9 +24,9 @@ Game.java
  Game
 Spawner.java
  Spawner
-Player2.java
- Player2
-Bullet.java
- Bullet
 MyMouseListener.java
  MyMouseListener
+Player2.java
+ Player2
+Enemy.java
+ Enemy

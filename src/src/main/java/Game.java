@@ -98,7 +98,7 @@ public class Game extends Canvas implements Runnable {
                       Rectangle pro= new Rectangle(bx,by,bwidth,bheight);
                      Rectangle nem= new Rectangle(ex,ey,ewidth,eheight);
                      if(pro.intersects(nem)){
-                         hud.setScore(hud.getScore()+50);
+                         hud.setScore(hud.getScore()+100);
                         handler.removeGameObject(handler.objList.get(i));
                          handler.removeGameObject(handler.objList.get(p));
                      }

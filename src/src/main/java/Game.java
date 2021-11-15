@@ -223,8 +223,8 @@ public class Game extends Canvas implements Runnable {
             Ccollision(getObject(this.handler,ID.Player,0),this.handler,ID.Coin);
             RemoveBullet(this.handler);
             Bcollision(this.handler);
-            if(tickTimer==500){
-                this.handler.addGameObject(new Enemy((float)r1.nextInt(WIDTH),(float)r1.nextInt(HEIGHT),r1.nextInt(3),r1.nextInt(3),ID.Enemy));
+            if(tickTimer==300){
+                this.handler.addGameObject(new Enemy((float)r1.nextInt(WIDTH),(float)r1.nextInt(HEIGHT),r1.nextInt(5),r1.nextInt(3),ID.Enemy));
                 tickTimer=0;
             }
             //System.out.println("ci sono in totale "+ BulletCount(handler)+ "bullet");

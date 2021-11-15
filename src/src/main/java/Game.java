@@ -71,7 +71,7 @@ public class Game extends Canvas implements Runnable {
             Rectangle e=new Rectangle((int)tmp.getX(),(int)tmp.getY(),16,16);
             if(player.intersects(e)) {
                 handler.removeGameObject(tmp);
-                this.hud.setScore(hud.getScore()+3000);
+                this.hud.setScore(hud.getScore()+200);
             }
         }
 

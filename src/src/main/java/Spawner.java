@@ -5,6 +5,7 @@ public class Spawner {
     private Hud hud;
     private Handler handler;
     private Random r = new Random();
+    private boolean deployed=false;
 
     public Spawner(Handler handler, Hud hud) {
         this.handler = handler;
@@ -18,21 +19,26 @@ public class Spawner {
     }
 
     public void tick() {
-        if(hud.getScore()==hud.getLevel()*200){
+        if(hud.getScore()>=hud.getLevel()*200){
             if(hud.getLevel()%2==0){
                 this.handler.addGameObject(new Enemy((float)r.nextInt(Game.WIDTH),(float)r.nextInt(Game.HEIGHT),r.nextInt(5),r.nextInt(3),ID.Enemy));
+                deployed=true;
             }
             else if(hud.getLevel()%3==0){
                 GameObject en=new Enemy((float)r.nextInt(Game.WIDTH),(float)r.nextInt(Game.HEIGHT),r.nextInt(5),r.nextInt(3),ID.Enemy);
                 en.setVelX(en.getVelX()+3);
                 en.setVelY(en.getVelY()+3);
                 this.handler.addGameObject(en);
+                deployed=false;
             }
             else if(hud.getLevel()%5==0){
                 GameObject en=new Enemy((float)r.nextInt(Game.WIDTH),(float)r.nextInt(Game.HEIGHT),r.nextInt(5),r.nextInt(3),ID.Enemy);
-                en.setWidth(en.getWidth()+50);
+                en.setWidth(en.getWidth()+r.nextInt(60));
                 en.setHeight(en.getHeight()+r.nextInt(60));
                 this.handler.addGameObject(en);
+            }
+            else if(hud.getLevel()>1){
+                this.handler.addGameObject(new Coin(r.nextInt(Game.WIDTH-50),(float)r.nextInt(Game.HEIGHT-50),0,0,ID.Coin));
             }
 
         }

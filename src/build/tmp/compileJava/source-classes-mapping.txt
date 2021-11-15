@@ -4,31 +4,31 @@ OptionMouseListener.java
  OptionMouseListener
 OptionPanel.java
  OptionPanel
-Player.java
- Player
+Coin.java
+ Coin
 GameObject.java
  GameObject
 Bullet.java
  Bullet
-Spawner.java
- Spawner
-Player2.java
- Player2
-Enemy.java
- Enemy
-Window.java
- Window
-Hud.java
- Hud
-Coin.java
- Coin
-Handler.java
- Handler
-Game.java
- Game
-MyMouseListener.java
- MyMouseListener
 ID.java
  ID
 StartMenu.java
  StartMenu
+Handler.java
+ Handler
+Window.java
+ Window
+Hud.java
+ Hud
+Player.java
+ Player
+Enemy.java
+ Enemy
+Player2.java
+ Player2
+MyMouseListener.java
+ MyMouseListener
+Game.java
+ Game
+Spawner.java
+ Spawner

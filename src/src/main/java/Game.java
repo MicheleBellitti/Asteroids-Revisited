@@ -15,6 +15,7 @@ import java.util.Random;
 public class Game extends Canvas implements Runnable {
     public static int WIDTH = 800;
     public static int HEIGHT = 600;
+    private int tickTimer=0;
     public static int ENEMY_NUMBER = 15;
     private int J = 1;
     private StartMenu mn;
@@ -213,6 +214,8 @@ public class Game extends Canvas implements Runnable {
         }
     private void tick() {
         if(!StartMenu.on && Game.on) {
+            tickTimer++;
+            System.out.println(tickTimer);
             this.handler.tick();
             this.spawner.tick();
             this.hud.tick();
@@ -220,7 +223,11 @@ public class Game extends Canvas implements Runnable {
             Ccollision(getObject(this.handler,ID.Player,0),this.handler,ID.Coin);
             RemoveBullet(this.handler);
             Bcollision(this.handler);
-            System.out.println("ci sono in totale "+ BulletCount(handler)+ "bullet");
+            if(tickTimer==500){
+                this.handler.addGameObject(new Enemy((float)r1.nextInt(WIDTH),(float)r1.nextInt(HEIGHT),r1.nextInt(3),r1.nextInt(3),ID.Enemy));
+                tickTimer=0;
+            }
+            //System.out.println("ci sono in totale "+ BulletCount(handler)+ "bullet");
 
         }
         if(Hud.HEALTH==1) {

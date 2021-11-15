@@ -6,7 +6,7 @@ public class Hud {
     private int enemieskilled;
     static int HEALTH;
     public Hud(){
-        enemieskilled=0;
+        enemieskilled = 0;
         HEALTH=255;
         score=0;
         level=1;
@@ -17,7 +17,7 @@ public class Hud {
         return score;
     }
     public void setEnemieskilled(int enemieskilled){this.enemieskilled=enemieskilled;}
-public int getEnemieskilled(){return enemieskilled;}
+    public int getEnemieskilled(){return enemieskilled;}
     public void setScore(int score) {
         this.score = score;
     }

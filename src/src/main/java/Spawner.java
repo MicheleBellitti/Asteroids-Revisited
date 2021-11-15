@@ -5,7 +5,6 @@ public class Spawner {
     private Hud hud;
     private Handler handler;
     private Random r = new Random();
-    private boolean deployed = false;
 
     public Spawner(Handler handler, Hud hud) {
         this.handler = handler;

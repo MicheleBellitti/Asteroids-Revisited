@@ -41,6 +41,14 @@ public class OptionMouseListener extends MouseAdapter {
                                 }
 
                             }
+                            if(!StartMenu.on){ //back
+                                if(mx >= 640 && mx <= 710){
+                                    if(my>= 500  && my <= 545){
+                                        OptionPanel.on=false;
+                                        StartMenu.on=true;
+                                    }
+                                }
+                            }
 
 
                         }

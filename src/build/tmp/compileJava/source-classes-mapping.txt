@@ -12,27 +12,31 @@ GameObject.java
  GameObject
 Bullet.java
  Bullet
-ID.java
- ID
-Coin.java
- Coin
 Handler.java
  Handler
+Coin.java
+ Coin
+ID.java
+ ID
 SfondoMouseListener.java
  SfondoMouseListener
 Window.java
  Window
-MyMouseListener.java
- MyMouseListener
+Hud.java
+ Hud
+Player2.java
+ Player2
 Player.java
  Player
 Enemy.java
  Enemy
-Player2.java
- Player2
-Hud.java
- Hud
-Game.java
- Game
 Spawner.java
  Spawner
+GameOverScreenMouseListener.java
+ GameOverScreenMouseListener
+GameOverScreen.java
+ GameOverScreen
+Game.java
+ Game
+MyMouseListener.java
+ MyMouseListener

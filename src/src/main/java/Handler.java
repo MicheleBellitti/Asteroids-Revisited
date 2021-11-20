@@ -3,10 +3,9 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Handler {
-    public List<GameObject> objList=new LinkedList<GameObject>();
-    public List<GameObject> bulletList=new LinkedList<GameObject>();
+    //20/11/21 12:00 list --> linkedlist
+    public LinkedList<GameObject> objList=new LinkedList<GameObject>();
     public void tick(){
-
         for(int i=0;i<objList.size();i++){
             GameObject tmp=objList.get(i);
             tmp.tick();

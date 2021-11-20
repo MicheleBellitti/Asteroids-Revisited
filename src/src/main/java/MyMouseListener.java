@@ -45,15 +45,6 @@ public class MyMouseListener extends MouseAdapter {
                 }
 
             }
-
-        }
-        if(!StartMenu.on){
-            if(mx >= 640 && mx <= 710){
-                if(my>= 500  && my <= 545){
-                    OptionPanel.on=false;
-                    StartMenu.on=true;
-                }
-        }
         }
 
         else FindPlayer();
@@ -63,9 +54,9 @@ public class MyMouseListener extends MouseAdapter {
         int mx,my;
         mx=e.getX();
         my=e.getY();
-        if(tmp!=null){
+        if(tmp!=null && Game.on){
             GameObject tmpBullet=new Bullet(tmp.getX() + 16, tmp.getY() + 16, 0,0 , ID.Bullet);
-            handler.addGameObject(tmpBullet);
+            handler.objList.offerFirst(tmpBullet);
             float angle=(float) Math.atan2(my-tmp.getY()-16,mx-tmp.getX()-16);
             int bullVel=10;
             tmpBullet.setVelX((float) (bullVel*Math.cos(angle)));

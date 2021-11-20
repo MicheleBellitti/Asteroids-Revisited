@@ -41,7 +41,7 @@ public class Sfondo  extends OptionPanel{
 
     }
     public void render(Graphics g){
-        g.setColor(Color.white);
+        g.setColor(Color.YELLOW);
         g.drawString("ASTEROIDS",340,75);
         g.setColor(Color.YELLOW);
         g.fillRect(640,500,65,45);

@@ -30,7 +30,7 @@ public class GameOverScreen  {
         Font font=g.getFont();
         g.setColor(Color.RED);
         g.setFont(new Font("Helvetica",Font.PLAIN,30));
-        g.drawString("GAMEOVER", 300, 75);
+        g.drawString("GAME OVER", 300, 75);
         g.setFont(font);
         g.drawString("SCORE: "+ Game.punteggiofinale, 345, 135);
         for(int i=0;i<3;i++){

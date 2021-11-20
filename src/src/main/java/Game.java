@@ -29,23 +29,29 @@ public class Game extends Canvas implements Runnable {
     private boolean gameOver = false;
     Random r1 = new Random();
     private Handler handler = new Handler();
+    private MyKeyListener kL=new MyKeyListener(this.handler);
     private Spawner spawner;
     private OptionPanel op;
     private GameOverScreen gos; // 20/11/21 12:00
     private Sfondo sf;
+    private MovementSettings movementSettings;
     int cnt=-1;
     public Game() {
         new Window(WIDTH, HEIGHT, title, this);
         mn= new StartMenu();
         op = new OptionPanel();
         sf=new Sfondo();
-        gos=new GameOverScreen(); // 20/11/21 12:00
+
+        gos=new GameOverScreen();
+
         this.start();
         hud =new Hud();
         this.spawner=new Spawner(handler,hud);
-        this.addKeyListener(new MyKeyListener(this.handler));
+        movementSettings=new MovementSettings();
+        this.addKeyListener(kL);
         this.addMouseListener(new OptionMouseListener(this.handler));
         this.addMouseListener(new SfondoMouseListener(this.handler));
+        this.addMouseListener(new MSMouseListener(this.handler,movementSettings));
         this.addMouseListener(new MyMouseListener(this.handler));
         this.addMouseListener(new GameOverScreenMouseListener(this.handler)); // 20/11/21 12:00
 
@@ -81,7 +87,7 @@ public class Game extends Canvas implements Runnable {
             Rectangle e=new Rectangle((int)tmp.getX(),(int)tmp.getY(),16,16);
             if(player.intersects(e)) {
                 handler.removeGameObject(tmp);
-                this.hud.setScore(hud.getScore()+200);
+                this.hud.setScore(hud.getScore()+100);
             }
         }
 
@@ -231,6 +237,7 @@ public class Game extends Canvas implements Runnable {
             this.handler.tick();
             this.spawner.tick();
             this.hud.tick();
+            if(MovementSettings.on) this.movementSettings.tick();
             hud.HEALTH -= 2 * Ecollision(getObject(this.handler, ID.Player, 0), this.handler, ID.Enemy);
             Ccollision(getObject(this.handler, ID.Player, 0), this.handler, ID.Coin);
             RemoveBullet(this.handler);
@@ -239,6 +246,7 @@ public class Game extends Canvas implements Runnable {
                 this.handler.addGameObject(new Enemy((float) r1.nextInt(WIDTH), (float) r1.nextInt(HEIGHT), r1.nextInt(5), r1.nextInt(3), ID.Enemy));
                 tickTimer = 0;
             }
+            if(movementSettings.isChanged()) kL.setChanged(true);
             //System.out.println("ci sono in totale "+ BulletCount(handler)+ "bullet");
 
         }
@@ -280,7 +288,8 @@ public class Game extends Canvas implements Runnable {
             if(StartMenu.on) this.mn.render(g);
             if(OptionPanel.on && !StartMenu.on) this.op.render(g);
             if(!OptionPanel.on && Sfondo.on) this.sf.render(g);
-            if(GameOverScreen.on && !Game.on && !OptionPanel.on && !Sfondo.on) this.gos.render(g); //20/11/21 12:00
+            if(!OptionPanel.on && !Sfondo.on && MovementSettings.on) this.movementSettings.render(g);
+            if(GameOverScreen.on && !Game.on && !OptionPanel.on && !Sfondo.on && !movementSettings.on) this.gos.render(g); //20/11/21 12:00
             bs.show();
             g.dispose();
         }

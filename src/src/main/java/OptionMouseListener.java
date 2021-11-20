@@ -26,10 +26,11 @@ public class OptionMouseListener extends MouseAdapter {
 
                             }
 
-                            if (mx >= 333 && mx <= 433) { //difficolta
+                            if (mx >= 333 && mx <= 433) {
                                 if (my >= 350 && my <= 400) {
-                                    System.out.println("DIFFICOLTA");
-
+                                    System.out.println("CONTROLLI");
+                                    OptionPanel.on = false;
+                                    MovementSettings.on=true;
                                 }
 
                             }

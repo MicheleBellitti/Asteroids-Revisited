@@ -27,8 +27,11 @@ public class GameOverScreen  {
     }
 //   100/14
     public void render(Graphics g) {
+        Font font=g.getFont();
         g.setColor(Color.RED);
-        g.drawString("GAMEOVER", 340, 75);
+        g.setFont(new Font("Helvetica",Font.PLAIN,30));
+        g.drawString("GAMEOVER", 300, 75);
+        g.setFont(font);
         g.drawString("SCORE: "+ Game.punteggiofinale, 345, 135);
         for(int i=0;i<3;i++){
             g.setColor(Color.red);

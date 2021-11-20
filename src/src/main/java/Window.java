@@ -17,6 +17,7 @@ public class Window extends JFrame{
         setLocationRelativeTo(null);
         add(game);
 
+
     }
 
 }

@@ -48,6 +48,7 @@ public class Game extends Canvas implements Runnable {
         this.addMouseListener(new SfondoMouseListener(this.handler));
         this.addMouseListener(new MyMouseListener(this.handler));
         this.addMouseListener(new GameOverScreenMouseListener(this.handler)); // 20/11/21 12:00
+
         this.handler.addGameObject(new Player(350.0F, (float) (HEIGHT - 75), 0.0F, 0.0F, ID.Player));
         for (int i = 0; i < 3; i++) {
             this.handler.addGameObject(new Enemy((float)r1.nextInt(WIDTH), 0.0F, 2*J, 2.0F, ID.Enemy));

@@ -1,7 +1,11 @@
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.awt.image.ImageObserver;
+import java.awt.image.ImageProducer;
 
 public class Player extends GameObject{
    private static float HEIGHT=32;
+
 
     public Player(float x, float y,float vx,float vy, ID id) {
         super(x,y,vx,vy,id);
@@ -23,7 +27,7 @@ public class Player extends GameObject{
     public void render(Graphics g) {
         g.setColor(Color.white.darker());
         g.fill3DRect((int)x,(int)y,32,32,true);
-
-
+    g.setColor(Color.BLACK);
+        g.drawLine((int)x,(int)y,(int)x+width,(int)y+height);
     }
 }

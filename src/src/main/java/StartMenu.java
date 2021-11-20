@@ -43,7 +43,10 @@ public class StartMenu  {
     }
     public void render(Graphics g) {
         g.setColor(Color.red);
-        g.drawString("ASTEROIDS",340,75);
+        Font font=g.getFont();
+        g.setFont(new Font("Helvetica",Font.PLAIN,30));
+        g.drawString("ASTEROIDS",300,75);
+        g.setFont(font);
          for(int i=0;i<4;i++) {
           g.setColor(Color.red);
           g.fill3DRect(x[i], y[i], width[i], height[i],true);

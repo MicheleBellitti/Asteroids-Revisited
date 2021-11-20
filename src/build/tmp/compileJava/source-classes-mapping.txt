@@ -16,8 +16,8 @@ ID.java
  ID
 OptionMouseListener.java
  OptionMouseListener
-MyKeyListener.java
- MyKeyListener
+MSMouseListener.java
+ MSMouseListener
 MovementSettings.java
  MovementSettings
 GameOverScreenMouseListener.java
@@ -40,7 +40,7 @@ MyMouseListener.java
  MyMouseListener
 Player2.java
  Player2
-MSMouseListener.java
- MSMouseListener
+MyKeyListener.java
+ MyKeyListener
 Game.java
  Game

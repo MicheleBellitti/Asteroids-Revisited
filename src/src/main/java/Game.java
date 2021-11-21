@@ -258,9 +258,9 @@ public class Game extends Canvas implements Runnable {
             punteggiofinale=hud.getScore();
             hud.setLevel(1);
             hud.setScore(0);
-            System.out.println(handler.objList);
+            System.out.println(this.handler.objList);
             RemoveAllButPlayer(this.handler);
-            System.out.println(handler.objList);
+            System.out.println(this.handler.objList);
             handler.objList.get(0).setX(350.0F); // reset coordinate player
             handler.objList.get(0).setY((float) (HEIGHT - 75));
             for (int i = 0; i < 3; i++) { //spawn nemici nuovo
@@ -287,7 +287,7 @@ public class Game extends Canvas implements Runnable {
             }
             if(StartMenu.on) this.mn.render(g);
             if(OptionPanel.on && !StartMenu.on) this.op.render(g);
-            if(!OptionPanel.on && Sfondo.on) this.sf.render(g);
+            if(!OptionPanel.on && !MovementSettings.on && Sfondo.on) this.sf.render(g);
             if(!OptionPanel.on && !Sfondo.on && MovementSettings.on) this.movementSettings.render(g);
             if(GameOverScreen.on && !Game.on && !OptionPanel.on && !Sfondo.on && !movementSettings.on) this.gos.render(g); //20/11/21 12:00
             bs.show();

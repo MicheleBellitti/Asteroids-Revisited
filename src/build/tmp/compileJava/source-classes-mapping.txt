@@ -20,8 +20,8 @@ MSMouseListener.java
  MSMouseListener
 MovementSettings.java
  MovementSettings
-GameOverScreenMouseListener.java
- GameOverScreenMouseListener
+MyKeyListener.java
+ MyKeyListener
 SfondoMouseListener.java
  SfondoMouseListener
 Window.java
@@ -32,15 +32,15 @@ GameOverScreen.java
  GameOverScreen
 Player.java
  Player
-Enemy.java
- Enemy
+Game.java
+ Game
 Spawner.java
  Spawner
 MyMouseListener.java
  MyMouseListener
 Player2.java
  Player2
-MyKeyListener.java
- MyKeyListener
-Game.java
- Game
+Enemy.java
+ Enemy
+GameOverScreenMouseListener.java
+ GameOverScreenMouseListener

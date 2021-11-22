@@ -17,7 +17,7 @@ public class SfondoMouseListener extends MouseAdapter {
         mx = e.getX();
         my = e.getY();
 
-        if (!OptionPanel.on && Sfondo.on) {
+        if (Sfondo.on) {
             if (mx >= 330 && mx <= 430) { //sfondo rosa
                 if (my >= 250 && my <= 300) {
                     Game.color= Color.pink;
@@ -36,7 +36,7 @@ public class SfondoMouseListener extends MouseAdapter {
 
             if (mx >= 342 && mx < 342+75) { //sfondo bianco
                 if (my >= 150 && my <= 200) {
-                    Game.color=Color.white;
+                    Game.color=Color.black;
 
                 }
 
@@ -56,8 +56,13 @@ public class SfondoMouseListener extends MouseAdapter {
         if(!StartMenu.on && !OptionPanel.on) {
             if (mx >= 640 && mx < 705) {
                 if (my >= 500 && my <= 545) {
-                    Sfondo.on = false;
-                    OptionPanel.on = true;
+                    StartMenu.on=false;
+                    Difficulty.on=false;
+                    OptionPanel.on=true;
+                    Sfondo.on=false;
+                    GameOverScreen.on=false;
+                    Game.on=false;
+                    MovementSettings.on=false;
                     System.out.println("backnellosfondo");
 
                 }

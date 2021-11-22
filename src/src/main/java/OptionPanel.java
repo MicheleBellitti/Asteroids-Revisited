@@ -10,7 +10,7 @@ public class OptionPanel extends StartMenu{
     public OptionPanel() {
         nomi[0]="SFONDO";
         nomi[1]="CONTROLLI";
-        nomi[2]="BOH";
+        nomi[2]="DIFFICOLTA'";
         nomi[3]="SUONO";
         nomi[4]="BACK";
         x[0] = 330;
@@ -21,9 +21,9 @@ public class OptionPanel extends StartMenu{
         y[1]=350;
         width[1]=100;
         height[1]=50;
-        x[2] = 342;
+        x[2] = 330;
         y[2]=150;
-        width[2]=75;
+        width[2]=104;
         height[2]=50;
         x[3] = 343;
         y[3]=450;

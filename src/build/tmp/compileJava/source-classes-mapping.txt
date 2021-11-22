@@ -1,46 +1,50 @@
-Handler.java
- Handler
-StartMenu.java
- StartMenu
-Coin.java
- Coin
-OptionPanel.java
- OptionPanel
-Sfondo.java
- Sfondo
-GameObject.java
- GameObject
-Bullet.java
- Bullet
 ID.java
  ID
 MyKeyListener.java
  MyKeyListener
-Enemy.java
- Enemy
-Player.java
- Player
-SfondoMouseListener.java
- SfondoMouseListener
-GameOverScreenMouseListener.java
- GameOverScreenMouseListener
-Window.java
- Window
-MyMouseListener.java
- MyMouseListener
-GameOverScreen.java
- GameOverScreen
-Player2.java
- Player2
-MSMouseListener.java
- MSMouseListener
-OptionMouseListener.java
- OptionMouseListener
+OptionPanel.java
+ OptionPanel
+Sfondo.java
+ Sfondo
+Difficulty.java
+ Difficulty
 MovementSettings.java
  MovementSettings
-Hud.java
- Hud
-Game.java
- Game
+GameObject.java
+ GameObject
+Coin.java
+ Coin
+Handler.java
+ Handler
+StartMenu.java
+ StartMenu
+SfondoMouseListener.java
+ SfondoMouseListener
+DifficultyMouseListener.java
+ DifficultyMouseListener
+OptionMouseListener.java
+ OptionMouseListener
+Player.java
+ Player
+Bullet.java
+ Bullet
 Spawner.java
  Spawner
+Player2.java
+ Player2
+Enemy.java
+ Enemy
+GameOverScreenMouseListener.java
+ GameOverScreenMouseListener
+MSMouseListener.java
+ MSMouseListener
+Window.java
+ Window
+Hud.java
+ Hud
+GameOverScreen.java
+ GameOverScreen
+Game.java
+ Game
+MyMouseListener.java
+ MyMouseListener

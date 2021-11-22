@@ -11,7 +11,7 @@ public class Sfondo  extends OptionPanel{
     public Sfondo() {
        sfo[0]="ROSA";
        sfo[1]="BLU";
-       sfo[2]="BIANCO";
+       sfo[2]="NERO";
        sfo[3]="ROSSO";
        colors[0]=Color.PINK;
        colors[1]=Color.BLUE;

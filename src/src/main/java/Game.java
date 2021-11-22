@@ -15,6 +15,7 @@ import java.util.Random;
 public class Game extends Canvas implements Runnable {
     public static int WIDTH = 800;
     public static int HEIGHT = 600;
+    static int difficulty= 2;
     static int punteggiofinale; // 20/11/21 12:00
     static Color color= Color.BLACK;
     private Hud hud;
@@ -35,13 +36,14 @@ public class Game extends Canvas implements Runnable {
     private GameOverScreen gos; // 20/11/21 12:00
     private Sfondo sf;
     private MovementSettings movementSettings;
+    private Difficulty diff;
     int cnt=-1;
     public Game() {
         new Window(WIDTH, HEIGHT, title, this);
         mn= new StartMenu();
         op = new OptionPanel();
         sf=new Sfondo();
-
+        diff=new Difficulty();
         gos=new GameOverScreen();
 
         this.start();
@@ -53,7 +55,8 @@ public class Game extends Canvas implements Runnable {
         this.addMouseListener(new SfondoMouseListener(this.handler));
         this.addMouseListener(new MSMouseListener(this.handler,movementSettings));
         this.addMouseListener(new MyMouseListener(this.handler));
-        this.addMouseListener(new GameOverScreenMouseListener(this.handler)); // 20/11/21 12:00
+        this.addMouseListener(new GameOverScreenMouseListener(this.handler)); // 20/11/21 12:00 this.addMouseListener(new GameOverScreenMouseListener(this.handler)); // 20/11/21 12:00
+        this.addMouseListener(new DifficultyMouseListener(this.handler)); // 20/11/21 12:00
 
         this.handler.addGameObject(new Player(350.0F, (float) (HEIGHT - 75), 0.0F, 0.0F, ID.Player));
         for (int i = 0; i < 3; i++) {
@@ -242,10 +245,12 @@ public class Game extends Canvas implements Runnable {
             Ccollision(getObject(this.handler, ID.Player, 0), this.handler, ID.Coin);
             RemoveBullet(this.handler);
             Bcollision(this.handler);
-            if (tickTimer == 100) {
-                this.handler.addGameObject(new Enemy((float) r1.nextInt(WIDTH), (float) r1.nextInt(HEIGHT), r1.nextInt(5), r1.nextInt(3), ID.Enemy));
-                tickTimer = 0;
-            }
+            System.out.println(difficulty);
+                if (tickTimer == 65 *difficulty) {
+                    System.out.println("spawno un nemico ogni tot " + tickTimer);
+                    this.handler.addGameObject(new Enemy((float) r1.nextInt(WIDTH), (float) r1.nextInt(HEIGHT), r1.nextInt(5), r1.nextInt(3), ID.Enemy));
+                    tickTimer = 0;
+                }
             if(movementSettings.isChanged()) kL.setChanged(true);
             //System.out.println("ci sono in totale "+ BulletCount(handler)+ "bullet");
 
@@ -286,10 +291,11 @@ public class Game extends Canvas implements Runnable {
                 this.hud.render(g);
             }
             if(StartMenu.on) this.mn.render(g);
-            if(OptionPanel.on && !StartMenu.on) this.op.render(g);
-            if(!OptionPanel.on && !MovementSettings.on && Sfondo.on) this.sf.render(g);
-            if(!OptionPanel.on && !Sfondo.on && MovementSettings.on) this.movementSettings.render(g);
-            if(GameOverScreen.on && !Game.on && !OptionPanel.on && !Sfondo.on && !movementSettings.on) this.gos.render(g); //20/11/21 12:00
+            if(OptionPanel.on) this.op.render(g);
+            if(Sfondo.on) this.sf.render(g);
+            if(MovementSettings.on) this.movementSettings.render(g);
+            if(GameOverScreen.on) this.gos.render(g); //20/11/21 12:00
+            if(Difficulty.on) this.diff.render(g);
             bs.show();
             g.dispose();
         }

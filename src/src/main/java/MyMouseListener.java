@@ -38,12 +38,21 @@ public class MyMouseListener extends MouseAdapter {
                     StartMenu.on = false;
                     Game.on=true;
                     GameOverScreen.on=false;
+                    OptionPanel.on=false;
+                    Difficulty.on=false;
+                    Sfondo.on=false;
+                    MovementSettings.on=false;
                 }
             }
             if(mx >= 320 && mx <= 440 ){
                 if(my>= 400  && my <=450){
                     StartMenu.on=false;
+                    Difficulty.on=false;
                     OptionPanel.on=true;
+                    Sfondo.on=false;
+                    GameOverScreen.on=false;
+                    Game.on=false;
+                    MovementSettings.on=false;
                 }
 
             }

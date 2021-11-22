@@ -2,7 +2,7 @@ import java.awt.*;
 
 public class MovementSettings {
     String[] keys=new String[4];
-    private boolean changed=false;
+     static boolean changed=false;
     int[] x= new int[5];
     int[] y= new int[5];
     int[] width= new int[5];

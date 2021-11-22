@@ -1,5 +1,4 @@
 import java.awt.*;
-import java.awt.event.KeyAdapter;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -23,7 +22,8 @@ import java.awt.event.MouseEvent;
             if (!OptionPanel.on && MovementSettings.on) {
                 if (mx >= 330 && mx <= 430) {
                     if (my >= 250 && my <= 300) {
-                        if(ms.getKey(0)=="UP") {
+                        MovementSettings.changed=!MovementSettings.changed;
+                        if(ms.getKey(0).equals("UP")) {
                             key = "W";
                         }
                         else{
@@ -39,7 +39,8 @@ import java.awt.event.MouseEvent;
 
                 if (mx >= 333 && mx <= 433) {
                     if (my >= 350 && my <= 400) {
-                        if(ms.getKey(1)=="LEFT") {
+                        MovementSettings.changed=!MovementSettings.changed;
+                        if(ms.getKey(1).equals("LEFT")) {
                             key = "A";
 
                         }
@@ -56,7 +57,8 @@ import java.awt.event.MouseEvent;
 
                 if (mx >= 342 && mx < 342+75) {
                     if (my >= 150 && my <= 200) {
-                        if(ms.getKey(2)=="RIGHT") {
+                        MovementSettings.changed=!MovementSettings.changed;
+                        if(ms.getKey(2).equals("RIGHT")) {
                             key = "D";
                         }
                         else{
@@ -69,7 +71,8 @@ import java.awt.event.MouseEvent;
                 }
                 if (mx >= 343 && mx < 343+83) {
                     if (my >= 450 && my <= 500) {
-                        if(ms.getKey(3)=="DOWN") {
+                        MovementSettings.changed=!MovementSettings.changed;
+                        if(ms.getKey(3).equals("DOWN")) {
                             key = "S";
                         }
                         else{

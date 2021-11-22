@@ -38,17 +38,33 @@ public int getKills(){return kills;}
 
     }
     public void render(Graphics g){
-        g.setColor(Color.WHITE);
-        g.drawString("HP",275,40);
-        g.drawRect(10,20,255,40);
-       if(HEALTH>=255/2) g.setColor(Color.GREEN);
-       else if(HEALTH>=255/5) g.setColor(Color.yellow.darker());
-       else g.setColor(Color.red);
-        g.fillRect(10,20,HEALTH,40);
-        g.setColor(Color.WHITE); // Commento
-        g.drawString("Level:"+ level,10,80);
-        g.drawString("Score:"+ score,10,100);
-        g.drawString("Kills:"+ kills,10,120);
+        if(Game.color ==Color.white){
+            g.setColor(Color.black);
+            g.drawString("HP",275,40);
+            g.drawRect(10,20,255,40);
+            if(HEALTH>=255/2) g.setColor(Color.GREEN);
+            else if(HEALTH>=255/5) g.setColor(Color.yellow.darker());
+            else g.setColor(Color.red);
+            g.fillRect(10,20,HEALTH,40);
+            g.setColor(Color.black); // Commento
+            g.drawString("Level:"+ level,10,80);
+            g.drawString("Score:"+ score,10,100);
+            g.drawString("Kills:"+ kills,10,120);
+
+        }
+         else {
+            g.setColor(Color.WHITE);
+            g.drawString("HP", 275, 40);
+            g.drawRect(10, 20, 255, 40);
+            if (HEALTH >= 255 / 2) g.setColor(Color.GREEN);
+            else if (HEALTH >= 255 / 5) g.setColor(Color.yellow.darker());
+            else g.setColor(Color.red);
+            g.fillRect(10, 20, HEALTH, 40);
+            g.setColor(Color.WHITE); // Commento
+            g.drawString("Level:" + level, 10, 80);
+            g.drawString("Score:" + score, 10, 100);
+            g.drawString("Kills:" + kills, 10, 120);
+        }
     }
 }
 

@@ -1,6 +1,6 @@
 import java.awt.*;
 
-public class MovementSettings {
+  public class MovementSettings {
     String[] keys=new String[4];
      static boolean changed=false;
     int[] x= new int[5];

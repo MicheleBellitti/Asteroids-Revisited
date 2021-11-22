@@ -25,8 +25,26 @@ public class Player extends GameObject{
 
     @Override
     public void render(Graphics g) {
-        g.setColor(Color.white.darker());
-        g.fill3DRect((int)x,(int)y,32,32,true);
+        if (Game.color==Color.pink) {
+            g.setColor(Color.black.darker());
+            g.fill3DRect((int) x, (int) y, 32, 32, true);
+        }
+        if (Game.color==Color.black) {
+            g.setColor(Color.white.darker());
+            g.fill3DRect((int) x, (int) y, 32, 32, true);
+        }
+        if (Game.color==Color.white) {
+            g.setColor(Color.black.darker());
+            g.fill3DRect((int) x, (int) y, 32, 32, true);
+        }
+        if (Game.color==Color.blue) {
+            g.setColor(Color.white.darker());
+            g.fill3DRect((int) x, (int) y, 32, 32, true);
+        }
+        if (Game.color==Color.red) {
+            g.setColor(Color.white.darker());
+            g.fill3DRect((int) x, (int) y, 32, 32, true);
+        }
     g.setColor(Color.BLACK);
         g.drawLine((int)x,(int)y,(int)x+width,(int)y+height);
     }

@@ -16,31 +16,31 @@ ID.java
  ID
 MyKeyListener.java
  MyKeyListener
-MovementSettings.java
- MovementSettings
-OptionMouseListener.java
- OptionMouseListener
+Enemy.java
+ Enemy
+Player.java
+ Player
 SfondoMouseListener.java
  SfondoMouseListener
 GameOverScreenMouseListener.java
  GameOverScreenMouseListener
 Window.java
  Window
-Hud.java
- Hud
-GameOverScreen.java
- GameOverScreen
-Player.java
- Player
-Enemy.java
- Enemy
-Spawner.java
- Spawner
 MyMouseListener.java
  MyMouseListener
+GameOverScreen.java
+ GameOverScreen
 Player2.java
  Player2
 MSMouseListener.java
  MSMouseListener
+OptionMouseListener.java
+ OptionMouseListener
+MovementSettings.java
+ MovementSettings
+Hud.java
+ Hud
 Game.java
  Game
+Spawner.java
+ Spawner

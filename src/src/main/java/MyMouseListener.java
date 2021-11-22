@@ -31,11 +31,13 @@ public class MyMouseListener extends MouseAdapter {
         }*/
 
 
-        if(StartMenu.on==true) {
-            if (mx >= 325 && mx <=425 ) {
+        if(StartMenu.on) {
+            if (mx >= 325 && mx <=425 ) { //play
                 if (my >= 150 && my <= 200 ) {
+                    System.out.println("GIOCA");
                     StartMenu.on = false;
                     Game.on=true;
+                    GameOverScreen.on=false;
                 }
             }
             if(mx >= 320 && mx <= 440 ){

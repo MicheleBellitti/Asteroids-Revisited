@@ -26,7 +26,26 @@ public class Bullet extends GameObject{
 
     @Override
     public void render(Graphics g) {
-        g.setColor(Color.yellow);
-        g.fillRect((int)x,(int)y,width,height);
+        if (Game.color==Color.pink) {
+            g.setColor(Color.black);
+            g.fillOval((int)x,(int)y,width,height);
+        }
+        if (Game.color==Color.black) {
+            g.setColor(Color.yellow);
+            g.fillOval((int)x,(int)y,width,height);
+        }
+        if (Game.color==Color.white) {
+            g.setColor(Color.red);
+            g.fillOval((int)x,(int)y,width,height);
+        }
+        if (Game.color==Color.blue) {
+            g.setColor(Color.white);
+            g.fillOval((int)x,(int)y,width,height);
+        }
+        if (Game.color==Color.red) {
+            g.setColor(Color.white);
+            g.fillOval((int)x,(int)y,width,height);
+        }
+
     }
 }

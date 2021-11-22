@@ -49,19 +49,20 @@ public class SfondoMouseListener extends MouseAdapter {
 
             }
 
-            if(!StartMenu.on && !OptionPanel.on) {
-                if (mx >= 640 && mx < 705) {
-                    if (my >= 500 && my <= 545) {
-                        Sfondo.on = false;
-                        OptionPanel.on = true;
-                        System.out.println("backnellosfondo");
 
-                    }
+
+
+        }
+        if(!StartMenu.on && !OptionPanel.on) {
+            if (mx >= 640 && mx < 705) {
+                if (my >= 500 && my <= 545) {
+                    Sfondo.on = false;
+                    OptionPanel.on = true;
+                    System.out.println("backnellosfondo");
 
                 }
+
             }
-
-
         }
     }
 

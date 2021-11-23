@@ -5,7 +5,7 @@ import java.security.Key;
 import static java.awt.event.KeyEvent.VK_S;
 public class MyKeyListener extends KeyAdapter  {
     private Handler handler;
-    private  boolean changed=false;
+    private  boolean changed=true;
      private boolean[] keyDown=new boolean[4];
     public MyKeyListener(Handler handler){
         this.handler=handler;

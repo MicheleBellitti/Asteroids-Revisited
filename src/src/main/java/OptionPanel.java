@@ -36,7 +36,10 @@ public class OptionPanel extends StartMenu{
     }
     public void render(Graphics g){
         g.setColor(Color.YELLOW);
-        g.drawString("ASTEROIDS",340,75);
+        Font font=g.getFont();
+        g.setFont(new Font("Helvetica",Font.PLAIN,30));
+        g.drawString("ASTEROIDS",300,75);
+        g.setFont(font);
         for(int i=0;i<5;i++){
             g.setColor(Color.YELLOW);
             g.fillRect(x[i],y[i],width[i],height[i]);

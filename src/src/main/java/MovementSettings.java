@@ -31,20 +31,7 @@ import java.awt.*;
         on=false;
     }
     void tick() {
-    if(   keys[0]!="UP" || keys[1]!="LEFT"|| keys[2]!="RIGHT" || keys[3]!="DOWN"){
-        changed=true;
-        keys[0]="W";
-        keys[1]="A";
-        keys[2]="D";
-        keys[3]="S";
-    }
-    else{
-        changed=false;
-        keys[0]="UP";
-        keys[1]="LEFT";
-        keys[2]="RIGHT";
-        keys[3]="DOWN";
-    }
+
     }
     public boolean isChanged() {
         return changed;
@@ -67,10 +54,15 @@ import java.awt.*;
         g.fillRect(640,500,65,45);
         g.setColor(Color.black);
         g.drawString("BACK",655,530);
-        for(int i=0;i<4;i++){
-            g.setColor(Color.WHITE);
-            g.drawRect(x[i],y[i],width[i],height[i]);
-            g.drawString(keys[i],x[i]+15,y[i]+30);
-        }
+        g.setColor(Color.yellow);
+        g.setFont(new Font("Helvetica",Font.PLAIN,30));
+        g.drawString("CONTROLLI",300,200);
+
+        g.setColor(Color.yellow);
+        g.drawRect(20,350,300,100);
+        g.drawString("STANDARD",60,410);
+        g.drawRect(465,350,300,100);
+        g.drawString("SECONDARY",510,410);
+
     }
 }

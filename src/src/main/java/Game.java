@@ -222,7 +222,7 @@ public class Game extends Canvas implements Runnable {
                     this.handler.addGameObject(new Enemy((float) r1.nextInt(WIDTH), (float) r1.nextInt(HEIGHT), r1.nextInt(5), r1.nextInt(3), ID.Enemy));
                     tickTimer = 0;
                 }
-            if(movementSettings.isChanged()) kL.setChanged(true);
+            if(movementSettings.isChanged()) kL.setChanged(false);
             //System.out.println("ci sono in totale "+ BulletCount(handler)+ "bullet");
         }
         if(Hud.HEALTH == 1) {

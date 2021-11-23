@@ -1,15 +1,12 @@
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-
 public class GameOverScreenMouseListener extends MouseAdapter {
     int mx,my;
     private Handler handler;
-
     public GameOverScreenMouseListener(Handler handler) {
         this.handler = handler;
     }
-
     @Override
     public void mouseClicked(MouseEvent e) {
         mx = e.getX();
@@ -23,7 +20,6 @@ public class GameOverScreenMouseListener extends MouseAdapter {
             }
             if (mx >= 297 && mx <= 297 + 100) {
                 if (my >= 290 && my <= 340) {
-
                     System.out.println("BACKTOMENU");
                     GameOverScreen.on = false;
                     StartMenu.on = true;
@@ -36,5 +32,4 @@ public class GameOverScreenMouseListener extends MouseAdapter {
             }
         }
     }
-
 }

@@ -1,5 +1,4 @@
 import java.awt.*;
-
   public class MovementSettings {
     String[] keys=new String[4];
      static boolean changed=false;
@@ -13,7 +12,6 @@ import java.awt.*;
         keys[1]="LEFT";
         keys[2]="RIGHT";
         keys[3]="DOWN";
-
         x[0] = 330;
         y[0]= 250;
         width[0]=100;
@@ -31,7 +29,6 @@ import java.awt.*;
         width[3]=83;
         height[3]=50;
         on=false;
-
     }
     void tick() {
     if(   keys[0]!="UP" || keys[1]!="LEFT"|| keys[2]!="RIGHT" || keys[3]!="DOWN"){
@@ -48,17 +45,13 @@ import java.awt.*;
         keys[2]="RIGHT";
         keys[3]="DOWN";
     }
-
     }
-
     public boolean isChanged() {
         return changed;
     }
-
     public void setChanged(boolean changed) {
         this.changed = changed;
     }
-
     public  String getKey(int index){
         return keys[index];
     }
@@ -77,9 +70,7 @@ import java.awt.*;
         for(int i=0;i<4;i++){
             g.setColor(Color.WHITE);
             g.drawRect(x[i],y[i],width[i],height[i]);
-
             g.drawString(keys[i],x[i]+15,y[i]+30);
         }
-
     }
 }

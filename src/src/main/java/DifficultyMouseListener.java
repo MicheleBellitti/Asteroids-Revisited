@@ -1,17 +1,14 @@
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-
 public class DifficultyMouseListener extends MouseAdapter {
     private Handler handler;
     int mx, my;
     public DifficultyMouseListener(Handler handler) {
         this.handler = handler;
     }
-
     public void mouseClicked(MouseEvent e) {
         mx = e.getX();
         my = e.getY();
-
         if (Difficulty.on) {
             if (mx >= 340 && mx <= 407) {
                 if (my >= 150 && my <= 200) {
@@ -40,7 +37,6 @@ public class DifficultyMouseListener extends MouseAdapter {
                     Game.on=false;
                     MovementSettings.on=false;
                     System.out.println("backnellaoifficoltà");
-
                 }
             }
         }

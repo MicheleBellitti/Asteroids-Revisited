@@ -2,7 +2,6 @@
 // Source code recreated from a .class file by IntelliJ IDEA
 // (powered by FernFlower decompiler)
 //
-
 import javax.sound.midi.SysexMessage;
 import java.awt.Canvas;
 import java.awt.Color;
@@ -11,7 +10,6 @@ import java.awt.Rectangle;
 import java.awt.image.BufferStrategy;
 import java.util.Iterator;
 import java.util.Random;
-
 public class Game extends Canvas implements Runnable {
     public static int WIDTH = 800;
     public static int HEIGHT = 600;
@@ -33,6 +31,7 @@ public class Game extends Canvas implements Runnable {
     private MyKeyListener kL=new MyKeyListener(this.handler);
     private Spawner spawner;
     private OptionPanel op;
+    private GameSound sound;
     private GameOverScreen gos; // 20/11/21 12:00
     private Sfondo sf;
     private MovementSettings movementSettings;
@@ -45,7 +44,6 @@ public class Game extends Canvas implements Runnable {
         sf=new Sfondo();
         diff=new Difficulty();
         gos=new GameOverScreen();
-
         this.start();
         hud =new Hud();
         this.spawner=new Spawner(handler,hud);
@@ -57,13 +55,11 @@ public class Game extends Canvas implements Runnable {
         this.addMouseListener(new MyMouseListener(this.handler));
         this.addMouseListener(new GameOverScreenMouseListener(this.handler)); // 20/11/21 12:00 this.addMouseListener(new GameOverScreenMouseListener(this.handler)); // 20/11/21 12:00
         this.addMouseListener(new DifficultyMouseListener(this.handler)); // 20/11/21 12:00
-
         this.handler.addGameObject(new Player(350.0F, (float) (HEIGHT - 75), 0.0F, 0.0F, ID.Player));
         for (int i = 0; i < 3; i++) {
             this.handler.addGameObject(new Enemy((float)r1.nextInt(WIDTH), 0.0F, 2*J, 2.0F, ID.Enemy));
             this.J *= -1;
         }
-
         this.stop();
     }
     public int Ecollision(GameObject p,Handler handler,ID id){
@@ -78,7 +74,6 @@ public class Game extends Canvas implements Runnable {
             if(player.intersects(e)) hits++;
         }
         return hits;
-
     }
     public void Ccollision(GameObject p,Handler handler,ID id){
         Rectangle player = new Rectangle((int)p.getX(), (int)p.getY(), 32, 32);
@@ -93,10 +88,7 @@ public class Game extends Canvas implements Runnable {
                 this.hud.setScore(hud.getScore()+100);
             }
         }
-
     }
-
-
     public void Bcollision(Handler handler) {
         int bx,by,bwidth,bheight;
         int ex,ey,ewidth,eheight;
@@ -117,32 +109,24 @@ public class Game extends Canvas implements Runnable {
                         Rectangle pro= new Rectangle(bx,by,bwidth,bheight);
                         Rectangle nem= new Rectangle(ex,ey,ewidth,eheight);
                         if(pro.intersects(nem)){
+                            sound=new GameSound("C:\\suonijava\\FM_OHH.wav");
                             hud.setScore(hud.getScore()+100);
                             hud.setKills(hud.getKills()+1);
                             handler.removeGameObject(handler.objList.get(p));
                             handler.removeGameObject(handler.objList.get(i));
                         }
-
                     }
-
                 }
             }
-
         }
-
-
     }
-    //
-
     public  void freezeGame(){
         for(int i=0;i<handler.objList.size();++i){
             GameObject obj=handler.objList.get(i);
             obj.setVelY(0f);
             obj.setVelX(0f);
-
         }
     }
-
     public GameObject getObject(Handler handler,ID id,int index) {
         for (int i = index; i < handler.objList.size(); i++) {
             if (handler.objList.get(i).getId() == id) {
@@ -158,7 +142,6 @@ public class Game extends Canvas implements Runnable {
             this.running = true;
         }
     }
-
     private synchronized void stop() {
         if (this.running) {
             try {
@@ -166,11 +149,9 @@ public class Game extends Canvas implements Runnable {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-
             this.running = false;
         }
     }
-    // 20/11/21 12:00 nuovo metodo
     private void RemoveAllButPlayer(Handler handler){
         for(int i=handler.objList.size();i>0;i--){
             if(handler.objList.get(i-1).getId() !=ID.Player) handler.objList.remove(i-1);
@@ -184,16 +165,13 @@ public class Game extends Canvas implements Runnable {
         long timer = System.currentTimeMillis();
         int updates = 0;
         int frames = 0;
-
         while(this.running) {
             long now = System.nanoTime();
             delta += (double)(now - lastTime) / ns;
-
             for(lastTime = now; delta >= 1.0D; --delta) {
                 this.tick();
                 ++updates;
             }
-
             this.render();
             ++frames;
             if (System.currentTimeMillis() - timer > 1000L) {
@@ -202,16 +180,13 @@ public class Game extends Canvas implements Runnable {
                 updates = 0;
             }
         }
-
     }
     int BulletCount(Handler handler){
         int num=0;
         for(int i=0;i<handler.objList.size();i++){
             if(handler.objList.get(i).getId()==ID.Bullet){++num;}
         }
-
         return num;
-
     }
     public static int clamp(int val,int min,int max){
         if(val>=max)
@@ -219,20 +194,16 @@ public class Game extends Canvas implements Runnable {
         else if(val<=min)
             return val=min;
         else return val;
-
     }
-
-
     public void RemoveBullet(Handler handler){
         for(int i=0;i<handler.objList.size();++i){
             if(handler.objList.get(i).getId()==ID.Bullet) {
                 int xpos=  (int)handler.objList.get(i).getX();
                 int ypos=  (int)handler.objList.get(i).getY();
-                if(xpos <=0 || xpos >=800 || ypos <=0 || ypos >=600) handler.removeGameObject(handler.objList.get(i));
+                if(xpos <=0 || xpos >=WIDTH || ypos <=0 || ypos >=HEIGHT) handler.removeGameObject(handler.objList.get(i));
             }
         }
     }
-
     private void tick() {
         if(!StartMenu.on && Game.on) {
             tickTimer++;
@@ -253,9 +224,7 @@ public class Game extends Canvas implements Runnable {
                 }
             if(movementSettings.isChanged()) kL.setChanged(true);
             //System.out.println("ci sono in totale "+ BulletCount(handler)+ "bullet");
-
         }
-        // 20/11/21 12:00
         if(Hud.HEALTH == 1) {
             Game.on=false;
             GameOverScreen.on=true;
@@ -263,6 +232,7 @@ public class Game extends Canvas implements Runnable {
             punteggiofinale=hud.getScore();
             hud.setLevel(1);
             hud.setScore(0);
+            hud.setKills(0);
             System.out.println(this.handler.objList);
             RemoveAllButPlayer(this.handler);
             System.out.println(this.handler.objList);
@@ -273,9 +243,7 @@ public class Game extends Canvas implements Runnable {
                 this.J *= -1;
             }
         }
-        // if(hud.getLevel()>=10) freezeGame();
     }
-
     private void render() {
         BufferStrategy bs = this.getBufferStrategy();
         if (bs == null) {
@@ -294,13 +262,12 @@ public class Game extends Canvas implements Runnable {
             if(OptionPanel.on) this.op.render(g);
             if(Sfondo.on) this.sf.render(g);
             if(MovementSettings.on) this.movementSettings.render(g);
-            if(GameOverScreen.on) this.gos.render(g); //20/11/21 12:00
+            if(GameOverScreen.on) this.gos.render(g);
             if(Difficulty.on) this.diff.render(g);
             bs.show();
             g.dispose();
         }
     }
-
     public static void main(String[] args) {
         new Game();
     }

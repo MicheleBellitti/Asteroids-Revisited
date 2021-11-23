@@ -1,5 +1,4 @@
 import java.awt.*;
-
 public class OptionPanel extends StartMenu{
     static boolean on;
     int[] x= new int[5];
@@ -44,6 +43,5 @@ public class OptionPanel extends StartMenu{
             g.setColor(Color.BLACK);
             g.drawString(nomi[i],x[i]+15,y[i]+30);
         }
-
     }
 }

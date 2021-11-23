@@ -1,5 +1,4 @@
 import java.awt.*;
-
 public class Sfondo  extends OptionPanel{
     String[] sfo=new String[4];
     Color[] colors= new Color[4];
@@ -34,11 +33,6 @@ public class Sfondo  extends OptionPanel{
         width[3]=83;
         height[3]=50;
         on=false;
-
-    }
-    void tick() {
-
-
     }
     public void render(Graphics g){
         g.setColor(Color.YELLOW);
@@ -55,6 +49,5 @@ public class Sfondo  extends OptionPanel{
             g.setColor(Color.BLACK);
             g.drawString(sfo[i],x[i]+15,y[i]+30);
         }
-
     }
 }

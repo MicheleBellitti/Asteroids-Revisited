@@ -1,18 +1,15 @@
 import java.awt.*;
-
 public class Bullet extends GameObject{
     private int width=7;
     private  int height=7;
     public Bullet(float x, float y, float velx, float vely, ID id) {
         super(x, y, velx, vely, id);
     }
-
     @Override
     public void tick() {
-    x+=velX;
-    y+=velY;
+        x+=velX;
+        y+=velY;
     }
-
     @Override
     public String toString() {
         return "Bullet{" +
@@ -23,7 +20,6 @@ public class Bullet extends GameObject{
                 ", width=" + width +
                 '}';
     }
-
     @Override
     public void render(Graphics g) {
         if (Game.color==Color.pink) {
@@ -46,6 +42,5 @@ public class Bullet extends GameObject{
             g.setColor(Color.white);
             g.fillOval((int)x,(int)y,width,height);
         }
-
     }
 }

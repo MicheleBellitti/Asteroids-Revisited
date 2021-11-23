@@ -1,5 +1,4 @@
 import java.awt.*;
-
 public class GameOverScreen  {
     int[] x = new int[3];
     int[] y = new int[3];
@@ -25,7 +24,6 @@ public class GameOverScreen  {
         height[2] = 50;
         on = false;
     }
-//   100/14
     public void render(Graphics g) {
         Font font=g.getFont();
         g.setColor(Color.RED);

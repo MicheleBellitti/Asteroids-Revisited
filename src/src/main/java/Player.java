@@ -2,27 +2,18 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.awt.image.ImageObserver;
 import java.awt.image.ImageProducer;
-
 public class Player extends GameObject{
    private static float HEIGHT=32;
-
-
     public Player(float x, float y,float vx,float vy, ID id) {
         super(x,y,vx,vy,id);
     }
-
     @Override
     public void tick() {
         x+=velX;
         y+=velY;
-
         x=Game.clamp((int)x,0,Game.WIDTH-30);
         y=Game.clamp((int)y,0,Game.HEIGHT-67);
-
-
-
     }
-
     @Override
     public void render(Graphics g) {
         if (Game.color==Color.pink) {

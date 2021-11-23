@@ -1,5 +1,4 @@
 import java.awt.*;
-
 public class Hud {
     private  int score;
     private  int level;
@@ -10,9 +9,7 @@ public class Hud {
         HEALTH=255;
         score=0;
         level=1;
-
     }
-
     public int getScore() {
         return score;
     }
@@ -21,21 +18,14 @@ public int getKills(){return kills;}
     public void setScore(int score) {
         this.score = score;
     }
-
     public int getLevel() {
         return level;
     }
-
     public void setLevel(int level) {
         this.level = level;
     }
-
     public  void tick(){
-
         HEALTH=Game.clamp(HEALTH,1,255);
-
-        //score++;
-
     }
     public void render(Graphics g){
         if(Game.color ==Color.white){
@@ -50,7 +40,6 @@ public int getKills(){return kills;}
             g.drawString("Level:"+ level,10,80);
             g.drawString("Score:"+ score,10,100);
             g.drawString("Kills:"+ kills,10,120);
-
         }
          else {
             g.setColor(Color.WHITE);

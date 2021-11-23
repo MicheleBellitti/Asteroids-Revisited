@@ -1,11 +1,8 @@
 import javax.swing.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-
 import java.security.Key;
-
 import static java.awt.event.KeyEvent.VK_S;
-
 public class MyKeyListener extends KeyAdapter  {
     private Handler handler;
     private  boolean changed=false;
@@ -16,8 +13,6 @@ public class MyKeyListener extends KeyAdapter  {
         keyDown[1]=false;
         keyDown[2]=false;
         keyDown[3]=false;
-
-
     }
     @Override
     public void keyPressed(KeyEvent e) {
@@ -42,7 +37,6 @@ public class MyKeyListener extends KeyAdapter  {
                     keyDown[3]=true;
                 }
             }
-
             else  if (tmp.getId() == ID.Player && !changed) {
                 if (key == KeyEvent.VK_UP) {
                     tmp.setVelY(-5);
@@ -59,22 +53,18 @@ public class MyKeyListener extends KeyAdapter  {
                     tmp.setVelX(5);
                     keyDown[3]=true;
                 }
-
             }
             if (key == KeyEvent.VK_ESCAPE) {
                 System.exit(1);
             }
         }
     }
-
     public void setChanged(boolean changed) {
             this.changed = changed;
     }
-
     public boolean isChanged() {
         return changed;
     }
-
     @Override
     public void keyReleased(KeyEvent e) {
         int key = e.getKeyCode();
@@ -112,8 +102,6 @@ public class MyKeyListener extends KeyAdapter  {
                     tmp.setVelX(0);
                 }
             }
-
         }
     }
-
 }

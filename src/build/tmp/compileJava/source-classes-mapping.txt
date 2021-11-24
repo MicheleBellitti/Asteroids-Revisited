@@ -1,25 +1,27 @@
-Sfondo.java
- Sfondo
-Difficulty.java
- Difficulty
+ID.java
+ ID
 MyKeyListener.java
  MyKeyListener
-GameSound.java
- GameSound
 OptionPanel.java
  OptionPanel
-MovementSettings.java
- MovementSettings
+Difficulty.java
+ Difficulty
 GameObject.java
  GameObject
+SoundSettings.java
+ SoundSettings
+MovementSettings.java
+ MovementSettings
 Coin.java
  Coin
 Handler.java
  Handler
-ID.java
- ID
+Sfondo.java
+ Sfondo
 StartMenu.java
  StartMenu
+GameSound.java
+ GameSound
 SfondoMouseListener.java
  SfondoMouseListener
 DifficultyMouseListener.java
@@ -38,15 +40,17 @@ Enemy.java
  Enemy
 GameOverScreenMouseListener.java
  GameOverScreenMouseListener
-MyMouseListener.java
- MyMouseListener
+SoundSettingsMouseListener.java
+ SoundSettingsMouseListener
+MSMouseListener.java
+ MSMouseListener
 Window.java
  Window
 Hud.java
  Hud
 GameOverScreen.java
  GameOverScreen
-MSMouseListener.java
- MSMouseListener
 Game.java
  Game
+MyMouseListener.java
+ MyMouseListener

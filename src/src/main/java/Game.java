@@ -13,7 +13,9 @@ import java.util.Random;
 public class Game extends Canvas implements Runnable {
     public static int WIDTH = 800;
     public static int HEIGHT = 600;
+    public static boolean sound = false;
     static int difficulty= 2;
+    int gamesplayed=0;
     static int punteggiofinale; // 20/11/21 12:00
     static Color color= Color.BLACK;
     private Hud hud;
@@ -31,9 +33,10 @@ public class Game extends Canvas implements Runnable {
     private MyKeyListener kL=new MyKeyListener(this.handler);
     private Spawner spawner;
     private OptionPanel op;
-    private GameSound sound;
+    private  GameSound enemyhit,playerhit,coinhit,gameoversound,play;
     private GameOverScreen gos; // 20/11/21 12:00
     private Sfondo sf;
+    private SoundSettings ss;
     private MovementSettings movementSettings;
     private Difficulty diff;
     int cnt=-1;
@@ -43,6 +46,7 @@ public class Game extends Canvas implements Runnable {
         op = new OptionPanel();
         sf=new Sfondo();
         diff=new Difficulty();
+        ss=new SoundSettings();
         gos=new GameOverScreen();
         this.start();
         hud =new Hud();
@@ -54,7 +58,13 @@ public class Game extends Canvas implements Runnable {
         this.addMouseListener(new MSMouseListener(this.handler,movementSettings));
         this.addMouseListener(new MyMouseListener(this.handler));
         this.addMouseListener(new GameOverScreenMouseListener(this.handler)); // 20/11/21 12:00 this.addMouseListener(new GameOverScreenMouseListener(this.handler)); // 20/11/21 12:00
-        this.addMouseListener(new DifficultyMouseListener(this.handler)); // 20/11/21 12:00
+        this.addMouseListener(new DifficultyMouseListener(this.handler));
+        this.addMouseListener(new SoundSettingsMouseListener(this.handler));
+        enemyhit=new GameSound("D:\\INTELLIJIDEA\\PROGETTI\\src\\src\\main\\resources\\Enemycolpito.wav");
+        gameoversound = new GameSound("D:\\INTELLIJIDEA\\PROGETTI\\src\\src\\main\\resources\\Shadows of Evil Game Over Song.wav");
+        coinhit=new GameSound("D:\\INTELLIJIDEA\\PROGETTI\\src\\src\\main\\resources\\Coinraccolto.wav");
+        playerhit=new GameSound("D:\\INTELLIJIDEA\\PROGETTI\\src\\src\\main\\resources\\Playercolpito.wav");
+        play= new GameSound("D:\\INTELLIJIDEA\\PROGETTI\\src\\src\\main\\resources\\Street Fighter III 3rd Strike-The Theme of Q.wav");
         this.handler.addGameObject(new Player(350.0F, (float) (HEIGHT - 75), 0.0F, 0.0F, ID.Player));
         for (int i = 0; i < 3; i++) {
             this.handler.addGameObject(new Enemy((float)r1.nextInt(WIDTH), 0.0F, 2*J, 2.0F, ID.Enemy));
@@ -71,7 +81,15 @@ public class Game extends Canvas implements Runnable {
                 continue;
             }
             Rectangle e=new Rectangle((int)tmp.getX(),(int)tmp.getY(),16,16);
-            if(player.intersects(e)) hits++;
+            if(player.intersects(e)) {
+                if(Game.sound) {
+                    playerhit = new GameSound("D:\\INTELLIJIDEA\\PROGETTI\\src\\src\\main\\resources\\Playercolpito.wav");
+                    playerhit.play();
+                    playerhit.setVolume(-7.5F);
+                }
+                hits++;
+                //sound = new GameSound("PLAYERCOLPITO.wav");
+            }
         }
         return hits;
     }
@@ -84,6 +102,11 @@ public class Game extends Canvas implements Runnable {
             }
             Rectangle e=new Rectangle((int)tmp.getX(),(int)tmp.getY(),16,16);
             if(player.intersects(e)) {
+                if(Game.sound) {
+                    coinhit = new GameSound("D:\\INTELLIJIDEA\\PROGETTI\\src\\src\\main\\resources\\Coinraccolto.wav");
+                    coinhit.play();
+                    coinhit.setVolume(-7.5F);
+                }
                 handler.removeGameObject(tmp);
                 this.hud.setScore(hud.getScore()+100);
             }
@@ -109,7 +132,11 @@ public class Game extends Canvas implements Runnable {
                         Rectangle pro= new Rectangle(bx,by,bwidth,bheight);
                         Rectangle nem= new Rectangle(ex,ey,ewidth,eheight);
                         if(pro.intersects(nem)){
-                            sound=new GameSound("C:\\suonijava\\FM_OHH.wav");
+                            if(Game.sound){
+                                enemyhit=new GameSound("D:\\INTELLIJIDEA\\PROGETTI\\src\\src\\main\\resources\\Enemycolpito.wav");
+                                enemyhit.play();
+                                enemyhit.setVolume(-7.5F);
+                            }
                             hud.setScore(hud.getScore()+100);
                             hud.setKills(hud.getKills()+1);
                             handler.removeGameObject(handler.objList.get(p));
@@ -205,7 +232,12 @@ public class Game extends Canvas implements Runnable {
         }
     }
     private void tick() {
-        if(!StartMenu.on && Game.on) {
+        if(Game.on) {
+            if(Game.sound) {
+                gameoversound.stop();
+                play.loop();
+                play.setVolume(-10F);
+            }
             tickTimer++;
             //System.out.println(tickTimer);
             this.handler.tick();
@@ -216,32 +248,37 @@ public class Game extends Canvas implements Runnable {
             Ccollision(getObject(this.handler, ID.Player, 0), this.handler, ID.Coin);
             RemoveBullet(this.handler);
             Bcollision(this.handler);
-            System.out.println(difficulty);
-                if (tickTimer == 65 *difficulty) {
-                    System.out.println("spawno un nemico ogni tot " + tickTimer);
-                    this.handler.addGameObject(new Enemy((float) r1.nextInt(WIDTH), (float) r1.nextInt(HEIGHT), r1.nextInt(5), r1.nextInt(3), ID.Enemy));
-                    tickTimer = 0;
-                }
+            if (tickTimer == 65 * difficulty) {
+                //System.out.println("spawno un nemico ogni tot " + tickTimer);
+                this.handler.addGameObject(new Enemy((float) r1.nextInt(WIDTH), (float) r1.nextInt(HEIGHT), r1.nextInt(5), r1.nextInt(3), ID.Enemy));
+                tickTimer = 0;
+            }
             if(movementSettings.isChanged()) kL.setChanged(false);
             //System.out.println("ci sono in totale "+ BulletCount(handler)+ "bullet");
         }
         if(Hud.HEALTH == 1) {
+            ++gamesplayed;
             Game.on=false;
             GameOverScreen.on=true;
-            Hud.HEALTH = 255; //setti i valori prima salvi il punteggio
-            punteggiofinale=hud.getScore();
+            if(Game.sound) {
+                play.stop();
+                gameoversound.play();
+            }
+            Hud.HEALTH = 255;
+            punteggiofinale= hud.getScore();
             hud.setLevel(1);
             hud.setScore(0);
             hud.setKills(0);
-            System.out.println(this.handler.objList);
             RemoveAllButPlayer(this.handler);
-            System.out.println(this.handler.objList);
-            handler.objList.get(0).setX(350.0F); // reset coordinate player
-            handler.objList.get(0).setY((float) (HEIGHT - 75));
-            for (int i = 0; i < 3; i++) { //spawn nemici nuovo
+            handler.objList.get(0).setX(350.0F); // reset coordinate x  player
+            handler.objList.get(0).setY((float) (HEIGHT - 75));// reset coordinate y player
+            for (int i = 0; i < 3; i++) { //spawn nemici
                 this.handler.addGameObject(new Enemy((float)r1.nextInt(WIDTH), 0.0F, 2*J, 2.0F, ID.Enemy));
                 this.J *= -1;
             }
+        }
+        if(StartMenu.on && gamesplayed > 0 && Game.sound){
+            gameoversound.stop();
         }
     }
     private void render() {
@@ -259,6 +296,7 @@ public class Game extends Canvas implements Runnable {
                 this.hud.render(g);
             }
             if(StartMenu.on) this.mn.render(g);
+            if(SoundSettings.on) this.ss.render(g);
             if(OptionPanel.on) this.op.render(g);
             if(Sfondo.on) this.sf.render(g);
             if(MovementSettings.on) this.movementSettings.render(g);

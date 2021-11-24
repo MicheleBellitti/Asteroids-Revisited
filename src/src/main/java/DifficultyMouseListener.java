@@ -26,7 +26,7 @@ public class DifficultyMouseListener extends MouseAdapter {
                 }
             }
         }
-        if (!StartMenu.on && !OptionPanel.on) {
+        if (Difficulty.on) {
             if (mx >= 640 && mx < 705) {
                 if (my >= 500 && my <= 545) {
                     StartMenu.on=false;
@@ -36,7 +36,7 @@ public class DifficultyMouseListener extends MouseAdapter {
                     GameOverScreen.on=false;
                     Game.on=false;
                     MovementSettings.on=false;
-                    System.out.println("backnellaoifficoltà");
+                    SoundSettings.on=false;
                 }
             }
         }

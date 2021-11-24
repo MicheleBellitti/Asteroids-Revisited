@@ -27,7 +27,7 @@ import java.awt.event.MouseEvent;
                     }
                 }
 
-                if(!StartMenu.on && !OptionPanel.on) {
+                if(MovementSettings.on) {
                     if (mx >= 640 && mx < 705) {
                         if (my >= 500 && my <= 545) {
                             StartMenu.on=false;
@@ -37,6 +37,7 @@ import java.awt.event.MouseEvent;
                             GameOverScreen.on=false;
                             Game.on=false;
                             MovementSettings.on=false;
+                            SoundSettings.on=false;
                         }
                     }
                 }

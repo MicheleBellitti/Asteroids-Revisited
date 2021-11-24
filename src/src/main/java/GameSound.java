@@ -13,7 +13,7 @@ public class GameSound {
     public GameSound(String path) {
         this.path = path;
         try {
-            file = new File(path);
+            file = new File(path).getAbsoluteFile();
             audio = AudioSystem.getAudioInputStream(file);
             player = AudioSystem.getClip();
             player.open(audio);

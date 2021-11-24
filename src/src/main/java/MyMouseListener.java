@@ -57,7 +57,7 @@ public class MyMouseListener extends MouseAdapter {
             GameObject tmpBullet=new Bullet(tmp.getX() + 16, tmp.getY() + 16, 0,0 , ID.Bullet);
             handler.objList.offerFirst(tmpBullet);
             if(Game.sound) {
-                bulletsound = new GameSound("D:\\INTELLIJIDEA\\PROGETTI\\src\\src\\main\\resources\\Bulletshot.wav");
+                bulletsound = new GameSound("C:\\Users\\Michele\\IdeaProjects\\Project\\src\\src\\main\\resources\\Bulletshot.wav");
                 bulletsound.play();
                 bulletsound.setVolume(-7.5F);
             }

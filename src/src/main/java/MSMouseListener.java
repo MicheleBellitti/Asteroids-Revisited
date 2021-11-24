@@ -38,6 +38,7 @@ import java.awt.event.MouseEvent;
                             Game.on=false;
                             MovementSettings.on=false;
                             SoundSettings.on=false;
+                            GamePause.on=false;
                         }
                     }
                 }

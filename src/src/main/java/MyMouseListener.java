@@ -32,6 +32,7 @@ public class MyMouseListener extends MouseAdapter {
                     Sfondo.on = false;
                     MovementSettings.on = false;
                     SoundSettings.on=false;
+                    GamePause.on=false;
                 }
             }
             if (mx >= 320 && mx <= 440) {
@@ -44,8 +45,28 @@ public class MyMouseListener extends MouseAdapter {
                     Game.on = false;
                     MovementSettings.on = false;
                     SoundSettings.on=false;
+                    GamePause.on=false;
                 }
             }
+        }
+        if(Game.on){
+            if(mx>=640 && mx<=705){
+                if(my>=500 && my<=545){
+                    StartMenu.on = false;
+                    Difficulty.on = false;
+                    OptionPanel.on = false;
+                    Sfondo.on = false;
+                    GameOverScreen.on = false;
+                    Game.on = false;
+                    MovementSettings.on = false;
+                    SoundSettings.on=false;
+                    GamePause.on=true;
+
+                }
+
+            }
+
+
         }
         else FindPlayer();
     }
@@ -57,7 +78,7 @@ public class MyMouseListener extends MouseAdapter {
             GameObject tmpBullet=new Bullet(tmp.getX() + 16, tmp.getY() + 16, 0,0 , ID.Bullet);
             handler.objList.offerFirst(tmpBullet);
             if(Game.sound) {
-                bulletsound = new GameSound("C:\\Users\\Michele\\IdeaProjects\\Project\\src\\src\\main\\resources\\Bulletshot.wav");
+                bulletsound = new GameSound("D:\\INTELLIJIDEA\\PROGETTI\\src\\src\\main\\resources\\Bulletshot.wav");
                 bulletsound.play();
                 bulletsound.setVolume(-7.5F);
             }

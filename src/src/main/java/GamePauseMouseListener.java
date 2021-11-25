@@ -20,12 +20,14 @@ public class GamePauseMouseListener extends MouseAdapter {
                     Game.on = true;
                     MovementSettings.on = false;
                     SoundSettings.on = false;
+                    GamePause.on=false;
                 }
 
             }
             if(mx>=333 && mx<=433){ //quit
                 if(my>= 350 && my<=400){
                     Hud.HEALTH=1;
+                    GamePause.on=false;
                 }
 
             }
@@ -40,6 +42,7 @@ public class GamePauseMouseListener extends MouseAdapter {
                     Game.on = false;
                     MovementSettings.on = false;
                     SoundSettings.on = false;
+                    GamePause.on=false;
                 }
 
             }

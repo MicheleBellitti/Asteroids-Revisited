@@ -2,6 +2,7 @@ import java.awt.*;
 
 public class GamePause extends OptionPanel {
     static boolean on;
+    static boolean pause;
     int[] x = new int[3];
     int[] width = new int[3];
     int[] height = new int[3];
@@ -24,6 +25,7 @@ public class GamePause extends OptionPanel {
         height[2]=50;
        nomi[2]="OPTIONS";
         on=false;
+        pause=false;
     }
    /*
     public boolean getMode(){

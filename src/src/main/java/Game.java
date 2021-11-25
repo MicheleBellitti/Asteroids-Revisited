@@ -298,7 +298,7 @@ public class Game extends Canvas implements Runnable {
                 g.setColor(Color.red);
                 g.fillRect(640,500,65,45);
                 g.setColor(Color.black);
-                g.drawString("BACK",655,530);
+                g.drawString("PAUSE",655,530);
                 g.setColor(color);
                 this.handler.render(g);
                 this.hud.render(g);

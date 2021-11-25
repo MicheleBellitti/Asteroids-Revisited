@@ -61,6 +61,7 @@ public class MyMouseListener extends MouseAdapter {
                     MovementSettings.on = false;
                     SoundSettings.on=false;
                     GamePause.on=true;
+                    GamePause.pause=true;
 
                 }
 

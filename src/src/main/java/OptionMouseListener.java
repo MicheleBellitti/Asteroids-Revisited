@@ -63,7 +63,7 @@ public class OptionMouseListener extends MouseAdapter {
                     GamePause.on=false;
                 }
             }
-            if (OptionPanel.on) { //back
+            if (OptionPanel.on && !GamePause.pause) { //back
                 if (mx >= 640 && mx <= 710) {
                     if (my >= 500 && my <= 545) {
                         StartMenu.on=true;
@@ -75,6 +75,21 @@ public class OptionMouseListener extends MouseAdapter {
                         MovementSettings.on=false;
                         SoundSettings.on=false;
                         GamePause.on=false;
+                    }
+                }
+            }
+            if (OptionPanel.on && GamePause.pause) { //back
+                if (mx >= 640 && mx <= 710) {
+                    if (my >= 500 && my <= 545) {
+                        StartMenu.on=false;
+                        Difficulty.on=false;
+                        OptionPanel.on=false;
+                        Sfondo.on=false;
+                        GameOverScreen.on=false;
+                        Game.on=false;
+                        MovementSettings.on=false;
+                        SoundSettings.on=false;
+                        GamePause.on=true;
                     }
                 }
             }

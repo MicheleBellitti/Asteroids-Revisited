@@ -21,11 +21,21 @@ public class GamePauseMouseListener extends MouseAdapter {
                     MovementSettings.on = false;
                     SoundSettings.on = false;
                     GamePause.on=false;
+                    GamePause.pause=false;
                 }
 
             }
             if(mx>=333 && mx<=433){ //quit
                 if(my>= 350 && my<=400){
+                    StartMenu.on = false;
+                    Difficulty.on = false;
+                    OptionPanel.on = false;
+                    Sfondo.on = false;
+                    GameOverScreen.on = false;
+                    Game.on = false;
+                    MovementSettings.on = false;
+                    SoundSettings.on = false;
+                    GamePause.on=false;
                     Hud.HEALTH=1;
                     GamePause.on=false;
                 }

@@ -44,6 +44,7 @@ public class SfondoMouseListener extends MouseAdapter {
                     Game.on=false;
                     MovementSettings.on=false;
                     SoundSettings.on=false;
+                    GamePause.on=false;
                     System.out.println("backnellosfondo");
                 }
             }

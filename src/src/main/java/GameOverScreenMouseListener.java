@@ -17,6 +17,7 @@ public class GameOverScreenMouseListener extends MouseAdapter {
                     GameOverScreen.on = false;
                     Game.on = true;
                     SoundSettings.on=false;
+                    GamePause.on=false;
                 }
             }
             if (mx >= 297 && mx <= 297 + 100) {
@@ -25,6 +26,7 @@ public class GameOverScreenMouseListener extends MouseAdapter {
                     GameOverScreen.on = false;
                     StartMenu.on = true;
                     SoundSettings.on=false;
+                    GamePause.on=false;
                 }
             }
             if (mx >= 351 && mx <= 351 + 80) {

@@ -21,6 +21,7 @@ public class OptionMouseListener extends MouseAdapter {
                     MovementSettings.on=false;
                     StartMenu.on=false;
                     SoundSettings.on=false;
+                    GamePause.on=false;
                 }
             }
             if (mx >= 330 && mx <= 434) { //difficolta
@@ -33,6 +34,7 @@ public class OptionMouseListener extends MouseAdapter {
                     Game.on=false;
                     MovementSettings.on=false;
                     SoundSettings.on=false;
+                    GamePause.on=false;
                 }
             }
             if (mx >= 333 && mx <= 433) { //controlli
@@ -45,6 +47,7 @@ public class OptionMouseListener extends MouseAdapter {
                     GameOverScreen.on=false;
                     StartMenu.on=false;
                     SoundSettings.on=false;
+                    GamePause.on=false;
                 }
             }
             if (mx >= 343 && mx < 426) { //suono
@@ -57,6 +60,7 @@ public class OptionMouseListener extends MouseAdapter {
                     GameOverScreen.on=false;
                     StartMenu.on=false;
                     SoundSettings.on=true;
+                    GamePause.on=false;
                 }
             }
             if (OptionPanel.on) { //back
@@ -70,6 +74,7 @@ public class OptionMouseListener extends MouseAdapter {
                         Game.on=false;
                         MovementSettings.on=false;
                         SoundSettings.on=false;
+                        GamePause.on=false;
                     }
                 }
             }

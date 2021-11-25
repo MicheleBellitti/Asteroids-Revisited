@@ -33,6 +33,7 @@ public class Game extends Canvas implements Runnable {
     private MyKeyListener kL=new MyKeyListener(this.handler);
     private Spawner spawner;
     private OptionPanel op;
+    private GamePause gp;
     private  GameSound enemyhit,playerhit,coinhit,gameoversound,play;
     private GameOverScreen gos; // 20/11/21 12:00
     private Sfondo sf;
@@ -45,6 +46,7 @@ public class Game extends Canvas implements Runnable {
         mn= new StartMenu();
         op = new OptionPanel();
         sf=new Sfondo();
+        gp=new GamePause();
         diff=new Difficulty();
         ss=new SoundSettings();
         gos=new GameOverScreen();
@@ -60,12 +62,12 @@ public class Game extends Canvas implements Runnable {
         this.addMouseListener(new GameOverScreenMouseListener(this.handler)); // 20/11/21 12:00 this.addMouseListener(new GameOverScreenMouseListener(this.handler)); // 20/11/21 12:00
         this.addMouseListener(new DifficultyMouseListener(this.handler));
         this.addMouseListener(new SoundSettingsMouseListener(this.handler));
-
-        enemyhit=new GameSound(".\\src\\src\\main\\resources\\ENEMYCOLPITO.wav");
-        gameoversound = new GameSound(".\\src\\src\\main\\resources\\Shadows of Evil Game Over Song.wav");
-        coinhit=new GameSound(".\\src\\src\\main\\resources\\Coinraccolto.wav");
-        playerhit=new GameSound(".\\src\\src\\main\\resources\\PLAYERCOLPITO.wav");
-        play= new GameSound(".\\src\\src\\main\\resources\\Street Fighter III 3rd Strike-The Theme of Q.wav");
+        this.addMouseListener(new GamePauseMouseListener(this.handler));
+        enemyhit=new GameSound("D:\\INTELLIJIDEA\\PROGETTI\\src\\src\\main\\resources\\Enemycolpito.wav");
+        gameoversound = new GameSound("D:\\INTELLIJIDEA\\PROGETTI\\src\\src\\main\\resources\\Shadows of Evil Game Over Song.wav");
+        coinhit=new GameSound("D:\\INTELLIJIDEA\\PROGETTI\\src\\src\\main\\resources\\Coinraccolto.wav");
+        playerhit=new GameSound("D:\\INTELLIJIDEA\\PROGETTI\\src\\src\\main\\resources\\Playercolpito.wav");
+        play= new GameSound("D:\\INTELLIJIDEA\\PROGETTI\\src\\src\\main\\resources\\Street Fighter III 3rd Strike-The Theme of Q.wav");
         this.handler.addGameObject(new Player(350.0F, (float) (HEIGHT - 75), 0.0F, 0.0F, ID.Player));
         for (int i = 0; i < 3; i++) {
             this.handler.addGameObject(new Enemy((float)r1.nextInt(WIDTH), 0.0F, 2*J, 2.0F, ID.Enemy));
@@ -84,7 +86,7 @@ public class Game extends Canvas implements Runnable {
             Rectangle e=new Rectangle((int)tmp.getX(),(int)tmp.getY(),16,16);
             if(player.intersects(e)) {
                 if(Game.sound) {
-                    playerhit = new GameSound(".\\src\\src\\main\\resources\\PLAYERCOLPITO.wav");
+                    playerhit = new GameSound("D:\\INTELLIJIDEA\\PROGETTI\\src\\src\\main\\resources\\Playercolpito.wav");
                     playerhit.play();
                     playerhit.setVolume(-7.5F);
                 }
@@ -104,7 +106,7 @@ public class Game extends Canvas implements Runnable {
             Rectangle e=new Rectangle((int)tmp.getX(),(int)tmp.getY(),16,16);
             if(player.intersects(e)) {
                 if(Game.sound) {
-                    coinhit = new GameSound("C:\\Users\\Michele\\IdeaProjects\\Project\\src\\src\\main\\resources\\Coinraccolto.wav");
+                    coinhit = new GameSound("D:\\INTELLIJIDEA\\PROGETTI\\src\\src\\main\\resources\\Coinraccolto.wav");
                     coinhit.play();
                     coinhit.setVolume(-7.5F);
                 }
@@ -134,7 +136,7 @@ public class Game extends Canvas implements Runnable {
                         Rectangle nem= new Rectangle(ex,ey,ewidth,eheight);
                         if(pro.intersects(nem)){
                             if(Game.sound){
-                                enemyhit=new GameSound("C:\\Users\\Michele\\IdeaProjects\\Project\\src\\src\\main\\resources\\ENEMYCOLPITO.wav");
+                                enemyhit=new GameSound("D:\\INTELLIJIDEA\\PROGETTI\\src\\src\\main\\resources\\Enemycolpito.wav");
                                 enemyhit.play();
                                 enemyhit.setVolume(-7.5F);
                             }
@@ -255,7 +257,6 @@ public class Game extends Canvas implements Runnable {
                 tickTimer = 0;
             }
             if(movementSettings.isChanged()) kL.setChanged(false);
-            if(!movementSettings.isChanged()) kL.setChanged(true);
             //System.out.println("ci sono in totale "+ BulletCount(handler)+ "bullet");
         }
         if(Hud.HEALTH == 1) {
@@ -294,9 +295,15 @@ public class Game extends Canvas implements Runnable {
             if(Game.on) {
                 g.setColor(color);
                 g.fillRect(0, 0, WIDTH, HEIGHT);
+                g.setColor(Color.red);
+                g.fillRect(640,500,65,45);
+                g.setColor(Color.black);
+                g.drawString("BACK",655,530);
+                g.setColor(color);
                 this.handler.render(g);
                 this.hud.render(g);
             }
+            if(GamePause.on) this.gp.render(g);
             if(StartMenu.on) this.mn.render(g);
             if(SoundSettings.on) this.ss.render(g);
             if(OptionPanel.on) this.op.render(g);

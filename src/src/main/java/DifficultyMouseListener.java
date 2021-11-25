@@ -37,6 +37,7 @@ public class DifficultyMouseListener extends MouseAdapter {
                     Game.on=false;
                     MovementSettings.on=false;
                     SoundSettings.on=false;
+                    GamePause.on=false;
                 }
             }
         }

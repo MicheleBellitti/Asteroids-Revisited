@@ -7,16 +7,20 @@ import java.sql.SQLException;
 
 public class GameOverScreenMouseListener extends MouseAdapter {
     int mx,my;
-    private int id=0;
+    private int id=1;
     private Handler handler;
     private DataSaving ds;
 
     {
+        /*
+
         try {
             ds = new DataSaving();
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+         */
     }
 
     public GameOverScreenMouseListener(Handler handler) {
@@ -48,11 +52,11 @@ public class GameOverScreenMouseListener extends MouseAdapter {
                 if (my >= 390 && my <= 440) {
                     id=id+1;
                     System.out.println("SAVE");
-                    try {
+                   /*try {
                         ds.InsertScore(id,Game.punteggiofinale);
                     } catch (SQLException ex) {
                         ex.printStackTrace();
-                    }
+                    }*/
                 }
             }
         }

@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class DataSaving {
-    private String urlSQLITE="jdbc:sqlite:prova.db";
+    private String urlSQLITE="jdbc:sqlite:Database.db";
     private String driverSQLITE="org.sqlite.JDBC";
     private Connection c=null;
     private Statement statement=null;

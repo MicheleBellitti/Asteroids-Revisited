@@ -11,8 +11,8 @@ public class DataSaving {
     private Connection c=null;
     private Statement statement=null;
     private int ScoreToInsert=0;
-    public DataSaving(int ScoreToInsert) throws SQLException {
-        this.ScoreToInsert=ScoreToInsert;
+    public DataSaving() throws SQLException {
+
         DBManager.setConnection(driverSQLITE,urlSQLITE);
         this.init();
 

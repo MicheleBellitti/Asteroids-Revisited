@@ -16,8 +16,8 @@ Coin.java
  Coin
 Handler.java
  Handler
-Game.java
- Game
+ID.java
+ ID
 GamePause.java
  GamePause
 StartMenu.java
@@ -36,8 +36,8 @@ Spawner.java
  Spawner
 Enemy.java
  Enemy
-GameOverScreenMouseListener.java
- GameOverScreenMouseListener
+GamePauseMouseListener.java
+ GamePauseMouseListener
 MovementSettings.java
  MovementSettings
 SoundSettingsMouseListener.java
@@ -54,7 +54,11 @@ Sfondo.java
  Sfondo
 MyMouseListener.java
  MyMouseListener
-GamePauseMouseListener.java
- GamePauseMouseListener
-ID.java
- ID
+Database/DBManager.java
+ Database.DBManager
+Game.java
+ Game
+Database/DataSaving.java
+ Database.DataSaving
+GameOverScreenMouseListener.java
+ GameOverScreenMouseListener

@@ -1,9 +1,24 @@
+import Database.DataSaving;
+
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.sql.SQLException;
+
 public class GameOverScreenMouseListener extends MouseAdapter {
     int mx,my;
+    private int id=0;
     private Handler handler;
+    private DataSaving ds;
+
+    {
+        try {
+            ds = new DataSaving();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     public GameOverScreenMouseListener(Handler handler) {
         this.handler = handler;
     }
@@ -31,7 +46,13 @@ public class GameOverScreenMouseListener extends MouseAdapter {
             }
             if (mx >= 351 && mx <= 351 + 80) {
                 if (my >= 390 && my <= 440) {
+                    id=id+1;
                     System.out.println("SAVE");
+                    try {
+                        ds.InsertScore(id,Game.punteggiofinale);
+                    } catch (SQLException ex) {
+                        ex.printStackTrace();
+                    }
                 }
             }
         }

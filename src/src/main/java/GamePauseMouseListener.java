@@ -36,7 +36,7 @@ public class GamePauseMouseListener extends MouseAdapter {
                     MovementSettings.on = false;
                     SoundSettings.on = false;
                     GamePause.on=false;
-                    Hud.HEALTH=1;
+                    Hud.HEALTH=0;
                     GamePause.on=false;
                 }
 

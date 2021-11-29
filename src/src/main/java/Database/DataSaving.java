@@ -26,6 +26,7 @@ public class DataSaving {
             statement = c.createStatement();
           // statement.executeUpdate("CREATE TABLE Punteggi(" + "id INTEGER ," + "punteggio INTEGER," + "ORDER BY punteggio)");
         }catch(SQLException e){
+
             statement.executeUpdate("DROP TABLE IF EXISTS Punteggi");
             statement.executeUpdate("CREATE TABLE Punteggi(" + "id INTEGER ," + "punteggio INTEGER)");
 
@@ -42,7 +43,7 @@ public class DataSaving {
         }catch (SQLException e){
             e.printStackTrace();
             statement.executeUpdate("DROP TABLE IF EXISTS Punteggi");
-            statement.executeUpdate("CREATE TABLE Punteggi(" + "id INTEGER PRIMARY KEY," + "punteggio INTEGER)");
+            statement.executeUpdate("CREATE TABLE Punteggi(" + "id ," + "punteggio INTEGER)");
         }
 
 

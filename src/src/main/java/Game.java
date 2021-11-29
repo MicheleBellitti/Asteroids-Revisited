@@ -273,7 +273,7 @@ public class Game extends Canvas implements Runnable {
             if(movementSettings.isChanged()) kL.setChanged(false);
             //System.out.println("ci sono in totale "+ BulletCount(handler)+ "bullet");
         }
-        else if(Leaderboard.on) ld.tick();
+        //else if(Leaderboard.on) ld.tick();
         if(Hud.HEALTH == 0) {
             ++gamesplayed;
             Game.on=false;
@@ -319,11 +319,10 @@ public class Game extends Canvas implements Runnable {
                 this.hud.render(g);
             }
             if(GamePause.on) this.gp.render(g);
-            if(StartMenu.on){
-                this.mn.render(g);
+            if(StartMenu.on) this.mn.render(g);
 
-            }
-            if(Leaderboard.on) ld.render(g);
+            //if(Leaderboard.on) ld.render(g);
+
             if(SoundSettings.on) this.ss.render(g);
             if(OptionPanel.on) this.op.render(g);
             if(Sfondo.on) this.sf.render(g);

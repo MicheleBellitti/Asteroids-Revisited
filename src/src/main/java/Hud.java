@@ -25,7 +25,7 @@ public int getKills(){return kills;}
         this.level = level;
     }
     public  void tick(){
-        HEALTH=Game.clamp(HEALTH,1,255);
+        HEALTH=Game.clamp(HEALTH,0,255);
     }
     public void render(Graphics g){
         if(Game.color ==Color.white){

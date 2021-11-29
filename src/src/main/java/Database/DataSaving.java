@@ -60,7 +60,7 @@ public class DataSaving {
         }catch (SQLException e){
             e.printStackTrace();
             statement.executeUpdate("DROP TABLE IF EXISTS Punteggi");
-            statement.executeUpdate("CREATE TABLE Punteggi(" + "id INTEGER PRIMARY KEY," + "punteggio INTEGER)");
+            statement.executeUpdate("CREATE TABLE Punteggi(" + "id INTEGER ," + "punteggio INTEGER)");
             while(rs !=null && rs.next()){
                 scores[index]=rs.getInt("punteggio");
                 index++;

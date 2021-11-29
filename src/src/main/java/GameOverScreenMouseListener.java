@@ -12,7 +12,7 @@ public class GameOverScreenMouseListener extends MouseAdapter {
     private DataSaving ds;
 
     {
-        /*
+
 
         try {
             ds = new DataSaving();
@@ -20,7 +20,7 @@ public class GameOverScreenMouseListener extends MouseAdapter {
             e.printStackTrace();
         }
 
-         */
+
     }
 
     public GameOverScreenMouseListener(Handler handler) {
@@ -52,11 +52,11 @@ public class GameOverScreenMouseListener extends MouseAdapter {
                 if (my >= 390 && my <= 440) {
                     id=id+1;
                     System.out.println("SAVE");
-                   /*try {
+                   try {
                         ds.InsertScore(id,Game.punteggiofinale);
                     } catch (SQLException ex) {
                         ex.printStackTrace();
-                    }*/
+                    }
                 }
             }
         }

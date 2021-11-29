@@ -7,7 +7,9 @@ import java.sql.Statement;
 
 public class DataSaving {
     private String urlSQLITE="jdbc:sqlite:Database.db";
+    private String urlMSSQL="jdbc:sqlserver://localhost\\\\sqlexpress;user=sa;password=secret";
     private String driverSQLITE="org.sqlite.JDBC";
+    private String driverMSSQL="com.microsoft.sqlserver.jdbc.SQLServerDriver";
     private Connection c=null;
     private Statement statement=null;
     private int ScoreToInsert=0;
@@ -28,10 +30,7 @@ public class DataSaving {
             statement.executeUpdate("CREATE TABLE Punteggi(" + "id INTEGER PRIMARY KEY," + "punteggio INTEGER)");
 
         }
-        finally {
-            if(c!=null)
-                DBManager.close();
-        }
+
 
     }
     public int InsertScore(int id,int score) throws SQLException {
@@ -49,6 +48,7 @@ public class DataSaving {
             if(c!=null)
                 DBManager.close();
         }
+
         return rowsAffected;
     }
     public int[] getTopScores() throws SQLException {
@@ -64,15 +64,17 @@ public class DataSaving {
             e.printStackTrace();
             statement.executeUpdate("DROP TABLE IF EXISTS Punteggi");
             statement.executeUpdate("CREATE TABLE Punteggi(" + "id INTEGER PRIMARY KEY," + "punteggio INTEGER)");
+            while(rs !=null && rs.next()){
+                scores[index]=rs.getInt("punteggio");
+                index++;
+            }
         }
         finally {
             if(c!=null)
                 DBManager.close();
+            rs=null;
         }
-        while(rs !=null && rs.next()){
-            scores[index]=rs.getInt("punteggio");
-            index++;
-        }
+
         return scores;
     }
 

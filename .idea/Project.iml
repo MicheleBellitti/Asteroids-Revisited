@@ -3,19 +3,18 @@
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
     <content url="file://$MODULE_DIR$" />
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="17" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="sqlite-jdbc-3.32.3.2" level="project" />
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/src/src/main/lib/sqlite-jdbc-3.36.0.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/sqljdbc_9.4.0.0_ita.zip!/" />
         </CLASSES>
         <JAVADOC />
-        <SOURCES>
-          <root url="jar://$USER_HOME$/.ideaLibSources/sqlite-jdbc-3.36.0-sources.jar!/" />
-        </SOURCES>
+        <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" name="sqlite-jdbc-3.36.01" level="project" />
+    <orderEntry type="library" name="sqljdbc_9.4.0.0_ita" level="project" />
   </component>
 </module>

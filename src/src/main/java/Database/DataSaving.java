@@ -53,8 +53,7 @@ public class DataSaving {
         int[] scores=new int[5];
         int index=0;
         try {
-            c = DBManager.getConnection();
-            statement = c.createStatement();
+
             rs=statement.executeQuery("SELECT * FROM Punteggi LIMIT 5"+"ORDER BY punteggio,id DESC");
 
         }catch (SQLException e){

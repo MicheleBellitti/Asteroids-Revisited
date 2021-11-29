@@ -11,20 +11,11 @@ public class GameOverScreenMouseListener extends MouseAdapter {
     private Handler handler;
     private DataSaving ds;
 
-    {
 
 
-        try {
-            ds = new DataSaving();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-
-    }
-
-    public GameOverScreenMouseListener(Handler handler) {
+    public GameOverScreenMouseListener(Handler handler,DataSaving ds) {
         this.handler = handler;
+        this.ds=ds;
     }
     @Override
     public void mouseClicked(MouseEvent e) {

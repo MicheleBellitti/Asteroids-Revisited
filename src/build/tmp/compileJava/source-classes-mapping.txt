@@ -42,8 +42,8 @@ Player2.java
  Player2
 Enemy.java
  Enemy
-GamePauseMouseListener.java
- GamePauseMouseListener
+GameOverScreen.java
+ GameOverScreen
 SoundSettingsMouseListener.java
  SoundSettingsMouseListener
 MSMouseListener.java
@@ -52,13 +52,15 @@ Window.java
  Window
 Hud.java
  Hud
-GameOverScreen.java
- GameOverScreen
+GamePauseMouseListener.java
+ GamePauseMouseListener
+GameOverScreenMouseListener.java
+ GameOverScreenMouseListener
+Database/DataSaving.java
+ Database.DataSaving
+Leaderboard.java
+ Leaderboard
 Game.java
  Game
 MyMouseListener.java
  MyMouseListener
-Database/DataSaving.java
- Database.DataSaving
-GameOverScreenMouseListener.java
- GameOverScreenMouseListener

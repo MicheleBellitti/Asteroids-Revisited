@@ -33,9 +33,10 @@ public class MyMouseListener extends MouseAdapter {
                     MovementSettings.on = false;
                     SoundSettings.on=false;
                     GamePause.on=false;
+
                 }
             }
-            if (mx >= 320 && mx <= 440) {
+            if (mx >= 320 && mx <= 440) {//  Leaderboard
                 if (my >= 400 && my <= 450) {
                     StartMenu.on = false;
                     Difficulty.on = false;
@@ -46,6 +47,7 @@ public class MyMouseListener extends MouseAdapter {
                     MovementSettings.on = false;
                     SoundSettings.on=false;
                     GamePause.on=false;
+
                 }
             }
         }

@@ -3,6 +3,7 @@
 // (powered by FernFlower decompiler)
 //
 import Database.DBManager;
+import Database.DataSaving;
 
 import javax.sound.midi.SysexMessage;
 import java.awt.Canvas;
@@ -27,6 +28,14 @@ public class Game extends Canvas implements Runnable {
     private int J = 1;
     private StartMenu mn;
     static boolean on=false;
+    private DataSaving ds;
+    {
+        try {
+            ds = new DataSaving();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
     private static String title = "Easy Game";
     private Thread thread;
     private boolean running = false;
@@ -43,10 +52,12 @@ public class Game extends Canvas implements Runnable {
     private SoundSettings ss;
     private MovementSettings movementSettings;
     private Difficulty diff;
+    private Leaderboard ld;
     int cnt=-1;
     public Game() {
         new Window(WIDTH, HEIGHT, title, this);
         mn= new StartMenu();
+        ld=new Leaderboard(ds);
         op = new OptionPanel();
         sf=new Sfondo();
         gp=new GamePause();
@@ -62,7 +73,7 @@ public class Game extends Canvas implements Runnable {
         this.addMouseListener(new SfondoMouseListener(this.handler));
         this.addMouseListener(new MSMouseListener(this.handler,movementSettings));
         this.addMouseListener(new MyMouseListener(this.handler));
-        this.addMouseListener(new GameOverScreenMouseListener(this.handler)); // 20/11/21 12:00 this.addMouseListener(new GameOverScreenMouseListener(this.handler)); // 20/11/21 12:00
+        this.addMouseListener(new GameOverScreenMouseListener(this.handler,ds)); // 20/11/21 12:00 this.addMouseListener(new GameOverScreenMouseListener(this.handler)); // 20/11/21 12:00
         this.addMouseListener(new DifficultyMouseListener(this.handler));
         this.addMouseListener(new SoundSettingsMouseListener(this.handler));
         this.addMouseListener(new GamePauseMouseListener(this.handler));
@@ -262,7 +273,8 @@ public class Game extends Canvas implements Runnable {
             if(movementSettings.isChanged()) kL.setChanged(false);
             //System.out.println("ci sono in totale "+ BulletCount(handler)+ "bullet");
         }
-        if(Hud.HEALTH == 1) {
+        else if(Leaderboard.on) ld.tick();
+        if(Hud.HEALTH == 0) {
             ++gamesplayed;
             Game.on=false;
             GameOverScreen.on=true;
@@ -307,7 +319,11 @@ public class Game extends Canvas implements Runnable {
                 this.hud.render(g);
             }
             if(GamePause.on) this.gp.render(g);
-            if(StartMenu.on) this.mn.render(g);
+            if(StartMenu.on){
+                this.mn.render(g);
+
+            }
+            if(Leaderboard.on) ld.render(g);
             if(SoundSettings.on) this.ss.render(g);
             if(OptionPanel.on) this.op.render(g);
             if(Sfondo.on) this.sf.render(g);

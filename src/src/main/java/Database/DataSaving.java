@@ -24,10 +24,10 @@ public class DataSaving {
         try {
             c = DBManager.getConnection();
             statement = c.createStatement();
-            statement.executeUpdate("CREATE TABLE Punteggi(" + "id INTEGER PRIMARY KEY," + "punteggio INTEGER," + "ORDER BY punteggio)");
+          // statement.executeUpdate("CREATE TABLE Punteggi(" + "id INTEGER ," + "punteggio INTEGER," + "ORDER BY punteggio)");
         }catch(SQLException e){
             statement.executeUpdate("DROP TABLE IF EXISTS Punteggi");
-            statement.executeUpdate("CREATE TABLE Punteggi(" + "id INTEGER PRIMARY KEY," + "punteggio INTEGER)");
+            statement.executeUpdate("CREATE TABLE Punteggi(" + "id INTEGER ," + "punteggio INTEGER)");
 
         }
 
@@ -36,18 +36,15 @@ public class DataSaving {
     public int InsertScore(int id,int score) throws SQLException {
         int rowsAffected=0;
         try {
-            c = DBManager.getConnection();
-            statement = c.createStatement();
+
+
             rowsAffected = statement.executeUpdate("INSERT INTO Punteggi(id,punteggio) VALUES(" + id + "," + score + ")");
         }catch (SQLException e){
             e.printStackTrace();
             statement.executeUpdate("DROP TABLE IF EXISTS Punteggi");
             statement.executeUpdate("CREATE TABLE Punteggi(" + "id INTEGER PRIMARY KEY," + "punteggio INTEGER)");
         }
-        finally {
-            if(c!=null)
-                DBManager.close();
-        }
+
 
         return rowsAffected;
     }
@@ -58,7 +55,7 @@ public class DataSaving {
         try {
             c = DBManager.getConnection();
             statement = c.createStatement();
-            rs=statement.executeQuery("SELECT * FROM Punteggi LIMIT 5"+"ORDER BY punteggio DESC");
+            rs=statement.executeQuery("SELECT * FROM Punteggi LIMIT 5"+"ORDER BY punteggio,id DESC");
 
         }catch (SQLException e){
             e.printStackTrace();
@@ -70,8 +67,7 @@ public class DataSaving {
             }
         }
         finally {
-            if(c!=null)
-                DBManager.close();
+
             rs=null;
         }
 

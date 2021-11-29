@@ -2,12 +2,15 @@
 // Source code recreated from a .class file by IntelliJ IDEA
 // (powered by FernFlower decompiler)
 //
+import Database.DBManager;
+
 import javax.sound.midi.SysexMessage;
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.awt.image.BufferStrategy;
+import java.sql.SQLException;
 import java.util.Iterator;
 import java.util.Random;
 public class Game extends Canvas implements Runnable {
@@ -317,5 +320,10 @@ public class Game extends Canvas implements Runnable {
     }
     public static void main(String[] args) {
         new Game();
+        try {
+            DBManager.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -9,6 +9,7 @@ import java.util.List;
 
 public class DataSaving {
     private String urlSQLITE="jdbc:sqlite:Database.db";
+    ResultSet rs;
     private String urlMSSQL="jdbc:sqlserver://localhost\\\\sqlexpress;user=sa;password=secret";
     private String driverSQLITE="org.sqlite.JDBC";
     private String driverMSSQL="com.microsoft.sqlserver.jdbc.SQLServerDriver";
@@ -23,7 +24,7 @@ public class DataSaving {
         try {
             c = DBManager.getConnection();
             statement = c.createStatement();
-          // statement.executeUpdate("CREATE TABLE Punteggi(" + "id INTEGER ," + "punteggio INTEGER," + "ORDER BY punteggio)");
+            // statement.executeUpdate("CREATE TABLE Punteggi(" + "id INTEGER ," + "punteggio INTEGER," + "ORDER BY punteggio)");
         }catch(SQLException e){
 
             statement.executeUpdate("DROP TABLE IF EXISTS Punteggi");
@@ -42,30 +43,20 @@ public class DataSaving {
         }
         return rowsAffected;
     }
-    public ArrayList<Integer> getTopScores() throws SQLException {
-        ResultSet rs=null;
-        ArrayList<Integer> scores=new ArrayList<Integer>();
+    public int[] getTopScores(int[] scores) throws SQLException {
         int index=0;
         try {
-            rs=statement.executeQuery("SELECT * FROM Punteggi"+" ORDER BY punteggio ");
-
+            rs=statement.executeQuery("SELECT * FROM Punteggi"+" ORDER BY punteggio DESC");
         }catch (SQLException e){
             e.printStackTrace();
             statement.executeUpdate("DROP TABLE IF EXISTS Punteggi");
             statement.executeUpdate("CREATE TABLE Punteggi(" + "id INTEGER ," + "punteggio INTEGER)");
-            while(rs !=null && rs.next()){
 
-                scores.add(rs.getInt("punteggio"));
-                index++;
-            }
         }
-        finally {
-            for(int i=0;i<5;i++){
-
-            }
-            rs=null;
+        while(rs != null && rs.next() && index<5){
+            scores[index]=rs.getInt("punteggio");
+            index++;
         }
-
         return scores;
     }
 

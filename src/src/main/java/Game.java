@@ -46,7 +46,6 @@ public class Game extends Canvas implements Runnable {
     private Spawner spawner;
     private OptionPanel op;
     private GamePause gp;
-    private Leaderboard lb;
     private  GameSound enemyhit,playerhit,coinhit,gameoversound,play;
     private GameOverScreen gos; // 20/11/21 12:00
     private Sfondo sf;
@@ -65,7 +64,6 @@ public class Game extends Canvas implements Runnable {
         gp=new GamePause();
         diff=new Difficulty();
         ss=new SoundSettings();
-        lb=new Leaderboard(this.ds);
         gos=new GameOverScreen();
         this.start();
         hud =new Hud();
@@ -277,8 +275,8 @@ public class Game extends Canvas implements Runnable {
             if(movementSettings.isChanged()) kL.setChanged(false);
             //System.out.println("ci sono in totale "+ BulletCount(handler)+ "bullet");
         }
-        else if(Leaderboard.on) ld.tick();
-        if(Hud.HEALTH == 0) {
+
+        if(Hud.HEALTH == 1) {
             ++gamesplayed;
             Game.on=false;
             GameOverScreen.on=true;
@@ -299,6 +297,7 @@ public class Game extends Canvas implements Runnable {
                 this.J *= -1;
             }
         }
+        if(Leaderboard.on)  this.ld.tick();
         if(StartMenu.on && gamesplayed > 0 && Game.sound){
             gameoversound.stop();
         }
@@ -322,7 +321,7 @@ public class Game extends Canvas implements Runnable {
                 this.handler.render(g);
                 this.hud.render(g);
             }
-            if(Leaderboard.on) this.lb.render(g);
+            if(Leaderboard.on) this.ld.render(g);
             if(GamePause.on) this.gp.render(g);
             if(StartMenu.on) this.mn.render(g);
             if(SoundSettings.on) this.ss.render(g);

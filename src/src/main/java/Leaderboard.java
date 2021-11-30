@@ -7,19 +7,18 @@ import java.util.Comparator;
 
 public class Leaderboard {
     private DataSaving ds;
-    private ArrayList<Integer> Scores=new ArrayList<Integer>();
+    private int[] Scores = new int[5];
     static boolean on=false;
     public Leaderboard(DataSaving ds){
         this.ds=ds;
     }
     public void tick(){
-        if(on){
             try {
-                Scores= ds.getTopScores();
+                Scores= ds.getTopScores(Scores);
             } catch (SQLException e) {
                 e.printStackTrace();
             }
-        }
+
     }
     public void render(Graphics g){
         int x=330,y=125,width=100,height=50;
@@ -34,11 +33,8 @@ public class Leaderboard {
         for(int i=0;i<5;i++){
             g.setColor(Color.CYAN);
             g.fillRect(x,y,width,height);
-
             g.setColor(Color.black);
-            Scores.sort(Comparator.reverseOrder());
-            System.out.println(Scores.get(i));
-           g.drawString(""+Scores.get(i),x+15,y+15);
+            g.drawString(""+Scores[i],x+15,y+15);
             y+=75;
 
         }

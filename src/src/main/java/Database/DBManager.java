@@ -1,8 +1,5 @@
 package Database;
-
-
 import java.sql.*;
-
 public class DBManager {
     public static String JDBC_Driver = null;
     public static String JDBC_URL = null;

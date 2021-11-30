@@ -6,6 +6,7 @@ public class GameOverScreen  {
      int[] height = new int[3];
      static String[] nomi= new String[3];
     static boolean on;
+    static boolean saved;
     public GameOverScreen() {
         nomi[0]="PLAY AGAIN";
         nomi[1]="BACK TO MENU";
@@ -23,6 +24,7 @@ public class GameOverScreen  {
         width[2] = (((100/14)+1) * nomi[2].length())+ (6* nomi[2].length());
         height[2] = 50;
         on = false;
+        saved=false;
     }
     public void render(Graphics g) {
         Font font=g.getFont();

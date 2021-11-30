@@ -28,6 +28,7 @@ public class GameOverScreenMouseListener extends MouseAdapter {
                     Game.on = true;
                     SoundSettings.on=false;
                     GamePause.on=false;
+                    GameOverScreen.saved=false;
                 }
             }
             if (mx >= 297 && mx <= 297 + 100) {
@@ -44,16 +45,20 @@ public class GameOverScreenMouseListener extends MouseAdapter {
                     GamePause.on=false;
                     GamePause.pause=false;
                     Leaderboard.on=false;
+                    GameOverScreen.saved=false;
                 }
             }
             if (mx >= 351 && mx <= 351 + 80) {
                 if (my >= 390 && my <= 440) {
-                    id=id+1;
-                    System.out.println("SAVE");
-                   try {
-                        ds.InsertScore(id,Game.punteggiofinale);
-                    } catch (SQLException ex) {
-                        ex.printStackTrace();
+                    if(!GameOverScreen.saved) {
+                        id = id + 1;
+                        System.out.println("SAVE");
+                        try {
+                            ds.InsertScore(id, Game.punteggiofinale);
+                            GameOverScreen.saved=true;
+                        } catch (SQLException ex) {
+                            ex.printStackTrace();
+                        }
                     }
                 }
             }

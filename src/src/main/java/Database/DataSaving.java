@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DataSaving {
     private String urlSQLITE="jdbc:sqlite:Database.db";
@@ -40,24 +42,27 @@ public class DataSaving {
         }
         return rowsAffected;
     }
-    public int[] getTopScores() throws SQLException {
+    public ArrayList<Integer> getTopScores() throws SQLException {
         ResultSet rs=null;
-        int[] scores=new int[5];
+        ArrayList<Integer> scores=new ArrayList<Integer>();
         int index=0;
         try {
-            rs=statement.executeQuery("SELECT * FROM Punteggi LIMIT 5");
+            rs=statement.executeQuery("SELECT * FROM Punteggi"+" ORDER BY punteggio ");
 
         }catch (SQLException e){
             e.printStackTrace();
             statement.executeUpdate("DROP TABLE IF EXISTS Punteggi");
             statement.executeUpdate("CREATE TABLE Punteggi(" + "id INTEGER ," + "punteggio INTEGER)");
             while(rs !=null && rs.next()){
-                scores[index]=rs.getInt("punteggio");
+
+                scores.add(rs.getInt("punteggio"));
                 index++;
             }
         }
         finally {
+            for(int i=0;i<5;i++){
 
+            }
             rs=null;
         }
 

@@ -2,10 +2,12 @@ import Database.DataSaving;
 
 import java.awt.*;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Comparator;
 
 public class Leaderboard {
     private DataSaving ds;
-    private int[] Scores=new int[5];
+    private ArrayList<Integer> Scores=new ArrayList<Integer>();
     static boolean on=false;
     public Leaderboard(DataSaving ds){
         this.ds=ds;
@@ -32,10 +34,12 @@ public class Leaderboard {
         for(int i=0;i<5;i++){
             g.setColor(Color.CYAN);
             g.fillRect(x,y,width,height);
-            y+=75;
+
             g.setColor(Color.black);
-            System.out.println(Scores[i]);
-           g.drawString(""+Scores[i],x+15,y+15);
+            Scores.sort(Comparator.reverseOrder());
+            System.out.println(Scores.get(i));
+           g.drawString(""+Scores.get(i),x+15,y+15);
+            y+=75;
 
         }
     }

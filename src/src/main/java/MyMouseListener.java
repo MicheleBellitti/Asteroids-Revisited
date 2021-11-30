@@ -36,7 +36,7 @@ public class MyMouseListener extends MouseAdapter {
 
                 }
             }
-            if (mx >= 320 && mx <= 440) {//  Leaderboard
+            if (mx >= 320 && mx <= 440) { //options
                 if (my >= 400 && my <= 450) {
                     StartMenu.on = false;
                     Difficulty.on = false;
@@ -47,6 +47,28 @@ public class MyMouseListener extends MouseAdapter {
                     MovementSettings.on = false;
                     SoundSettings.on=false;
                     GamePause.on=false;
+                    Leaderboard.on=false;
+
+                }
+            }
+            /*
+            x[1]= 300;
+        y[1]= 275;
+        width[1] = 158;
+        height[1] = 53;
+             */
+            if (mx >= 300 && mx <= 458) { //leaderboard
+                if (my >= 275 && my <= 328) {
+                    StartMenu.on = false;
+                    Difficulty.on = false;
+                    OptionPanel.on = false;
+                    Sfondo.on = false;
+                    GameOverScreen.on = false;
+                    Game.on = false;
+                    MovementSettings.on = false;
+                    SoundSettings.on=false;
+                    GamePause.on=false;
+                    Leaderboard.on=true;
 
                 }
             }

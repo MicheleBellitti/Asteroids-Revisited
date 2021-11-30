@@ -46,15 +46,17 @@ public class Game extends Canvas implements Runnable {
     private Spawner spawner;
     private OptionPanel op;
     private GamePause gp;
+    private Leaderboard lb;
     private  GameSound enemyhit,playerhit,coinhit,gameoversound,play;
     private GameOverScreen gos; // 20/11/21 12:00
     private Sfondo sf;
     private SoundSettings ss;
     private MovementSettings movementSettings;
-    private Difficulty diff;
+    private  Difficulty diff;
     private Leaderboard ld;
     int cnt=-1;
-    public Game() {
+
+    public Game() throws SQLException {
         new Window(WIDTH, HEIGHT, title, this);
         mn= new StartMenu();
         ld=new Leaderboard(ds);
@@ -63,6 +65,7 @@ public class Game extends Canvas implements Runnable {
         gp=new GamePause();
         diff=new Difficulty();
         ss=new SoundSettings();
+        lb=new Leaderboard(this.ds);
         gos=new GameOverScreen();
         this.start();
         hud =new Hud();
@@ -77,6 +80,7 @@ public class Game extends Canvas implements Runnable {
         this.addMouseListener(new DifficultyMouseListener(this.handler));
         this.addMouseListener(new SoundSettingsMouseListener(this.handler));
         this.addMouseListener(new GamePauseMouseListener(this.handler));
+        this.addMouseListener(new LeaderBoardML(this.handler));
         enemyhit=new GameSound(".\\src\\src\\main\\resources\\Enemycolpito.wav");
         gameoversound = new GameSound(".\\src\\src\\main\\resources\\Shadows of Evil Game Over Song.wav");
         coinhit=new GameSound(".\\src\\src\\main\\resources\\Coinraccolto.wav");
@@ -318,11 +322,9 @@ public class Game extends Canvas implements Runnable {
                 this.handler.render(g);
                 this.hud.render(g);
             }
+            if(Leaderboard.on) this.lb.render(g);
             if(GamePause.on) this.gp.render(g);
             if(StartMenu.on) this.mn.render(g);
-
-            //if(Leaderboard.on) ld.render(g);
-
             if(SoundSettings.on) this.ss.render(g);
             if(OptionPanel.on) this.op.render(g);
             if(Sfondo.on) this.sf.render(g);
@@ -333,7 +335,7 @@ public class Game extends Canvas implements Runnable {
             g.dispose();
         }
     }
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
         new Game();
         try {
             DBManager.close();

@@ -20,12 +20,22 @@ public class Leaderboard {
         }
     }
     public void render(Graphics g){
+        int x=330,y=125,width=100,height=50;
+        g.setColor(Color.CYAN);
         Font font=g.getFont();
-        g.setColor(Color.darkGray);
-        g.fillRect(0,0,Game.WIDTH,Game.HEIGHT);
-        g.setColor(Color.RED);
         g.setFont(new Font("Helvetica",Font.PLAIN,30));
-        g.drawString("Leaderboard", 300, 75);
+        g.drawString("ASTEROIDS",300,75);
         g.setFont(font);
+        g.fillRect(640,500,65,45);
+        g.setColor(Color.black);
+        g.drawString("BACK",655,530);
+        for(int i=0;i<5;i++){
+            g.setColor(Color.CYAN);
+            g.fillRect(x,y,width,height);
+            y+=75;
+            g.setColor(Color.black);
+           g.drawString(String.valueOf(Scores[i]),655,530);
+
+        }
     }
 }

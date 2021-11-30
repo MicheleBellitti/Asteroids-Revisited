@@ -33,10 +33,17 @@ public class GameOverScreenMouseListener extends MouseAdapter {
             if (mx >= 297 && mx <= 297 + 100) {
                 if (my >= 290 && my <= 340) {
                     System.out.println("BACKTOMENU");
-                    GameOverScreen.on = false;
-                    StartMenu.on = true;
+                    StartMenu.on=true;
+                    Difficulty.on=false;
+                    OptionPanel.on=false;
+                    Sfondo.on=false;
+                    GameOverScreen.on=false;
+                    Game.on=false;
+                    MovementSettings.on=false;
                     SoundSettings.on=false;
                     GamePause.on=false;
+                    GamePause.pause=false;
+                    Leaderboard.on=false;
                 }
             }
             if (mx >= 351 && mx <= 351 + 80) {

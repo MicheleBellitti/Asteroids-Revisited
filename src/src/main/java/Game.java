@@ -15,6 +15,9 @@ import java.sql.SQLException;
 import java.util.Iterator;
 import java.util.Random;
 public class Game extends Canvas implements Runnable {
+
+    private static final long serialVersionUID = 5162710183389028794L;
+
     public static int WIDTH = 800;
     public static int HEIGHT = 600;
     public static boolean sound = false;

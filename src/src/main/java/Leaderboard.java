@@ -34,7 +34,8 @@ public class Leaderboard {
             g.fillRect(x,y,width,height);
             y+=75;
             g.setColor(Color.black);
-           g.drawString(String.valueOf(Scores[i]),655,530);
+            System.out.println(Scores[i]);
+           g.drawString(""+Scores[i],x+15,y+15);
 
         }
     }

@@ -277,7 +277,7 @@ public class Game extends Canvas implements Runnable {
             if(movementSettings.isChanged()) kL.setChanged(false);
             //System.out.println("ci sono in totale "+ BulletCount(handler)+ "bullet");
         }
-        //else if(Leaderboard.on) ld.tick();
+        else if(Leaderboard.on) ld.tick();
         if(Hud.HEALTH == 0) {
             ++gamesplayed;
             Game.on=false;

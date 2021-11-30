@@ -6,8 +6,8 @@ OptionPanel.java
  OptionPanel
 Database/DBManager.java
  Database.DBManager
-GameSound.java
- GameSound
+Difficulty.java
+ Difficulty
 Sfondo.java
  Sfondo
 MovementSettings.java
@@ -16,18 +16,20 @@ SoundSettings.java
  SoundSettings
 Coin.java
  Coin
-GameObject.java
- GameObject
+GameOverScreen.java
+ GameOverScreen
 Handler.java
  Handler
-Difficulty.java
- Difficulty
+GameObject.java
+ GameObject
 Database/DataSaving.java
  Database.DataSaving
 GamePause.java
  GamePause
 StartMenu.java
  StartMenu
+GameSound.java
+ GameSound
 SfondoMouseListener.java
  SfondoMouseListener
 DifficultyMouseListener.java
@@ -44,8 +46,8 @@ Player2.java
  Player2
 Enemy.java
  Enemy
-GameOverScreenMouseListener.java
- GameOverScreenMouseListener
+GamePauseMouseListener.java
+ GamePauseMouseListener
 SoundSettingsMouseListener.java
  SoundSettingsMouseListener
 MSMouseListener.java
@@ -56,13 +58,11 @@ Hud.java
  Hud
 Leaderboard.java
  Leaderboard
-GameOverScreen.java
- GameOverScreen
 Game.java
  Game
 MyMouseListener.java
  MyMouseListener
-GamePauseMouseListener.java
- GamePauseMouseListener
+GameOverScreenMouseListener.java
+ GameOverScreenMouseListener
 LeaderBoardML.java
  LeaderBoardML

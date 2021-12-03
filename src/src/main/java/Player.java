@@ -9,7 +9,7 @@ import javax.swing.*;
 
 public class Player extends GameObject{
    private static float HEIGHT=32;
-    BufferedImage img;
+    public static BufferedImage img;
 
     {
         try {
@@ -42,7 +42,7 @@ public class Player extends GameObject{
         x=Game.clamp((int)x,0,Game.WIDTH-30);
         y=Game.clamp((int)y,0,Game.HEIGHT-67);
     }
-    public BufferedImage makeTransparentImage(BufferedImage br) {
+    public static  BufferedImage makeTransparentImage(BufferedImage br) {
         for (int i = 0; i < br.getHeight(); i++) {
             for (int j = 0; j < br.getWidth(); j++) {
                 Color c = new Color(br.getRGB(j, i));
@@ -60,7 +60,7 @@ public class Player extends GameObject{
     @Override
     public void render(Graphics g) {
 
-        BufferedImage transparentImg=makeTransparentImage(img.getSubimage(0,0,32,32));
+        BufferedImage transparentImg=makeTransparentImage(img.getSubimage(0,0,img.getWidth()/6,32));
         if (Game.color==Color.pink) {
             g.setColor(Color.black.darker());
             g.fill3DRect((int) x, (int) y, 32, 32, true);

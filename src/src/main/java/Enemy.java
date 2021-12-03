@@ -27,5 +27,6 @@ private int height=32,width=32;
     public void render(Graphics g) {
         g.setColor(Color.gray);
         g.fillOval((int)x,(int)y,width,height);
+
     }
 }

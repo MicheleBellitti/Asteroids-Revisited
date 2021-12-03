@@ -40,12 +40,12 @@ LeaderBoardML.java
  LeaderBoardML
 Bullet.java
  Bullet
-Spawner.java
- Spawner
+MyMouseListener.java
+ MyMouseListener
 Player2.java
  Player2
-Enemy.java
- Enemy
+GamePauseMouseListener.java
+ GamePauseMouseListener
 GameOverScreenMouseListener.java
  GameOverScreenMouseListener
 SoundSettingsMouseListener.java
@@ -58,10 +58,10 @@ Hud.java
  Hud
 GameOverScreen.java
  GameOverScreen
-GamePauseMouseListener.java
- GamePauseMouseListener
-MyMouseListener.java
- MyMouseListener
+Enemy.java
+ Enemy
+Spawner.java
+ Spawner
 Player.java
  Player
  Player$1

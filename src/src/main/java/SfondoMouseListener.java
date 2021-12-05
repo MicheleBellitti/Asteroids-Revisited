@@ -14,24 +14,20 @@ public class SfondoMouseListener extends MouseAdapter {
         if (Sfondo.on) {
             if (mx >= 330 && mx <= 430) { //sfondo rosa
                 if (my >= 250 && my <= 300) {
-                    Game.color= Color.pink;
+                    Game.sfondo = "./src/src/main/resources/sfondo1.png";
                 }
             }
             if (mx >= 333 && mx <= 433) { //sfondo blu
                 if (my >= 350 && my <= 400) {
-                    Game.color=Color.blue;
+                    Game.sfondo = "./src/src/main/resources/sfondo3.png";
                 }
             }
             if (mx >= 342 && mx < 342+75) { //sfondo bianco
                 if (my >= 150 && my <= 200) {
-                    Game.color=Color.black;
+                    Game.sfondo = "./src/src/main/resources/sfondo2.png";
                 }
             }
-            if (mx >= 343 && mx < 343+83) { //sfondo rosso
-                if (my >= 450 && my <= 500) {
-                    Game.color=Color.red;
-                }
-            }
+
         }
         if(Sfondo.on) {
             if (mx >= 640 && mx < 705) {

@@ -15,23 +15,21 @@ import java.sql.SQLException;
 import java.util.Iterator;
 import java.util.Random;
 public class Game extends Canvas implements Runnable {
-
     private static final long serialVersionUID = 5162710183389028794L;
-
+    private SpriteSheet Sprite;
     public static int WIDTH = 800;
     public static int HEIGHT = 600;
     public static boolean sound = false;
     static int difficulty= 2;
     int gamesplayed=0;
-    SpriteSheet s1=new SpriteSheet();
-
     static int punteggiofinale; // 20/11/21 12:00
-    static Color color= Color.BLACK;
+    static Color color=Color.black;
     private Hud hud;
     private int tickTimer=0;
     public static int ENEMY_NUMBER = 15;
     private int J = 1;
     private StartMenu mn;
+    static String sfondo=null;
     static boolean on=false;
     private DataSaving ds;
     {
@@ -63,6 +61,7 @@ public class Game extends Canvas implements Runnable {
     public Game() throws SQLException {
         new Window(WIDTH, HEIGHT, title, this);
         mn= new StartMenu();
+        Sprite=new SpriteSheet();
         ld=new Leaderboard(ds);
         op = new OptionPanel();
         sf=new Sfondo();
@@ -315,9 +314,9 @@ public class Game extends Canvas implements Runnable {
             Graphics g = bs.getDrawGraphics();
 
             g.setColor(Color.black);
-            //g.fillRect(0, 0, WIDTH, HEIGHT);
-            g.drawImage( s1.getImage("./src/src/main/resources/sfondo1.jpg").getSubimage(0,0,800,600),0,0,this);
+            g.fillRect(0, 0, WIDTH, HEIGHT);
             if(Game.on) {
+                g.drawImage(Sprite.getImage(Game.sfondo),0,0,this);
                 this.handler.render(g);
                 this.hud.render(g);
             }

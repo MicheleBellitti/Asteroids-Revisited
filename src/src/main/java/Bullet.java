@@ -1,7 +1,10 @@
 import java.awt.*;
+import java.awt.image.BufferedImage;
+
 public class Bullet extends GameObject{
     private int width=7;
     private  int height=7;
+    private SpriteSheet bulletSprite=new SpriteSheet();
     public Bullet(float x, float y, float velx, float vely, ID id) {
         super(x, y, velx, vely, id);
     }
@@ -22,13 +25,15 @@ public class Bullet extends GameObject{
     }
     @Override
     public void render(Graphics g) {
+        BufferedImage transparentImg=bulletSprite.getImage("./src/src/main/resources/asteroids-arcade.png" ).getSubimage(192,64,32,32);
         if (Game.color==Color.pink) {
-            g.setColor(Color.black);
+           g.setColor(Color.black);
             g.fillOval((int)x,(int)y,width,height);
         }
         if (Game.color==Color.black) {
-            g.setColor(Color.yellow);
-            g.fillOval((int)x,(int)y,width,height);
+            //g.setColor(Color.yellow);
+            //g.fillOval((int)x,(int)y,width,height);
+            g.drawImage(transparentImg,(int)x,(int)y,null);
         }
         if (Game.color==Color.white) {
             g.setColor(Color.red);

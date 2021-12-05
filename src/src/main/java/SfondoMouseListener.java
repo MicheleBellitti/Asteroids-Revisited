@@ -14,7 +14,7 @@ public class SfondoMouseListener extends MouseAdapter {
         if (Sfondo.on) {
             if (mx >= 330 && mx <= 430) { //sfondo rosa
                 if (my >= 250 && my <= 300) {
-                    Game.sfondo = "./src/src/main/resources/sfondo1.png";
+                    Game.sfondo = "./src/src/main/resources/sfondo1.jpg";
                 }
             }
             if (mx >= 333 && mx <= 433) { //sfondo blu

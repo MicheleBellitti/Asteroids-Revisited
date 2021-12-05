@@ -29,7 +29,7 @@ public class Game extends Canvas implements Runnable {
     public static int ENEMY_NUMBER = 15;
     private int J = 1;
     private StartMenu mn;
-    static String sfondo=null;
+    static String sfondo="./src/src/main/resources/dark-space.jpg";
     static boolean on=false;
     private DataSaving ds;
     {

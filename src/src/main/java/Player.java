@@ -8,7 +8,7 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 
 public class Player extends GameObject{
-   private static float HEIGHT=32;
+   private static float HEIGHT=64;
    public  SpriteSheet playerSprite=new SpriteSheet();
 
 
@@ -31,7 +31,7 @@ public class Player extends GameObject{
     @Override
     public void render(Graphics g) {
 
-        BufferedImage transparentImg=playerSprite.getImage("./src/src/main/resources/test3.png" ).getSubimage(0,0,32,32);
+        BufferedImage transparentImg=playerSprite.getImage("./src/src/main/resources/asteroids-arcade.png" ).getSubimage(0,64,64,64);
         if (Game.color==Color.pink) {
             g.setColor(Color.black.darker());
             g.fill3DRect((int) x, (int) y, 32, 32, true);

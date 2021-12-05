@@ -1,6 +1,9 @@
 import java.awt.*;
+import java.awt.image.BufferedImage;
+
 public class Enemy extends GameObject {
 private int height=32,width=32;
+private SpriteSheet enemySprite=new SpriteSheet();
     public Enemy(float x, float y,float vx,float vy, ID id) {
         super(x, y,vx,vy,id);
     }
@@ -25,8 +28,13 @@ private int height=32,width=32;
     }
     @Override
     public void render(Graphics g) {
-        g.setColor(Color.gray);
-        g.fillOval((int)x,(int)y,width,height);
-
+        BufferedImage transparentImg;
+        if(this.height!=32 || this.width!=32){
+            transparentImg=enemySprite.getImage("./src/src/main/resources/asteroids-arcade.png" ).getSubimage(64,256-64,64,64);
+        }
+        else transparentImg=enemySprite.getImage("./src/src/main/resources/asteroids-arcade.png" ).getSubimage(128,256-64,32,32);
+        //g.setColor(Color.gray);
+        //g.fillOval((int)x,(int)y,width,height);
+        g.drawImage(transparentImg,(int)x,(int)y,null);
     }
 }

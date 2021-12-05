@@ -314,13 +314,6 @@ public class Game extends Canvas implements Runnable {
             g.setColor(Color.black);
             g.fillRect(0, 0, WIDTH, HEIGHT);
             if(Game.on) {
-                g.setColor(color);
-                g.fillRect(0, 0, WIDTH, HEIGHT);
-                g.setColor(Color.red);
-                g.fillRect(640,500,65,45);
-                g.setColor(Color.black);
-                g.drawString("PAUSE",655,530);
-                g.setColor(color);
                 this.handler.render(g);
                 this.hud.render(g);
             }

@@ -57,6 +57,19 @@ public class MyKeyListener extends KeyAdapter  {
             if (key == KeyEvent.VK_ESCAPE) {
                 System.exit(1);
             }
+            if(Game.on && key==KeyEvent.VK_P){
+                StartMenu.on = false;
+                Difficulty.on = false;
+                OptionPanel.on = false;
+                Sfondo.on = false;
+                GameOverScreen.on = false;
+                Game.on = false;
+                MovementSettings.on = false;
+                SoundSettings.on=false;
+                GamePause.on=true;
+                GamePause.pause=true;
+
+            }
         }
     }
     public void setChanged(boolean changed) {

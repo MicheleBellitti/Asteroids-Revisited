@@ -73,26 +73,6 @@ public class MyMouseListener extends MouseAdapter {
                 }
             }
         }
-        if(Game.on){
-            if(mx>=640 && mx<=705){
-                if(my>=500 && my<=545){
-                    StartMenu.on = false;
-                    Difficulty.on = false;
-                    OptionPanel.on = false;
-                    Sfondo.on = false;
-                    GameOverScreen.on = false;
-                    Game.on = false;
-                    MovementSettings.on = false;
-                    SoundSettings.on=false;
-                    GamePause.on=true;
-                    GamePause.pause=true;
-
-                }
-
-            }
-
-
-        }
         else FindPlayer();
     }
     public void mousePressed(MouseEvent e) {

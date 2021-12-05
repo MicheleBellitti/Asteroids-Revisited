@@ -8,6 +8,18 @@ import java.io.IOException;
 
 public class SpriteSheet {
     public static BufferedImage img;
+    ImageFilter filter = new RGBImageFilter() {
+        int transparentColor = Color.white.getRGB() | 0xFF000000;
+
+        public final int filterRGB(int x, int y, int rgb) {
+            if ((rgb | 0xFF000000) == transparentColor) {
+                return 0x00FFFFFF & rgb;
+            } else {
+                return rgb;
+            }
+        }
+    };
+
     public SpriteSheet (){
         this.img=null;
     }
@@ -22,18 +34,6 @@ public static BufferedImage getImage( String path){
     }
     return img;
 }
-
-    ImageFilter filter = new RGBImageFilter() {
-        int transparentColor = Color.white.getRGB() | 0xFF000000;
-
-        public final int filterRGB(int x, int y, int rgb) {
-            if ((rgb | 0xFF000000) == transparentColor) {
-                return 0x00FFFFFF & rgb;
-            } else {
-                return rgb;
-            }
-        }
-    };
     public int getWidth(){
         return img.getWidth();
     }

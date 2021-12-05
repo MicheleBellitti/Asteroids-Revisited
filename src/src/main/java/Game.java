@@ -23,6 +23,8 @@ public class Game extends Canvas implements Runnable {
     public static boolean sound = false;
     static int difficulty= 2;
     int gamesplayed=0;
+    SpriteSheet s1=new SpriteSheet();
+
     static int punteggiofinale; // 20/11/21 12:00
     static Color color= Color.BLACK;
     private Hud hud;
@@ -311,8 +313,10 @@ public class Game extends Canvas implements Runnable {
             this.createBufferStrategy(3);
         } else {
             Graphics g = bs.getDrawGraphics();
+
             g.setColor(Color.black);
-            g.fillRect(0, 0, WIDTH, HEIGHT);
+            //g.fillRect(0, 0, WIDTH, HEIGHT);
+            g.drawImage( s1.getImage("./src/src/main/resources/sfondo1.jpg").getSubimage(0,0,800,600),0,0,this);
             if(Game.on) {
                 this.handler.render(g);
                 this.hud.render(g);

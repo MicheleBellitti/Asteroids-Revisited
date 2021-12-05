@@ -7,7 +7,7 @@ import java.io.File;
 import java.io.IOException;
 
 public class SpriteSheet {
-    public static BufferedImage img;
+    private  BufferedImage img;
     ImageFilter filter = new RGBImageFilter() {
         int transparentColor = Color.white.getRGB() | 0xFF000000;
 
@@ -26,7 +26,7 @@ public class SpriteSheet {
 public SpriteSheet (BufferedImage img){
     this.img=img;
 }
-public static BufferedImage getImage( String path){
+public  BufferedImage getImage( String path){
     try {
         img = ImageIO.read(new File(path));
     } catch (IOException e) {
@@ -43,7 +43,7 @@ public static BufferedImage getImage( String path){
     public BufferedImage getSubimage(int x,int y,int w,int h){
         return img.getSubimage(x,y,w,h);
     }
-    public static  BufferedImage makeTransparentImage(BufferedImage br) {
+    public   BufferedImage makeTransparentImage(BufferedImage br) {
         for (int i = 0; i < br.getHeight(); i++) {
             for (int j = 0; j < br.getWidth(); j++) {
                 Color c = new Color(br.getRGB(j, i));

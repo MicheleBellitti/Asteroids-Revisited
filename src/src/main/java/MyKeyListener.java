@@ -21,36 +21,36 @@ public class MyKeyListener extends KeyAdapter  {
             GameObject tmp = handler.objList.get(i);
             if (tmp.getId() == ID.Player && changed) {
                 if (key == KeyEvent.VK_W) {
-                    tmp.setVelY(-5);
+                    tmp.setVelY(-4);
                     keyDown[0]=true;
                 }
                 if (key == KeyEvent.VK_S) {
-                    tmp.setVelY(5);
+                    tmp.setVelY(4);
                     keyDown[1]=true;
                 }
                 if (key == KeyEvent.VK_A) {
-                    tmp.setVelX(-5);
+                    tmp.setVelX(-4);
                     keyDown[2] = true;
                 }
                 if (key == KeyEvent.VK_D) {
-                    tmp.setVelX(5);
+                    tmp.setVelX(4);
                     keyDown[3]=true;
                 }
             }
             else  if (tmp.getId() == ID.Player && !changed) {
                 if (key == KeyEvent.VK_UP) {
-                    tmp.setVelY(-5);
+                    tmp.setVelY(-4);
                     keyDown[0]=true;
                 }
                 if (key == KeyEvent.VK_DOWN) {
-                    tmp.setVelY(5);
+                    tmp.setVelY(4);
                     keyDown[1]=true;
                 }
                 if (key == KeyEvent.VK_LEFT)
-                    tmp.setVelX(-5);
+                    tmp.setVelX(-4);
                     keyDown[2]=true;
                 if (key == KeyEvent.VK_RIGHT) {
-                    tmp.setVelX(5);
+                    tmp.setVelX(4);
                     keyDown[3]=true;
                 }
             }

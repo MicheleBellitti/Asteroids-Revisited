@@ -6,19 +6,17 @@ import Database.DBManager;
 import Database.DataSaving;
 
 import javax.sound.midi.SysexMessage;
-import java.awt.Canvas;
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Rectangle;
+import java.awt.*;
 import java.awt.image.BufferStrategy;
 import java.sql.SQLException;
 import java.util.Iterator;
 import java.util.Random;
 public class Game extends Canvas implements Runnable {
     private static final long serialVersionUID = 5162710183389028794L;
+    static Dimension screenSize=Toolkit.getDefaultToolkit ().getScreenSize ();
     private SpriteSheet Sprite;
-    public static int WIDTH = 800;
-    public static int HEIGHT = 600;
+    public static int WIDTH = screenSize.width;
+    public static int HEIGHT = screenSize.height;
     public static boolean sound = false;
     static int difficulty= 2;
     int gamesplayed=0;
@@ -88,7 +86,7 @@ public class Game extends Canvas implements Runnable {
         coinhit=new GameSound(".\\src\\src\\main\\resources\\Coinraccolto.wav");
         playerhit=new GameSound(".\\src\\src\\main\\resources\\Playercolpito.wav");
         play= new GameSound(".\\src\\src\\main\\resources\\Street Fighter III 3rd Strike-The Theme of Q.wav");
-        this.handler.addGameObject(new Player(350.0F, (float) (HEIGHT - 125), 0.0F, 0.0F, ID.Player));
+        this.handler.addGameObject(new Player((float)this.getBounds().getWidth()/2, (float) this.getBounds().height/2, 0.0F, 0.0F, ID.Player));
         for (int i = 0; i < 3; i++) {
             this.handler.addGameObject(new Enemy((float)r1.nextInt(WIDTH), 0.0F, 2*J, 2.0F, ID.Enemy));
             this.J *= -1;
@@ -334,6 +332,7 @@ public class Game extends Canvas implements Runnable {
         }
     }
     public static void main(String[] args) throws SQLException {
+        System.out.println(Game.HEIGHT);
         new Game();
         try {
             DBManager.close();

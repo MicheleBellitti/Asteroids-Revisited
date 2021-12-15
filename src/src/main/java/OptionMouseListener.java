@@ -11,8 +11,8 @@ public class OptionMouseListener extends MouseAdapter {
         mx = e.getX();
         my = e.getY();
         if (OptionPanel.on) {
-            if (mx >= 330 && mx <= 430) { //sfondo
-                if (my >= 250 && my <= 300) {
+            if (mx >= 330*Game.WIDTH/786 && mx <= 430*Game.WIDTH/786) { //sfondo
+                if (my >= 250 *Game.HEIGHT/563 && my <= 300*Game.HEIGHT/563) {
                     OptionPanel.on = false;
                     Sfondo.on = true;
                     Game.on=false;
@@ -24,8 +24,8 @@ public class OptionMouseListener extends MouseAdapter {
                     GamePause.on=false;
                 }
             }
-            if (mx >= 330 && mx <= 434) { //difficolta
-                if (my >= 150 && my <= 200) {
+            if (mx >= 330*Game.WIDTH/786 && mx <= 434*Game.WIDTH/786) { //difficolta
+                if (my >= 150*Game.HEIGHT/563 && my <= 200*Game.HEIGHT/563) {
                     StartMenu.on=false;
                     Difficulty.on=true;
                     OptionPanel.on=false;
@@ -37,8 +37,8 @@ public class OptionMouseListener extends MouseAdapter {
                     GamePause.on=false;
                 }
             }
-            if (mx >= 333 && mx <= 433) { //controlli
-                if (my >= 350 && my <= 400) {
+            if (mx >= 333*Game.WIDTH/786 && mx <= 433*Game.WIDTH/786) { //controlli
+                if (my >= 350*Game.HEIGHT/563 && my <= 400*Game.HEIGHT/563) {
                     OptionPanel.on = false;
                     MovementSettings.on = true;
                     Sfondo.on = false;
@@ -50,8 +50,8 @@ public class OptionMouseListener extends MouseAdapter {
                     GamePause.on=false;
                 }
             }
-            if (mx >= 343 && mx < 426) { //suono
-                if (my >= 450 && my <= 500) {
+            if (mx >= 343*Game.WIDTH/786 && mx < 426*Game.WIDTH/786) { //suono
+                if (my >= 450*Game.HEIGHT/563 && my <= 500*Game.HEIGHT/563) {
                     OptionPanel.on = false;
                     MovementSettings.on = false;
                     Sfondo.on = false;
@@ -64,8 +64,8 @@ public class OptionMouseListener extends MouseAdapter {
                 }
             }
             if (OptionPanel.on && !GamePause.pause) { //back
-                if (mx >= 640 && mx <= 710) {
-                    if (my >= 500 && my <= 545) {
+                if (mx >= 640*Game.WIDTH/786 && mx <= 710*Game.WIDTH/786) {
+                    if (my >= 500*Game.HEIGHT/563 && my <= 545*Game.HEIGHT/563) {
                         StartMenu.on=true;
                         Difficulty.on=false;
                         OptionPanel.on=false;
@@ -79,8 +79,8 @@ public class OptionMouseListener extends MouseAdapter {
                 }
             }
             if (OptionPanel.on && GamePause.pause) { //back
-                if (mx >= 640 && mx <= 710) {
-                    if (my >= 500 && my <= 545) {
+                if (mx >= 640*Game.WIDTH/786 && mx <= 710*Game.WIDTH/786) {
+                    if (my >= 500*Game.HEIGHT/563 && my <= 545*Game.HEIGHT/563) {
                         StartMenu.on=false;
                         Difficulty.on=false;
                         OptionPanel.on=false;

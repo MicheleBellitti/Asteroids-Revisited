@@ -22,7 +22,7 @@ public class SoundSettings extends OptionPanel {
     }
     public void render(Graphics g){
         g.setColor(Color.pink);
-        Font font=g.getFont();
+        Font font=new Font(g.getFont().getName(),Font.PLAIN,g.getFont().getSize()*Game.WIDTH/786);
         g.setFont(new Font("Helvetica",Font.PLAIN,30));
         g.drawString("ASTEROIDS",300,75);
         g.setFont(font);

@@ -14,22 +14,22 @@ import java.awt.event.MouseEvent;
             mx = e.getX();
             my = e.getY();
             if (!OptionPanel.on && MovementSettings.on) {
-                if (mx >= 20 && mx <=320) {
-                    if (my >= 350 && my <= 450) {
+                if (mx >= 20*Game.WIDTH/786 && mx <=320*Game.WIDTH/786) {
+                    if (my >= 350*Game.HEIGHT/563 && my <= 450*Game.HEIGHT/563) {
                         ms.changed = false;
                         System.out.println("Standard!");
                     }
                 }
-                if (mx >= 465 && mx <=765) {
-                    if (my >= 350 && my <= 450) {
+                if (mx >= 465*Game.WIDTH/786 && mx <=765*Game.WIDTH/786) {
+                    if (my >= 350*Game.HEIGHT/563 && my <= 450*Game.HEIGHT/563) {
                         ms.changed = true;
                         System.out.println("Secondary!");
                     }
                 }
 
                 if(MovementSettings.on) {
-                    if (mx >= 640 && mx < 705) {
-                        if (my >= 500 && my <= 545) {
+                    if (mx >= 640*Game.WIDTH/786 && mx < 705*Game.WIDTH/786) {
+                        if (my >= 500*Game.HEIGHT/563 && my <= 545*Game.HEIGHT/563) {
                             StartMenu.on=false;
                             Difficulty.on=false;
                             OptionPanel.on=true;

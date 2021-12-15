@@ -21,8 +21,8 @@ public class MyMouseListener extends MouseAdapter {
         mx = e.getX();
         my = e.getY();
         if (StartMenu.on) {
-            if (mx >= 325 && mx <= 425) { //play
-                if (my >= 150 && my <= 200) {
+            if (mx >= 325*Game.WIDTH/786 && mx <= 425*Game.WIDTH/786) { //play
+                if (my >= 150*Game.HEIGHT/563 && my <= 200*Game.HEIGHT/563) {
                     System.out.println("GIOCA");
                     Game.on = true;
                     StartMenu.on = false;
@@ -36,8 +36,8 @@ public class MyMouseListener extends MouseAdapter {
 
                 }
             }
-            if (mx >= 320 && mx <= 440) { //options
-                if (my >= 400 && my <= 450) {
+            if (mx >= 320*Game.WIDTH/786 && mx <= 440*Game.WIDTH/786) { //options
+                if (my >= 400*Game.HEIGHT/563 && my <= 450*Game.HEIGHT/563) {
                     StartMenu.on = false;
                     Difficulty.on = false;
                     OptionPanel.on = true;
@@ -57,8 +57,8 @@ public class MyMouseListener extends MouseAdapter {
         width[1] = 158;
         height[1] = 53;
              */
-            if (mx >= 300 && mx <= 458) { //leaderboard
-                if (my >= 275 && my <= 328) {
+            if (mx >= 300*Game.WIDTH/786 && mx <= 458*Game.WIDTH/786) { //leaderboard
+                if (my >= 275*Game.HEIGHT/563 && my <= 328*Game.HEIGHT/563) {
                     StartMenu.on = false;
                     Difficulty.on = false;
                     OptionPanel.on = false;

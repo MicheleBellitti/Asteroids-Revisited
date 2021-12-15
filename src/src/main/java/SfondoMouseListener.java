@@ -12,26 +12,26 @@ public class SfondoMouseListener extends MouseAdapter {
         mx = e.getX();
         my = e.getY();
         if (Sfondo.on) {
-            if (mx >= 330 && mx <= 430) { //sfondo rosa
-                if (my >= 250 && my <= 300) {
+            if (mx >= 330*Game.WIDTH/786 && mx <= 430*Game.WIDTH/786) { //sfondo rosa
+                if (my >= 250*Game.HEIGHT/563 && my <= 300*Game.HEIGHT/563) {
                     Game.sfondo = "./src/src/main/resources/sfondo1.jpg";
                 }
             }
-            if (mx >= 333 && mx <= 433) { //sfondo blu
-                if (my >= 350 && my <= 400) {
+            if (mx >= 333*Game.WIDTH/786 && mx <= 433*Game.WIDTH/786) { //sfondo blu
+                if (my >= 350*Game.HEIGHT/563 && my <= 400*Game.HEIGHT/563) {
                     Game.sfondo = "./src/src/main/resources/sfondo3.png";
                 }
             }
-            if (mx >= 342 && mx < 342+75) { //sfondo bianco
-                if (my >= 150 && my <= 200) {
+            if (mx >= 342*Game.WIDTH/786 && mx < 417*Game.WIDTH/786) { //sfondo bianco
+                if (my >= 150*Game.HEIGHT/563 && my <= 200*Game.HEIGHT/563) {
                     Game.sfondo = "./src/src/main/resources/sfondo2.png";
                 }
             }
 
         }
         if(Sfondo.on) {
-            if (mx >= 640 && mx < 705) {
-                if (my >= 500 && my <= 545) {
+            if (mx >= 640*Game.WIDTH/786 && mx < 705*Game.WIDTH/786) {
+                if (my >= 500*Game.HEIGHT/563 && my <= 545*Game.HEIGHT/563) {
                     StartMenu.on=false;
                     Difficulty.on=false;
                     OptionPanel.on=true;

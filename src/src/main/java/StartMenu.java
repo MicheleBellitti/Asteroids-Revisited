@@ -30,10 +30,10 @@ public class StartMenu  {
     }
     public void render(Graphics g) {
         g.setColor(Color.red);
-        Font font=g.getFont();
-        g.setFont(new Font("Helvetica",Font.PLAIN,30));
+        Font font=new Font(g.getFont().getName(),Font.PLAIN,g.getFont().getSize()*Game.WIDTH/786);
+        g.setFont(new Font("Helvetica",Font.PLAIN,30*Game.HEIGHT/563));
         g.drawString("ASTEROIDS",300*Game.WIDTH/786,75*Game.HEIGHT/600);
-        g.setFont(new Font(font.getName(),Font.PLAIN,font.getSize()*Game.WIDTH/786));
+        g.setFont(font);
          for(int i=0;i<4;i++) {
           g.setColor(Color.red);
 

@@ -266,8 +266,8 @@ public class Game extends Canvas implements Runnable {
     private void tick() {
 
 
-        System.out.println(getBounds().width);
-        //System.out.println(HEIGHT);
+        //System.out.println(getBounds().height);
+
         if(Game.on) {
             if(Game.sound) {
                 gameoversound.stop();

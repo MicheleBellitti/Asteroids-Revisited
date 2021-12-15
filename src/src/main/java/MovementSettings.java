@@ -48,21 +48,21 @@ import java.awt.*;
     public void render(Graphics g){
         g.setColor(Color.YELLOW);
         Font font=g.getFont();
-        g.setFont(new Font("Helvetica",Font.PLAIN,30));
-        g.drawString("ASTEROIDS",300,75);
+        g.setFont(new Font("Helvetica",Font.PLAIN,30*Game.WIDTH/786));
+        g.drawString("ASTEROIDS",300*Game.WIDTH/786,75*Game.HEIGHT/563);
         g.setFont(font);
-        g.fillRect(640,500,65,45);
+        g.fillRect(640*Game.WIDTH/786,500*Game.HEIGHT/563,65*Game.WIDTH/786,45*Game.HEIGHT/563);
         g.setColor(Color.black);
-        g.drawString("BACK",655,530);
+        g.drawString("BACK",655*Game.WIDTH/786,530*Game.HEIGHT/563);
         g.setColor(Color.yellow);
-        g.setFont(new Font("Helvetica",Font.PLAIN,30));
-        g.drawString("CONTROLLI",300,200);
+        g.setFont(new Font("Helvetica",Font.PLAIN,30*Game.WIDTH/786));
+        g.drawString("CONTROLLI",300*Game.WIDTH/786,200*Game.HEIGHT/563);
 
         g.setColor(Color.yellow);
-        g.drawRect(20,350,300,100);
-        g.drawString("STANDARD",60,410);
-        g.drawRect(465,350,300,100);
-        g.drawString("SECONDARY",510,410);
+        g.drawRect(2*Game.WIDTH/7860,350*Game.HEIGHT/563,300*Game.WIDTH/786,100*Game.HEIGHT/563);
+        g.drawString("STANDARD",60*Game.WIDTH/786,410*Game.HEIGHT/563);
+        g.drawRect(465*Game.WIDTH/786,350*Game.HEIGHT/563,300*Game.WIDTH/786,100*Game.HEIGHT/563);
+        g.drawString("SECONDARY",510*Game.WIDTH/786,410*Game.HEIGHT/563);
 
     }
 }

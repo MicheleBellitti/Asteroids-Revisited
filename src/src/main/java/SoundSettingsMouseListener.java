@@ -12,21 +12,21 @@ public class SoundSettingsMouseListener  extends MouseAdapter {
         mx = e.getX();
         my = e.getY();
         if (SoundSettings.on) {
-            if (mx >= 340 && mx <= 440) {
-                if (my >= 150 && my <= 200) {
+            if (mx >= 340*Game.WIDTH/786 && mx <= 440*Game.WIDTH/786) {
+                if (my >= 150*Game.HEIGHT/563 && my <= 200*Game.HEIGHT/563) {
                     Game.sound = true;
                 }
             }
-                if (mx >= 340 && mx <= 440) {
-                    if (my >= 250 && my <= 300) {
+                if (mx >= 340*Game.WIDTH/786 && mx <= 440*Game.WIDTH/786) {
+                    if (my >= 250*Game.HEIGHT/563 && my <= 300*Game.HEIGHT/563) {
                         Game.sound = false;
                     }
 
                 }
             }
             if (SoundSettings.on) { //back
-                if (mx >= 640 && mx <= 705) {
-                    if (my >= 500 && my <= 545) {
+                if (mx >= 640*Game.WIDTH/786 && mx <= 705*Game.WIDTH/786) {
+                    if (my >= 500*Game.HEIGHT/563 && my <= 545*Game.HEIGHT/563) {
                         StartMenu.on = false;
                         Difficulty.on = false;
                         OptionPanel.on = true;

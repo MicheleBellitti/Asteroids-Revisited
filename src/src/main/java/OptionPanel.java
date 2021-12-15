@@ -37,14 +37,14 @@ public class OptionPanel extends StartMenu{
     public void render(Graphics g){
         g.setColor(Color.YELLOW);
         Font font=g.getFont();
-        g.setFont(new Font("Helvetica",Font.PLAIN,30));
-        g.drawString("ASTEROIDS",300,75);
+        g.setFont(new Font("Helvetica",Font.PLAIN,30*Game.WIDTH/786));
+        g.drawString("ASTEROIDS",300*Game.WIDTH/786,75*Game.HEIGHT/563);
         g.setFont(font);
         for(int i=0;i<5;i++){
             g.setColor(Color.YELLOW);
-            g.fillRect(x[i],y[i],width[i],height[i]);
+            g.fillRect(x[i]*Game.WIDTH/786,y[i]*Game.HEIGHT/563,width[i]*Game.WIDTH/786,height[i]*Game.HEIGHT/563);
             g.setColor(Color.BLACK);
-            g.drawString(nomi[i],x[i]+15,y[i]+30);
+            g.drawString(nomi[i],(x[i]+15)*Game.WIDTH/786,(y[i]+30)*Game.HEIGHT/563);
         }
     }
 }

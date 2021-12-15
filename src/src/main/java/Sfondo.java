@@ -31,18 +31,19 @@ public class Sfondo  extends OptionPanel{
     }
     public void render(Graphics g){
         g.setColor(Color.YELLOW);
-        Font font=g.getFont();
-        g.setFont(new Font("Helvetica",Font.PLAIN,30));
-        g.drawString("ASTEROIDS",300,75);
+        Font font=new Font(g.getFont().getName(),Font.PLAIN,g.getFont().getSize()*Game.WIDTH/786);
+        g.setFont(new Font("Helvetica",Font.PLAIN,30*Game.WIDTH/786));
+        g.drawString("ASTEROIDS",300*Game.WIDTH/786,75*Game.HEIGHT/563);
         g.setFont(font);
-        g.fillRect(640,500,65,45);
+        g.fillRect(640*Game.WIDTH/786,500*Game.HEIGHT/563,65*Game.WIDTH/786,45*Game.HEIGHT/563);
         g.setColor(Color.black);
-        g.drawString("BACK",655,530);
+        g.drawString("BACK",655*Game.WIDTH/786,530*Game.HEIGHT/563);
         for(int i=0;i<3;i++){
             g.setColor(colors[i]);
-            g.fillRect(x[i],y[i],width[i],height[i]);
+            g.fillRect(x[i]*Game.WIDTH/786,y[i]*Game.HEIGHT/563,width[i]*Game.WIDTH/786,height[i]*Game.HEIGHT/563);
             g.setColor(Color.BLACK);
-            g.drawString(sfo[i],x[i]+15,y[i]+30);
+            g.drawString(sfo[i],(x[i]+15)*Game.WIDTH/786,(y[i]+30)*Game.HEIGHT/563);
         }
+
     }
 }

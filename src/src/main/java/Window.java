@@ -5,13 +5,11 @@ public class Window extends JFrame{
         ImageIcon icon = new ImageIcon("./src/src/main/resources/icon.png");
         setIconImage(icon.getImage());
         setTitle(title);
-        setPreferredSize(new Dimension(width, height));
-        setMaximumSize(new Dimension(width,height));
-        setMinimumSize(new Dimension(800,600));
+        setSize(width,height);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setAutoRequestFocus(true);
         setVisible(true);
-        setResizable(false);
+        setResizable(true);
         setLocationRelativeTo(null);
         add(game);
     }

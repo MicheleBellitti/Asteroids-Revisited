@@ -32,14 +32,16 @@ public class StartMenu  {
         g.setColor(Color.red);
         Font font=g.getFont();
         g.setFont(new Font("Helvetica",Font.PLAIN,30));
-        g.drawString("ASTEROIDS",300,75);
-        g.setFont(font);
+        g.drawString("ASTEROIDS",300*Game.WIDTH/786,75*Game.HEIGHT/600);
+        g.setFont(new Font(font.getName(),Font.PLAIN,font.getSize()*Game.WIDTH/786));
          for(int i=0;i<4;i++) {
           g.setColor(Color.red);
-          g.fill3DRect(x[i], y[i], width[i], height[i],true);
+
+          g.fill3DRect(x[i]*Game.WIDTH/786, y[i]*Game.HEIGHT/600, width[i]*Game.WIDTH/786, height[i]*Game.HEIGHT/600,true);
           g.setColor(Color.BLACK);
-          g.drawString(nomi[i],x[i]+33,y[i]+30);
+          g.drawString(nomi[i],(x[i]+33)*Game.WIDTH/786,(y[i]+30)*Game.HEIGHT/600);
       }
+         g.setFont(font);
     }
 }
 

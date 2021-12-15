@@ -7,16 +7,18 @@ import Database.DataSaving;
 
 import javax.sound.midi.SysexMessage;
 import java.awt.*;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 import java.awt.image.BufferStrategy;
 import java.sql.SQLException;
 import java.util.Iterator;
 import java.util.Random;
 public class Game extends Canvas implements Runnable {
     private static final long serialVersionUID = 5162710183389028794L;
-    static Dimension screenSize=Toolkit.getDefaultToolkit ().getScreenSize ();
+    static Dimension screenSize;
     private SpriteSheet Sprite;
-    public static int WIDTH = screenSize.width;
-    public static int HEIGHT = screenSize.height;
+    public static int WIDTH = 800;
+    public static int HEIGHT = 600;
     public static boolean sound = false;
     static int difficulty= 2;
     int gamesplayed=0;
@@ -71,6 +73,15 @@ public class Game extends Canvas implements Runnable {
         hud =new Hud();
         this.spawner=new Spawner(handler,hud);
         movementSettings=new MovementSettings();
+        this.addComponentListener(new ComponentAdapter(){
+            public void componentResized(ComponentEvent e){
+                if(getBounds().width!=WIDTH || getBounds().height!=HEIGHT){
+
+                    WIDTH=getBounds().width;
+                    HEIGHT=getBounds().height;
+                }
+            }
+        });
         this.addKeyListener(kL);
         this.addMouseListener(new OptionMouseListener(this.handler));
         this.addMouseListener(new SfondoMouseListener(this.handler));
@@ -253,6 +264,10 @@ public class Game extends Canvas implements Runnable {
         }
     }
     private void tick() {
+
+
+        System.out.println(getBounds().width);
+        //System.out.println(HEIGHT);
         if(Game.on) {
             if(Game.sound) {
                 gameoversound.stop();
@@ -332,7 +347,7 @@ public class Game extends Canvas implements Runnable {
         }
     }
     public static void main(String[] args) throws SQLException {
-        System.out.println(Game.HEIGHT);
+
         new Game();
         try {
             DBManager.close();

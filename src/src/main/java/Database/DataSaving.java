@@ -24,7 +24,7 @@ public class DataSaving {
         try {
             c = DBManager.getConnection();
             statement = c.createStatement();
-            // statement.executeUpdate("CREATE TABLE Punteggi(" + "id INTEGER ," + "punteggio INTEGER," + "ORDER BY punteggio)");
+            //statement.executeUpdate("CREATE TABLE Punteggi(" + "id INTEGER ," + "punteggio INTEGER," + "ORDER BY punteggio)");
         }catch(SQLException e){
 
             statement.executeUpdate("DROP TABLE IF EXISTS Punteggi");

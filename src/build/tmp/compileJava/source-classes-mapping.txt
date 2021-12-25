@@ -1,28 +1,11 @@
-ID.java
- ID
-Database/DataSaving.java
- Database.DataSaving
-Leaderboard.java
- Leaderboard
+SfondoMouseListener.java
+ SfondoMouseListener
+MyKeyListener.java
+ MyKeyListener
+OptionPanel.java
+ OptionPanel
 Database/DBManager.java
  Database.DBManager
-Handler.java
- Handler
-GameSound.java
- GameSound
-SpriteSheet.java
- SpriteSheet
- SpriteSheet$1
-GameObject.java
- GameObject
-Coin.java
- Coin
-Enemy.java
- Enemy
-Spawner.java
- Spawner
-GameOverScreen.java
- GameOverScreen
 Player.java
  Player
 Bullet.java
@@ -31,42 +14,59 @@ Player2.java
  Player2
 Window.java
  Window
-MovementSettings.java
- MovementSettings
-Hud.java
- Hud
-SfondoMouseListener.java
- SfondoMouseListener
+Coin.java
+ Coin
+ID.java
+ ID
+Handler.java
+ Handler
+LeaderBoardML.java
+ LeaderBoardML
+GamePauseMouseListener.java
+ GamePauseMouseListener
+GamePause.java
+ GamePause
+StartMenu.java
+ StartMenu
 DifficultyMouseListener.java
  DifficultyMouseListener
-MyKeyListener.java
- MyKeyListener
+GameSound.java
+ GameSound
 OptionMouseListener.java
  OptionMouseListener
-OptionPanel.java
- OptionPanel
 Difficulty.java
  Difficulty
-GameOverScreenMouseListener.java
- GameOverScreenMouseListener
+GameObject.java
+ GameObject
+Spawner.java
+ Spawner
+Enemy.java
+ Enemy
+MyMouseListener.java
+ MyMouseListener
+SpriteSheet.java
+ SpriteSheet
+ SpriteSheet$1
+MovementSettings.java
+ MovementSettings
 SoundSettingsMouseListener.java
  SoundSettingsMouseListener
 SoundSettings.java
  SoundSettings
 MSMouseListener.java
  MSMouseListener
+Hud.java
+ Hud
+GameOverScreen.java
+ GameOverScreen
+Sfondo.java
+ Sfondo
+Leaderboard.java
+ Leaderboard
 Game.java
  Game
  Game$1
-Sfondo.java
- Sfondo
-MyMouseListener.java
- MyMouseListener
-GamePause.java
- GamePause
-GamePauseMouseListener.java
- GamePauseMouseListener
-LeaderBoardML.java
- LeaderBoardML
-StartMenu.java
- StartMenu
+Database/DataSaving.java
+ Database.DataSaving
+GameOverScreenMouseListener.java
+ GameOverScreenMouseListener

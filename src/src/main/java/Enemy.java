@@ -21,6 +21,10 @@ private SpriteSheet enemySprite=new SpriteSheet();
     }
     @Override
     public void tick() {
+        if(velX==0 && velY==0){
+            velX++;
+            velY=1.9f;
+        }
         x+=velX;
         y+=velY;
         if(x<=0 || x>=Game.WIDTH) velX*=-1;

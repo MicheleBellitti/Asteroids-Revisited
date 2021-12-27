@@ -15,8 +15,8 @@ public class LeaderBoardML extends MouseAdapter {
         mx=e.getX();
         my=e.getY();
         if(Leaderboard.on){
-            if (mx >= 640*Game.WIDTH/800 && mx < 705*Game.WIDTH/800) {
-                if (my >= 500 *Game.getHEIGHT()/600 && my <= 545*Game.getHEIGHT()/600) {
+            if (mx >= 640*Game.WIDTH/784 && mx < 705*Game.WIDTH/784) {
+                if (my >= 500 *Game.getHEIGHT()/561 && my <= 545*Game.getHEIGHT()/561) {
                     StartMenu.on=true;
                     Difficulty.on=false;
                     OptionPanel.on=false;

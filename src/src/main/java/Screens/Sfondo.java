@@ -40,9 +40,9 @@ public class Sfondo  extends OptionPanel {
         g.setFont(new Font("Helvetica",Font.PLAIN,30* Game.WIDTH/786));
         g.drawString("ASTEROIDS",300* Game.getWIDTH()/786,75* Game.HEIGHT/563);
         g.setFont(font);
-        g.fillRect(640* Game.WIDTH/786,500* Game.HEIGHT/563,65* Game.WIDTH/786,45* Game.HEIGHT/563);
+        g.fillRect(640* Game.WIDTH/784,500* Game.HEIGHT/561,65* Game.WIDTH/784,45* Game.HEIGHT/561);
         g.setColor(Color.black);
-        g.drawString("BACK",655* Game.WIDTH/786,530* Game.HEIGHT/563);
+        g.drawString("BACK",655* Game.WIDTH/784,530* Game.HEIGHT/561);
         for(int i=0;i<3;i++){
             g.setColor(colors[i]);
             g.fillRect(x[i]* Game.WIDTH/786,y[i]* Game.HEIGHT/563,width[i]* Game.WIDTH/786,height[i]* Game.HEIGHT/563);

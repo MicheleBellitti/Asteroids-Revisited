@@ -17,8 +17,8 @@ public class GamePauseMouseListener extends MouseAdapter {
     public void mouseClicked(MouseEvent e){
         mx=e.getX(); my=e.getY();
         if(GamePause.on){
-            if(mx>=330*Game.getWIDTH()/800 && mx<=430*Game.getWIDTH()/800){
-                if(my>= 250*Game.getHEIGHT()/600 && my<=300*Game.getHEIGHT()/600){ //resume
+            if(mx>=330*Game.getWIDTH()/784 && mx<=430*Game.getWIDTH()/784){
+                if(my>= 250*Game.getHEIGHT()/561 && my<=300*Game.getHEIGHT()/561){ //resume
                     StartMenu.on = false;
                     Difficulty.on = false;
                     OptionPanel.on = false;
@@ -32,8 +32,8 @@ public class GamePauseMouseListener extends MouseAdapter {
                 }
 
             }
-            if(mx>=333 *Game.getWIDTH()/800 && mx<=433*Game.getWIDTH()/800){ //quit
-                if(my>= 350 *Game.getHEIGHT()/600 && my<=400*Game.getHEIGHT()/600){
+            if(mx>=333 *Game.getWIDTH()/784 && mx<=433*Game.getWIDTH()/784){ //quit
+                if(my>= 350 *Game.getHEIGHT()/561 && my<=400*Game.getHEIGHT()/561){
                     StartMenu.on = false;
                     Difficulty.on = false;
                     OptionPanel.on = false;
@@ -48,8 +48,8 @@ public class GamePauseMouseListener extends MouseAdapter {
 
             }
 
-            if(mx>=342 *Game.getWIDTH()/800&& mx<=417*Game.getWIDTH()/800){ //options
-                if(my>= 150*Game.getHEIGHT()/600 && my<=200*Game.getHEIGHT()/600){
+            if(mx>=342 *Game.getWIDTH()/784&& mx<=417*Game.getWIDTH()/784){ //options
+                if(my>= 150*Game.getHEIGHT()/561 && my<=200*Game.getHEIGHT()/561){
                     StartMenu.on = false;
                     Difficulty.on = false;
                     OptionPanel.on = true;

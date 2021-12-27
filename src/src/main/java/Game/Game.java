@@ -62,6 +62,57 @@ public class Game extends Canvas implements Runnable {
     private Difficulty diff;
     private Leaderboard ld;
 
+
+    public Game() throws SQLException {
+        new Window(WIDTH, HEIGHT, title, this);
+
+        mn= new StartMenu();
+        Sprite=new SpriteSheet();
+        ld=new Leaderboard(ds);
+        op = new OptionPanel();
+        sf=new Sfondo();
+        gp=new GamePause();
+        diff=new Difficulty();
+        ss=new SoundSettings();
+        gos=new GameOverScreen();
+        this.start();
+        hud =new Hud();
+        this.spawner=new Spawner(handler,hud);
+        movementSettings=new MovementSettings();
+        this.addComponentListener(new ComponentAdapter(){
+            public void componentResized(ComponentEvent e){
+                if(getBounds().width!=WIDTH || getBounds().height!=HEIGHT){
+
+                    WIDTH=getBounds().width;
+                    HEIGHT=getBounds().height;
+                }
+            }
+        });
+        this.addKeyListener(kL);
+        this.addMouseListener(new OptionMouseListener(this.handler));
+        this.addMouseListener(new SfondoMouseListener(this.handler));
+        this.addMouseListener(new MSMouseListener(this.handler,movementSettings));
+        this.addMouseListener(new MyMouseListener(this.handler));
+        this.addMouseListener(new GameOverScreenMouseListener(this.handler,ds)); // 20/11/21 12:00 this.addMouseListener(new Listeners.GameOverScreenMouseListener(this.handler)); // 20/11/21 12:00
+        this.addMouseListener(new DifficultyMouseListener(this.handler));
+        this.addMouseListener(new SoundSettingsMouseListener(this.handler));
+        this.addMouseListener(new GamePauseMouseListener(this.handler));
+        this.addMouseListener(new LeaderBoardML(this.handler));
+        enemyhit=new GameSound("ENEMYCOLPITO.wav");
+        gameoversound = new GameSound("Shadows of Evil Game Over Song.wav");
+        coinhit=new GameSound("Coinraccolto.wav");
+        playerhit=new GameSound("PLAYERCOLPITO.wav");
+        play= new GameSound("Street Fighter III 3rd Strike-The Theme of Q.wav");
+        this.handler.addGameObject(new Player((float)this.getBounds().getWidth()/2, (float) this.getBounds().height/2, 0.0F, 0.0F, ID.Player));
+        for (int i = 0; i < 3; i++) {
+            this.handler.addGameObject(new Enemy((float)r1.nextInt(WIDTH), 0.0F, 2*J, 2.0F, ID.Enemy));
+            this.J *= -1;
+        }
+        this.stop();
+    }
+
+
+
     public static Dimension getScreenSize() {
         return screenSize;
     }
@@ -376,52 +427,6 @@ public class Game extends Canvas implements Runnable {
 
     int cnt=-1;
 
-    public Game() throws SQLException {
-        new Window(WIDTH, HEIGHT, title, this);
-        mn= new StartMenu();
-        Sprite=new SpriteSheet();
-        ld=new Leaderboard(ds);
-        op = new OptionPanel();
-        sf=new Sfondo();
-        gp=new GamePause();
-        diff=new Difficulty();
-        ss=new SoundSettings();
-        gos=new GameOverScreen();
-        this.start();
-        hud =new Hud();
-        this.spawner=new Spawner(handler,hud);
-        movementSettings=new MovementSettings();
-        this.addComponentListener(new ComponentAdapter(){
-            public void componentResized(ComponentEvent e){
-                if(getBounds().width!=WIDTH || getBounds().height!=HEIGHT){
-
-                    WIDTH=getBounds().width;
-                    HEIGHT=getBounds().height;
-                }
-            }
-        });
-        this.addKeyListener(kL);
-        this.addMouseListener(new OptionMouseListener(this.handler));
-        this.addMouseListener(new SfondoMouseListener(this.handler));
-        this.addMouseListener(new MSMouseListener(this.handler,movementSettings));
-        this.addMouseListener(new MyMouseListener(this.handler));
-        this.addMouseListener(new GameOverScreenMouseListener(this.handler,ds)); // 20/11/21 12:00 this.addMouseListener(new Listeners.GameOverScreenMouseListener(this.handler)); // 20/11/21 12:00
-        this.addMouseListener(new DifficultyMouseListener(this.handler));
-        this.addMouseListener(new SoundSettingsMouseListener(this.handler));
-        this.addMouseListener(new GamePauseMouseListener(this.handler));
-        this.addMouseListener(new LeaderBoardML(this.handler));
-        enemyhit=new GameSound("ENEMYCOLPITO.wav");
-        gameoversound = new GameSound("Shadows of Evil Game Over Song.wav");
-        coinhit=new GameSound("Coinraccolto.wav");
-        playerhit=new GameSound("PLAYERCOLPITO.wav");
-        play= new GameSound("Street Fighter III 3rd Strike-The Theme of Q.wav");
-        this.handler.addGameObject(new Player((float)this.getBounds().getWidth()/2, (float) this.getBounds().height/2, 0.0F, 0.0F, ID.Player));
-        for (int i = 0; i < 3; i++) {
-            this.handler.addGameObject(new Enemy((float)r1.nextInt(WIDTH), 0.0F, 2*J, 2.0F, ID.Enemy));
-            this.J *= -1;
-        }
-        this.stop();
-    }
     public int Ecollision(GameObject p, Handler handler, ID id){
         int hits=0;
         Rectangle player = new Rectangle((int)p.getX(), (int)p.getY(), 32, 32);
@@ -583,8 +588,9 @@ public class Game extends Canvas implements Runnable {
     }
     private void tick() {
 
+        WIDTH=getBounds().width;
+        HEIGHT=getBounds().height;
 
-        //System.out.println(getBounds().height);
 
         if(Game.on) {
             if(Game.sound) {
@@ -593,7 +599,7 @@ public class Game extends Canvas implements Runnable {
                 play.setVolume(-10F);
             }
             tickTimer++;
-            //System.out.println(tickTimer);
+
             this.handler.tick();
             this.spawner.tick();
             this.hud.tick();
@@ -608,10 +614,11 @@ public class Game extends Canvas implements Runnable {
                 tickTimer = 0;
             }
             if(movementSettings.isChanged()) kL.setChanged(false);
-            //System.out.println("ci sono in totale "+ BulletCount(handler)+ "bullet");
+
         }
 
         if(hud.getHEALTH() == 0) {
+
             ++gamesplayed;
             Game.on=false;
             GameOverScreen.on=true;

@@ -19,22 +19,22 @@ import java.awt.event.MouseEvent;
             mx = e.getX();
             my = e.getY();
             if (!OptionPanel.on && MovementSettings.on) {
-                if (mx >= 20* Game.getWIDTH()/786 && mx <=320* Game.WIDTH/786) {
-                    if (my >= 350* Game.HEIGHT/563 && my <= 450* Game.HEIGHT/563) {
+                if (mx >= 20* Game.getWIDTH()/784 && mx <=320* Game.WIDTH/784) {
+                    if (my >= 350* Game.HEIGHT/561 && my <= 450* Game.HEIGHT/561) {
                         ms.setChanged(false);
                         System.out.println("Standard!");
                     }
                 }
-                if (mx >= 465* Game.WIDTH/786 && mx <=765* Game.WIDTH/786) {
-                    if (my >= 350* Game.HEIGHT/563 && my <= 450* Game.HEIGHT/563) {
+                if (mx >= 465* Game.WIDTH/784 && mx <=765* Game.WIDTH/784) {
+                    if (my >= 350* Game.HEIGHT/561 && my <= 450* Game.HEIGHT/561) {
                         ms.setChanged(true);
                         System.out.println("Secondary!");
                     }
                 }
 
                 if(MovementSettings.on) {
-                    if (mx >= 640* Game.WIDTH/786 && mx < 705* Game.WIDTH/786) {
-                        if (my >= 500* Game.HEIGHT/563 && my <= 545* Game.HEIGHT/563) {
+                    if (mx >= 640* Game.WIDTH/784 && mx < 705* Game.WIDTH/784) {
+                        if (my >= 500* Game.HEIGHT/561 && my <= 545* Game.HEIGHT/561) {
                             StartMenu.on=false;
                             Difficulty.on=false;
                             OptionPanel.on=true;

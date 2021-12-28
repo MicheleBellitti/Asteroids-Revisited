@@ -15,8 +15,8 @@ import java.util.logging.Handler;
 public class GameOverScreenMouseListener extends MouseAdapter {
     int mx,my;
     private int id=1;
-    private Handler handler;
-    private DataSaving ds;
+    private final Handler handler;
+    private final DataSaving ds;
 
 
 

@@ -6,11 +6,11 @@ import Objects.ID;
 import java.awt.*;
 public class StartMenu  {
     //private String[] checking = new String[3];
-    int[] x = new int[4];
-    int[] y = new int[4];
-    int[] width = new int[4];
-    int[] height = new int[4];
-    String [] nomi= new String[4];
+    final int[] x = new int[4];
+    final int[] y = new int[4];
+    final int[] width = new int[4];
+    final int[] height = new int[4];
+    final String [] nomi= new String[4];
     ID StartMenu;
     public static boolean on;
     public StartMenu() {

@@ -11,7 +11,7 @@ import java.io.IOException;
 public class SpriteSheet {
     private  BufferedImage img;
     ImageFilter filter = new RGBImageFilter() {
-        int transparentColor = Color.white.getRGB() | 0xFF000000;
+        final int transparentColor = Color.white.getRGB() | 0xFF000000;
 
         public final int filterRGB(int x, int y, int rgb) {
             if ((rgb | 0xFF000000) == transparentColor) {

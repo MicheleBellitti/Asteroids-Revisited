@@ -7,7 +7,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 public class GameSound {
     AudioInputStream audio;
-    String path;
+    final String path;
     File file;
     Clip player;
     FloatControl volume;
@@ -20,6 +20,7 @@ public class GameSound {
             player = AudioSystem.getClip();
             player.open(audio);
         } catch (Exception e) {
+            //noinspection ThrowablePrintedToSystemOut
             System.out.println(e);
 
         }

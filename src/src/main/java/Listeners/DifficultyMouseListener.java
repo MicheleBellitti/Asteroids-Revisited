@@ -7,7 +7,7 @@
     import java.awt.event.MouseAdapter;
     import java.awt.event.MouseEvent;
     public class DifficultyMouseListener extends MouseAdapter {
-        private Handler handler;
+        private final Handler handler;
         int mx, my;
         public DifficultyMouseListener(Handler handler) {
             this.handler = handler;

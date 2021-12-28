@@ -5,11 +5,11 @@ import Screens.OptionPanel;
 
 import java.awt.*;
 public class SoundSettings extends OptionPanel {
-    int[] x = new int[2];
-    int[] y =new int[2];
-    int[] width = new int[2];
-    int[] height = new int[2];
-    String [] nomi= new String[2];
+    final int[] x = new int[2];
+    final int[] y =new int[2];
+    final int[] width = new int[2];
+    final int[] height = new int[2];
+    final String [] nomi= new String[2];
     public static boolean on;
     public SoundSettings(){
         x[0]=340;

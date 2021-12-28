@@ -2,7 +2,7 @@ package Objects;
 
 import java.awt.*;
 public class Coin extends GameObject {
-    private int scorePoints;
+    private final int scorePoints;
     public Coin(float x, float y, float velx, float vely, ID id) {
         super(x, y, velx, vely, id);
         width=15;

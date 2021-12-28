@@ -4,12 +4,12 @@ import Game.Game;
 
 import java.awt.*;
   public class MovementSettings {
-    String[] keys=new String[4];
+    final String[] keys=new String[4];
      static boolean changed=false;
-    int[] x= new int[5];
-    int[] y= new int[5];
-    int[] width= new int[5];
-    int[] height= new int[5];
+    final int[] x= new int[5];
+    final int[] y= new int[5];
+    final int[] width= new int[5];
+    final int[] height= new int[5];
     public static boolean on;
     public MovementSettings() {
         keys[0]="UP";
@@ -34,14 +34,12 @@ import java.awt.*;
         height[3]=50;
         on=false;
     }
-    public void tick() {
 
-    }
     public boolean isChanged() {
         return changed;
     }
     public void setChanged(boolean changed) {
-        this.changed = changed;
+        MovementSettings.changed = changed;
     }
     public  String getKey(int index){
         return keys[index];

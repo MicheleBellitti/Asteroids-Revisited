@@ -8,7 +8,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 public class SoundSettingsMouseListener  extends MouseAdapter {
     int mx, my;
-    private Handler handler;
+    private final Handler handler;
 
     public SoundSettingsMouseListener(Handler handler) {
         this.handler = handler;

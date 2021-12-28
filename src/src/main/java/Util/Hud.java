@@ -40,10 +40,7 @@ public int getKills(){return kills;}
             else if(HEALTH>=255/5) g.setColor(Color.yellow.darker());
             else g.setColor(Color.red);
             g.fillRect(10,20,HEALTH,40);
-            g.setColor(Color.black); // Commento
-            g.drawString("Level:"+ level,10,80);
-            g.drawString("Score:"+ score,10,100);
-            g.drawString("Kills:"+ kills,10,120);
+            g.setColor(Color.black);
         }
          else {
             g.setColor(Color.WHITE);
@@ -54,10 +51,10 @@ public int getKills(){return kills;}
             else g.setColor(Color.red);
             g.fillRect(10, 20, HEALTH, 40);
             g.setColor(Color.WHITE); // Commento
-            g.drawString("Level:" + level, 10, 80);
-            g.drawString("Score:" + score, 10, 100);
-            g.drawString("Kills:" + kills, 10, 120);
         }
+        g.drawString("Level:"+ level,10,80);
+        g.drawString("Score:"+ score,10,100);
+        g.drawString("Kills:"+ kills,10,120);
     }
 
     public int getHEALTH() {

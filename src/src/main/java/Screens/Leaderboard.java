@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 
 public class Leaderboard {
-    private DataSaving ds;
+    private final DataSaving ds;
     private int[] Scores = new int[5];
     public static boolean on=false;
     public Leaderboard(DataSaving ds){

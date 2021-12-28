@@ -8,10 +8,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DataSaving {
-    private String urlSQLITE="jdbc:sqlite:Database.db";
+    private final String urlSQLITE="jdbc:sqlite:Database.db";
     ResultSet rs;
     private String urlMSSQL="jdbc:sqlserver://localhost\\\\sqlexpress;user=sa;password=secret";
-    private String driverSQLITE="org.sqlite.JDBC";
+    private final String driverSQLITE="org.sqlite.JDBC";
     private String driverMSSQL="com.microsoft.sqlserver.jdbc.SQLServerDriver";
     private Connection c=null;
     private Statement statement=null;

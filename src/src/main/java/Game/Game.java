@@ -16,11 +16,14 @@ import java.awt.*;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.awt.image.BufferStrategy;
+import java.io.Serial;
 import java.sql.SQLException;
 import java.util.Random;
+@SuppressWarnings("ALL")
 public class Game extends Canvas implements Runnable {
+    @Serial
     private static final long serialVersionUID = 5162710183389028794L;
-    static Dimension screenSize;
+
     public SpriteSheet Sprite;
     public static int WIDTH = 800;
     public static int HEIGHT = 600;
@@ -34,7 +37,7 @@ public class Game extends Canvas implements Runnable {
     public static int ENEMY_NUMBER = 15;
     private int J = 1;
     private StartMenu mn;
-    static String sfondo="darkspace.jpg";
+    public static String sfondo="darkspace.jpg";
     static boolean on=false;
     private DataSaving ds;
     {
@@ -113,13 +116,8 @@ public class Game extends Canvas implements Runnable {
 
 
 
-    public static Dimension getScreenSize() {
-        return screenSize;
-    }
-
-    public static void setScreenSize(Dimension screenSize) {
-        Game.screenSize = screenSize;
-    }
+  
+    
 
     public SpriteSheet getSprite() {
         return Sprite;
@@ -197,25 +195,11 @@ public class Game extends Canvas implements Runnable {
         return tickTimer;
     }
 
-    public void setTickTimer(int tickTimer) {
-        this.tickTimer = tickTimer;
-    }
 
     public static int getEnemyNumber() {
         return ENEMY_NUMBER;
     }
 
-    public static void setEnemyNumber(int enemyNumber) {
-        ENEMY_NUMBER = enemyNumber;
-    }
-
-    public int getJ() {
-        return J;
-    }
-
-    public void setJ(int j) {
-        J = j;
-    }
 
     public StartMenu getMn() {
         return mn;
@@ -604,7 +588,7 @@ public class Game extends Canvas implements Runnable {
             this.handler.tick();
             this.spawner.tick();
             this.hud.tick();
-            if(MovementSettings.on) this.movementSettings.tick();
+
             hud.setHEALTH(hud.getHEALTH()- 2 * Ecollision(getObject(this.handler, ID.Player, 0), this.handler, ID.Enemy));
             Ccollision(getObject(this.handler, ID.Player, 0), this.handler, ID.Coin);
             RemoveBullet(this.handler);

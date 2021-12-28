@@ -6,11 +6,11 @@ import java.awt.*;
 public class Difficulty extends OptionPanel {
     private int type;
     public static boolean on;
-    String[] nomi= new String[3];
-    int[] x= new int[3];
-    int[] y= new int[3];
-    int[] width= new int[3];
-    int[] height= new int[3];
+    final String[] nomi= new String[3];
+    final int[] x= new int[3];
+    final int[] y= new int[3];
+    final int[] width= new int[3];
+    final int[] height= new int[3];
     public Difficulty() {
         x[0]=340;
         y[0]=150;

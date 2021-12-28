@@ -9,7 +9,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 public class GamePauseMouseListener extends MouseAdapter {
-    private Handler handler;
+    private final Handler handler;
     int mx,my;
     public GamePauseMouseListener(Handler handler){
         this.handler=handler;

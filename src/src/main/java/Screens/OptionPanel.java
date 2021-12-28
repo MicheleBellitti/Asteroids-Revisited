@@ -5,11 +5,11 @@ import Game.Game;
 import java.awt.*;
 public class OptionPanel extends StartMenu {
     public static boolean on;
-    int[] x= new int[5];
-    int[] y= new int[5];
-    int[] width= new int[5];
-    int[] height= new int[5];
-    String[] nomi= new String[5];
+    final int[] x= new int[5];
+    final int[] y= new int[5];
+    final int[] width= new int[5];
+    final int[] height= new int[5];
+    final String[] nomi= new String[5];
     public OptionPanel() {
         nomi[0]="SFONDO";
         nomi[1]="CONTROLLI";

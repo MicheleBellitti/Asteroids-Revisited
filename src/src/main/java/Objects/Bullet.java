@@ -9,9 +9,9 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 
 public class Bullet extends GameObject {
-    private int width=7;
-    private  int height=7;
-    private SpriteSheet bulletSprite=new SpriteSheet();
+    private final int width=7;
+    private final int height=7;
+    private final SpriteSheet bulletSprite=new SpriteSheet();
     public Bullet(float x, float y, float velx, float vely, ID id) {
         super(x, y, velx, vely, id);
     }

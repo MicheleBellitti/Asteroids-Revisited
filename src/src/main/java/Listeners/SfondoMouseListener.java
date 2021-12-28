@@ -7,7 +7,7 @@ import Screens.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 public class SfondoMouseListener extends MouseAdapter {
-    private Handler handler;
+    private final Handler handler;
     int mx, my;
     public SfondoMouseListener(Handler handler) {
         this.handler = handler;

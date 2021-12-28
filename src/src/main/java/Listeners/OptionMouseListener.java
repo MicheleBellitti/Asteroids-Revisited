@@ -7,7 +7,7 @@ import Screens.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 public class OptionMouseListener extends MouseAdapter {
-    private Handler handler;
+    private final Handler handler;
     int mx, my;
     public OptionMouseListener(Handler handler) {
         this.handler = handler;

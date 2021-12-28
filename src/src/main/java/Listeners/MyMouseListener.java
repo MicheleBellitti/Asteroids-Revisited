@@ -11,7 +11,7 @@ import Screens.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 public class MyMouseListener extends MouseAdapter {
-    private Handler handler;
+    private final Handler handler;
     private GameSound bulletsound;
     private GameObject tmp=null;
     public MyMouseListener(Handler handler){
@@ -61,12 +61,6 @@ public class MyMouseListener extends MouseAdapter {
 
                 }
             }
-            /*
-            x[1]= 300;
-        y[1]= 275;
-        width[1] = 158;
-        height[1] = 53;
-             */
             if (mx >= 300* Game.WIDTH/784 && mx <= 458* Game.WIDTH/784) { //leaderboard
                 if (my >= 275* Game.HEIGHT/561 && my <= 328* Game.HEIGHT/561) {
                     StartMenu.on = false;

@@ -4,11 +4,11 @@ import Game.Game;
 
 import java.awt.*;
 public class GameOverScreen  {
-    int[] x = new int[3];
-    int[] y = new int[3];
-     int[] width = new int[3];
-     int[] height = new int[3];
-     public static String[] nomi= new String[3];
+    final int[] x = new int[3];
+    final int[] y = new int[3];
+     final int[] width = new int[3];
+     final int[] height = new int[3];
+     public static final String[] nomi= new String[3];
     public static boolean on;
     public static boolean saved;
     public GameOverScreen() {

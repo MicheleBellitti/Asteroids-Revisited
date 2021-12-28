@@ -8,7 +8,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 public class LeaderBoardML extends MouseAdapter {
-    private Handler handler;
+    private final Handler handler;
     int mx,my;
     public LeaderBoardML(Handler handler){this.handler=handler;}
     public void mouseClicked(MouseEvent e){

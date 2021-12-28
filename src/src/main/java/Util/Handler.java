@@ -8,7 +8,7 @@ import java.util.logging.LogRecord;
 
 public class Handler extends java.util.logging.Handler {
     //20/11/21 12:00 list --> linkedlist
-    public LinkedList<GameObject> objList=new LinkedList<GameObject>();
+    public final LinkedList<GameObject> objList= new LinkedList<>();
 
     public void tick(){
         for(int i=0;i<objList.size();i++){

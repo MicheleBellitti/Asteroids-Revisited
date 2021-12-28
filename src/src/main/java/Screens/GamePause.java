@@ -7,11 +7,11 @@ import java.awt.*;
 public class GamePause extends OptionPanel {
     public static boolean on;
     public static boolean pause;
-    int[] x = new int[3];
-    int[] width = new int[3];
-    int[] height = new int[3];
-    int[] y = new int[3];
-    String[] nomi=new String[3];
+    final int[] x = new int[3];
+    final int[] width = new int[3];
+    final int[] height = new int[3];
+    final int[] y = new int[3];
+    final String[] nomi=new String[3];
     public GamePause(){
         x[0] = 330;
         y[0]= 250;
@@ -31,17 +31,7 @@ public class GamePause extends OptionPanel {
         on=false;
         pause=false;
     }
-   /*
-    public boolean getMode(){
-        return on;
-    }
-    public void setMode(boolean on){
-        this.on=on;
-
-    }
-
-    */
-    public void render(Graphics g){
+   public void render(Graphics g){
         g.setColor(Color.red);
         Font font=new Font(g.getFont().getName(),Font.PLAIN,g.getFont().getSize()* Game.WIDTH/786);
         g.setFont(new Font("Helvetica",Font.PLAIN,30*Game.getWIDTH()/784));

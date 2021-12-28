@@ -10,9 +10,9 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
 public class MyKeyListener extends KeyAdapter  {
-    private Handler handler;
+    private final Handler handler;
     private  boolean changed=true;
-     private boolean[] keyDown=new boolean[4];
+     private final boolean[] keyDown=new boolean[4];
     public MyKeyListener(Handler handler){
         this.handler=handler;
         keyDown[0]=false;

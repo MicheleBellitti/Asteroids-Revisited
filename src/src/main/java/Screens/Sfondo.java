@@ -5,12 +5,12 @@ import Screens.OptionPanel;
 
 import java.awt.*;
 public class Sfondo  extends OptionPanel {
-    String[] sfo=new String[3];
-    Color[] colors= new Color[3];
-    int[] x= new int[3];
-    int[] y= new int[3];
-    int[] width= new int[3];
-    int[] height= new int[3];
+    final String[] sfo=new String[3];
+    final Color[] colors= new Color[3];
+    final int[] x= new int[3];
+    final int[] y= new int[3];
+    final int[] width= new int[3];
+    final int[] height= new int[3];
     public static boolean on;
     public Sfondo() {
        sfo[0]="SFONDO 2";

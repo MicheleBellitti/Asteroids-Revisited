@@ -8,8 +8,8 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
     public class MSMouseListener extends MouseAdapter {
         private String key;
-        private Handler handler;
-        private MovementSettings ms;
+        private final Handler handler;
+        private final MovementSettings ms;
         int mx, my;
         public MSMouseListener(Handler handler, MovementSettings ms) {
             this.handler = handler;

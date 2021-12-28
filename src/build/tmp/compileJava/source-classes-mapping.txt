@@ -29,8 +29,8 @@ Screens/OptionPanel.java
  Screens.OptionPanel
 Screens/GamePause.java
  Screens.GamePause
-Listeners/SoundSettingsMouseListener.java
- Listeners.SoundSettingsMouseListener
+Listeners/MyMouseListener.java
+ Listeners.MyMouseListener
 Screens/Difficulty.java
  Screens.Difficulty
 Listeners/DifficultyMouseListener.java
@@ -49,8 +49,9 @@ Screens/MovementSettings.java
  Screens.MovementSettings
 Util/Hud.java
  Util.Hud
-Listeners/MSMouseListener.java
- Listeners.MSMouseListener
+Game/Game.java
+ Game.Game
+ Game.Game$1
 Game/Window.java
  Game.Window
 Listeners/GameOverScreenMouseListener.java
@@ -65,8 +66,7 @@ Screens/Sfondo.java
  Screens.Sfondo
 Screens/GameOverScreen.java
  Screens.GameOverScreen
-Game/Game.java
- Game.Game
- Game.Game$1
-Listeners/MyMouseListener.java
- Listeners.MyMouseListener
+Listeners/SoundSettingsMouseListener.java
+ Listeners.SoundSettingsMouseListener
+Listeners/MSMouseListener.java
+ Listeners.MSMouseListener

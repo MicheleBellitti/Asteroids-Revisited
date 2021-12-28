@@ -598,6 +598,7 @@ public class Game extends Canvas implements Runnable {
                 play.loop();
                 play.setVolume(-10F);
             }
+            else play.stop();
             tickTimer++;
 
             this.handler.tick();

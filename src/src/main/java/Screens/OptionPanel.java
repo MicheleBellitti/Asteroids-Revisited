@@ -12,9 +12,9 @@ public class OptionPanel extends StartMenu {
     final String[] nomi= new String[5];
     public OptionPanel() {
         nomi[0]="SFONDO";
-        nomi[1]="CONTROLLI";
-        nomi[2]="DIFFICOLTA'";
-        nomi[3]="SUONO";
+        nomi[1]="CONTROLS";
+        nomi[2]="DIFFICULTY'";
+        nomi[3]="SOUND";
         nomi[4]="BACK";
         x[0] = 330;
         y[0]= 250;

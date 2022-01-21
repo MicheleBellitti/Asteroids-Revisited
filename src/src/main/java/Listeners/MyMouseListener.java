@@ -29,7 +29,7 @@ public class MyMouseListener extends MouseAdapter {
         int mx, my;
         mx = e.getX();
         my = e.getY();
-        System.out.println(mx + " " + my);
+
         if (StartMenu.on) {
             if (mx >= 325* Game.getWIDTH()/784 && mx <= 425* Game.WIDTH/784) { //play
                 if (my >= 150* Game.HEIGHT/561 && my <= 200* Game.HEIGHT/561) {

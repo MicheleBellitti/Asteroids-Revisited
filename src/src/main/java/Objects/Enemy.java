@@ -9,7 +9,7 @@ import java.awt.image.BufferedImage;
 
 public class Enemy extends GameObject {
 private int height=32,width=32;
-private final SpriteSheet enemySprite=new SpriteSheet();
+protected final SpriteSheet enemySprite=new SpriteSheet();
     public Enemy(float x, float y,float vx,float vy, ID id) {
         super(x, y,vx,vy,id);
     }

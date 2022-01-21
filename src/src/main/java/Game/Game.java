@@ -472,7 +472,7 @@ public class Game extends Canvas implements Runnable {
                 bheight=7;
                 //System.out.println("BULLET: " + bx +" "+ by + " " + bwidth + " " +bheight);
                 for(int p=0;p<handler.objList.size();p++) {
-                    if(handler.objList.get(p).getId()==ID.Enemy){
+                    if(handler.objList.get(p).getId()==ID.Enemy || handler.objList.get(p).getId()==ID.ShipEnemy ){
                         ex=(int)handler.objList.get(p).getX();
                         ey=(int)handler.objList.get(p).getY();
                         ewidth= handler.objList.get(p).getWidth();
@@ -564,6 +564,15 @@ public class Game extends Canvas implements Runnable {
         }
         return num;
     }
+    public void RemoveShipEnemy(Handler handler){
+        for(int i=0;i<handler.objList.size();++i){
+            if(handler.objList.get(i).getId()==ID.ShipEnemy) {
+                int xpos=  (int)handler.objList.get(i).getX();
+                int ypos=  (int)handler.objList.get(i).getY();
+                if(xpos <=0 || xpos >=WIDTH || ypos <=0 || ypos >=HEIGHT) handler.removeGameObject(handler.objList.get(i));
+            }
+        }
+    }
     public static int clamp(int val,int min,int max){
         if(val>=max)
             return val=max;
@@ -600,6 +609,7 @@ public class Game extends Canvas implements Runnable {
             this.hud.tick();
 
             hud.setHEALTH(hud.getHEALTH()- 2 * Ecollision(getObject(this.handler, ID.Player, 0), this.handler, ID.Enemy));
+            hud.setHEALTH(hud.getHEALTH()- 2 * Ecollision(getObject(this.handler, ID.Player, 0), this.handler, ID.ShipEnemy));
             Ccollision(getObject(this.handler, ID.Player, 0), this.handler, ID.Coin);
             RemoveBullet(this.handler);
             Bcollision(this.handler);

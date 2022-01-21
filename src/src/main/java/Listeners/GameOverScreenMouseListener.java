@@ -59,7 +59,7 @@ public class GameOverScreenMouseListener extends MouseAdapter {
             if (mx >= 351*Game.WIDTH/784 && mx <= 431*Game.WIDTH/784) {
                 if (my >= 390*Game.getHEIGHT()/561 && my <= 440*Game.getHEIGHT()/561) {
                     if(!GameOverScreen.saved) {
-                        id = id + 1;
+                        id = Integer.hashCode(Game.punteggiofinale);
                         System.out.println("SAVE");
                         try {
                             ds.InsertScore(id, Game.punteggiofinale);

@@ -8,6 +8,8 @@ import Screens.*;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.io.IOException;
+import java.net.Socket;
 
 public class MyKeyListener extends KeyAdapter  {
     private final Handler handler;
@@ -74,7 +76,6 @@ public class MyKeyListener extends KeyAdapter  {
                 SoundSettings.on=false;
                 GamePause.on=true;
                 GamePause.pause=true;
-
             }
         }
     }

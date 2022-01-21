@@ -16,9 +16,15 @@ import java.awt.*;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.awt.image.BufferStrategy;
+import java.io.IOException;
 import java.io.Serial;
+import java.net.http.HttpRequest;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
+import java.util.Scanner;
+
 @SuppressWarnings("ALL")
 public class Game extends Canvas implements Runnable {
     @Serial
@@ -430,6 +436,7 @@ public class Game extends Canvas implements Runnable {
                 //sound = new Util.GameSound("PLAYERCOLPITO.wav");
             }
         }
+
         return hits;
     }
     public void Ccollision(GameObject p, Handler handler, ID id){

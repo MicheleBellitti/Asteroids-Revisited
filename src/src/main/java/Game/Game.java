@@ -28,7 +28,7 @@ import java.util.Scanner;
 @SuppressWarnings("ALL")
 public class Game extends Canvas implements Runnable {
     @Serial
-    private static final long serialVersionUID = 5162710183389028794L;
+    private static final long serialVersionUID = new Random().nextLong();
 
     public SpriteSheet Sprite;
     public static int WIDTH = 800;
@@ -201,6 +201,9 @@ public class Game extends Canvas implements Runnable {
         return tickTimer;
     }
 
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
 
     public static int getEnemyNumber() {
         return ENEMY_NUMBER;

@@ -2,6 +2,7 @@ package Game;//
 // Source code recreated from a .class file by IntelliJ IDEA
 // (powered by FernFlower decompiler)
 //
+
 import Database.DBManager;
 import Database.DataSaving;
 import Listeners.*;
@@ -16,14 +17,9 @@ import java.awt.*;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.awt.image.BufferStrategy;
-import java.io.IOException;
 import java.io.Serial;
-import java.net.http.HttpRequest;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
-import java.util.Scanner;
 
 @SuppressWarnings("ALL")
 public class Game extends Canvas implements Runnable {
@@ -609,7 +605,7 @@ public class Game extends Canvas implements Runnable {
             this.hud.tick();
 
             hud.setHEALTH(hud.getHEALTH()- 2 * Ecollision(getObject(this.handler, ID.Player, 0), this.handler, ID.Enemy));
-            hud.setHEALTH(hud.getHEALTH()- 2 * Ecollision(getObject(this.handler, ID.Player, 0), this.handler, ID.ShipEnemy));
+            hud.setHEALTH(hud.getHEALTH()- 4 * Ecollision(getObject(this.handler, ID.Player, 0), this.handler, ID.ShipEnemy));
             Ccollision(getObject(this.handler, ID.Player, 0), this.handler, ID.Coin);
             RemoveBullet(this.handler);
             Bcollision(this.handler);

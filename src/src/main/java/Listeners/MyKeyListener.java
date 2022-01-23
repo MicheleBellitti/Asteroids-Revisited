@@ -54,9 +54,10 @@ public class MyKeyListener extends KeyAdapter  {
                     tmp.setVelY(4);
                     keyDown[1]=true;
                 }
-                if (key == KeyEvent.VK_LEFT)
+                if (key == KeyEvent.VK_LEFT) {
                     tmp.setVelX(-4);
-                    keyDown[2]=true;
+                    keyDown[2] = true;
+                }
                 if (key == KeyEvent.VK_RIGHT) {
                     tmp.setVelX(4);
                     keyDown[3]=true;

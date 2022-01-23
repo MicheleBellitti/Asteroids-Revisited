@@ -11,8 +11,8 @@ public class Hud {
     public Hud(){
       kills=0;
         HEALTH=255;
-        score=0;
-        level=1;
+        score=1400;
+        level=7;
     }
     public int getScore() {
         return score;

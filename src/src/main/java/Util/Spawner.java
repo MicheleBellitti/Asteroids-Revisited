@@ -41,7 +41,7 @@ public class Spawner {
             }
             else if(hud.getLevel()%7 == 0) {
                 for (int i = 1; i < 11; i++) {
-                    this.handler.addGameObject(new ShipEnemy(70 * i, 0f, 0, r.nextInt(3), ID.ShipEnemy));
+                    this.handler.addGameObject(new ShipEnemy(70 * i, 0f, 0, 1, ID.ShipEnemy));
                 }
             }
             else if(hud.getLevel()>1){

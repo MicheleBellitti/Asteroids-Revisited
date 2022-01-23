@@ -5,7 +5,7 @@ import Database.DataSaving;
 import Game.Game;
 import Screens.*;
 
-import java.awt.*;
+
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.SQLException;
@@ -14,7 +14,7 @@ import java.util.logging.Handler;
 
 public class GameOverScreenMouseListener extends MouseAdapter {
     int mx,my;
-    private int id=1;
+
     private final Handler handler;
     private final DataSaving ds;
 
@@ -59,10 +59,10 @@ public class GameOverScreenMouseListener extends MouseAdapter {
             if (mx >= 351*Game.WIDTH/784 && mx <= 431*Game.WIDTH/784) {
                 if (my >= 390*Game.getHEIGHT()/561 && my <= 440*Game.getHEIGHT()/561) {
                     if(!GameOverScreen.saved) {
-                        id = (int)Game.getSerialVersionUID();
-                        System.out.println("SAVE");
+
+
                         try {
-                            ds.InsertScore(id, Game.punteggiofinale);
+                            ds.InsertScore(Game.punteggiofinale);
                             GameOverScreen.saved=true;
                         } catch (SQLException ex) {
                             ex.printStackTrace();

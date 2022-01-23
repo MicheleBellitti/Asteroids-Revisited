@@ -1,9 +1,8 @@
 package Database;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,18 +27,18 @@ public class DataSaving {
         }catch(SQLException e){
 
             statement.executeUpdate("DROP TABLE IF EXISTS Punteggi");
-            statement.executeUpdate("CREATE TABLE Punteggi(" + "id INTEGER ," + "punteggio INTEGER)");
+            statement.executeUpdate("CREATE TABLE Punteggi(" + "id DATE ," + "punteggio INTEGER)");
 
         }
     }
-    public int InsertScore(int id,int score) throws SQLException {
+    public int InsertScore(int score) throws SQLException {
         int rowsAffected=0;
         try {
-            rowsAffected = statement.executeUpdate("INSERT INTO Punteggi(id,punteggio) VALUES(" + id + "," + score + ")");
+            rowsAffected = statement.executeUpdate("INSERT INTO Punteggi(id,punteggio) VALUES(" + "DATE('now')," + score + ")");
         }catch (SQLException e){
             e.printStackTrace();
             statement.executeUpdate("DROP TABLE IF EXISTS Punteggi");
-            statement.executeUpdate("CREATE TABLE Punteggi(" + "id ," + "punteggio INTEGER)");
+            statement.executeUpdate("CREATE TABLE Punteggi(" + "id Date," + "punteggio INTEGER)");
         }
         return rowsAffected;
     }
@@ -50,7 +49,7 @@ public class DataSaving {
         }catch (SQLException e){
             e.printStackTrace();
             statement.executeUpdate("DROP TABLE IF EXISTS Punteggi");
-            statement.executeUpdate("CREATE TABLE Punteggi(" + "id INTEGER ," + "punteggio INTEGER)");
+            statement.executeUpdate("CREATE TABLE Punteggi(" + "id DATE ," + "punteggio INTEGER)");
 
         }
         while(rs != null && rs.next() && index<5){

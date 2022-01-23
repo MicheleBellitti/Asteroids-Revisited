@@ -1,5 +1,5 @@
-Database/DataSaving.java
- Database.DataSaving
+Objects/Coin.java
+ Objects.Coin
 Database/DBManager.java
  Database.DBManager
 Util/SpriteSheet.java
@@ -17,8 +17,6 @@ Objects/ShipEnemy.java
  Objects.ShipEnemy
 Objects/Bullet.java
  Objects.Bullet
-Objects/Coin.java
- Objects.Coin
 Screens/StartMenu.java
  Screens.StartMenu
 Listeners/LeaderBoardML.java
@@ -37,28 +35,28 @@ Screens/Difficulty.java
  Screens.Difficulty
 Listeners/DifficultyMouseListener.java
  Listeners.DifficultyMouseListener
-Listeners/MSMouseListener.java
- Listeners.MSMouseListener
-Objects/Enemy.java
- Objects.Enemy
 Screens/Leaderboard.java
  Screens.Leaderboard
-Listeners/GamePauseMouseListener.java
- Listeners.GamePauseMouseListener
+Objects/Enemy.java
+ Objects.Enemy
+Listeners/SoundSettingsMouseListener.java
+ Listeners.SoundSettingsMouseListener
+Listeners/SfondoMouseListener.java
+ Listeners.SfondoMouseListener
+Listeners/MyKeyListener.java
+ Listeners.MyKeyListener
 Objects/Player.java
  Objects.Player
 Screens/MovementSettings.java
  Screens.MovementSettings
-Screens/Sfondo.java
- Screens.Sfondo
-Listeners/SoundSettingsMouseListener.java
- Listeners.SoundSettingsMouseListener
+Database/DataSaving.java
+ Database.DataSaving
+Listeners/MSMouseListener.java
+ Listeners.MSMouseListener
 Screens/GameOverScreen.java
  Screens.GameOverScreen
-Listeners/GameOverScreenMouseListener.java
- Listeners.GameOverScreenMouseListener
-Listeners/SfondoMouseListener.java
- Listeners.SfondoMouseListener
+Screens/Sfondo.java
+ Screens.Sfondo
 Objects/Player2.java
  Objects.Player2
 Util/Hud.java
@@ -70,5 +68,7 @@ Game/Game.java
  Game.Game$1
 Game/Window.java
  Game.Window
-Listeners/MyKeyListener.java
- Listeners.MyKeyListener
+Listeners/GameOverScreenMouseListener.java
+ Listeners.GameOverScreenMouseListener
+Listeners/GamePauseMouseListener.java
+ Listeners.GamePauseMouseListener

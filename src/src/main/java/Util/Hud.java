@@ -9,10 +9,10 @@ public class Hud {
     private int kills;
     static int HEALTH;
     public Hud(){
-      kills=0;
-        HEALTH=255;
-        score=1400;
-        level=7;
+      kills = 0;
+      HEALTH = 255;
+      score = 0;
+      level = 1;
     }
     public int getScore() {
         return score;

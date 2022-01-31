@@ -12,6 +12,7 @@ import Objects.ID;
 import Objects.Player;
 import Screens.*;
 import Util.*;
+import org.jetbrains.annotations.NotNull;
 
 import java.awt.*;
 import java.awt.event.ComponentAdapter;
@@ -111,9 +112,9 @@ public class Game extends Canvas implements Runnable {
         coinhit=new GameSound("Coinraccolto.wav");
         playerhit=new GameSound("PLAYERCOLPITO.wav");
         play= new GameSound("Street Fighter III 3rd Strike-The Theme of Q.wav");
-        this.handler.addGameObject(new Player((float)this.getBounds().getWidth()/2, (float) this.getBounds().height/2, 0.0F, 0.0F, ID.Player));
-        for (int i = 0; i < 3; i++) {
-            this.handler.addGameObject(new Enemy((float)r1.nextInt(WIDTH), 0.0F, 2*J, 2.0F, ID.Enemy));
+        this.handler.addGameObject(new Player((float)this.getBounds().getWidth()/2, (float) this.getBounds().height, 0.0F, 0.0F, ID.Player));
+        for (int i = 0; i < 15*WIDTH/784; i++) {
+            this.handler.addGameObject(new Enemy((float)r1.nextInt(WIDTH)+i, 0.0F, 0, 4f, ID.Enemy));
             this.J *= -1;
         }
         this.stop();
@@ -420,6 +421,8 @@ public class Game extends Canvas implements Runnable {
     int cnt=-1;
 
     public int Ecollision(GameObject p, Handler handler, ID id){
+        if(p == null)
+            p= new Player((float)getBounds().width/2,(float) getBounds().getHeight()-100,0,0,ID.Player);
         int hits=0;
         Rectangle player = new Rectangle((int)p.getX(), (int)p.getY(), 32, 32);
         for(int i=0;i<handler.objList.size();i++) {
@@ -527,7 +530,7 @@ public class Game extends Canvas implements Runnable {
             this.running = false;
         }
     }
-    private void RemoveAllButPlayer(Handler handler){
+    private void RemoveAllButPlayer(@NotNull Handler handler){
         for(int i=handler.objList.size();i>0;i--){
             if(handler.objList.get(i-1).getId() !=ID.Player) handler.objList.remove(i-1);
         }
@@ -614,7 +617,7 @@ public class Game extends Canvas implements Runnable {
             Bcollision(this.handler);
             if (tickTimer == 65 * difficulty) {
                 //System.out.println("spawno un nemico ogni tot " + tickTimer);
-                this.handler.addGameObject(new Enemy((float) r1.nextInt(WIDTH), (float) r1.nextInt(HEIGHT), r1.nextInt(5), r1.nextInt(3), ID.Enemy));
+                this.handler.addGameObject(new Enemy((float) r1.nextInt(WIDTH), 0f, r1.nextInt(2)+0.7f, r1.nextInt(4), ID.Enemy));
                 tickTimer = 0;
             }
             if(movementSettings.isChanged()) kL.setChanged(false);

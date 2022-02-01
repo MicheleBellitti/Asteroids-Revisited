@@ -644,8 +644,8 @@ public class Game extends Canvas implements Runnable {
             RemoveAllButPlayer(this.handler);
             handler.objList.get(0).setX(350.0F); // reset coordinate x  player
             handler.objList.get(0).setY((float) (HEIGHT - 75));// reset coordinate y player
-            for (int i = 0; i < 3; i++) { //spawn nemici
-                this.handler.addGameObject(new Enemy((float)r1.nextInt(WIDTH), 0.0F, 2*J, 2.0F, ID.Enemy));
+            for (int i = 0; i < 15; i++) { //spawn nemici
+                this.handler.addGameObject(new Enemy((float)r1.nextInt(WIDTH), 0.0F, 1.2f*J, 2.0F, ID.Enemy));
                 this.J *= -1;
             }
         }

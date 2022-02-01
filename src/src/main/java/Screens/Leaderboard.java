@@ -28,7 +28,7 @@ public class Leaderboard {
         g.setColor(Color.CYAN);
         Font font=new Font(g.getFont().getName(),Font.PLAIN,g.getFont().getSize()* Game.WIDTH/786);
         g.setFont(new Font("Helvetica",Font.PLAIN,30* Game.getWIDTH()/786));
-        g.drawString("ASTEROIDS",300* Game.getWIDTH()/786,75* Game.getHEIGHT()/563);
+        g.drawString("ASTEROIDS",300* Game.getWIDTH()/786,75* Game.getHEIGHT()/561);
         g.setFont(font);
         g.fillRect(640* Game.getWIDTH()/786,500* Game.getHEIGHT()/563,65* Game.getWIDTH()/786,45* Game.getHEIGHT()/563);
         g.setColor(Color.black);

@@ -445,6 +445,8 @@ public class Game extends Canvas implements Runnable {
         return hits;
     }
     public void Ccollision(GameObject p, Handler handler, ID id){
+        if (p==null)
+            p = new Player((float)getBounds().getWidth()/2,(float)getBounds().getHeight()-100,0,0,ID.Player);
         Rectangle player = new Rectangle((int)p.getX(), (int)p.getY(), 32, 32);
         for(int i=0;i<handler.objList.size();i++) {
             GameObject tmp = handler.objList.get(i);
@@ -513,6 +515,7 @@ public class Game extends Canvas implements Runnable {
         }
         return null;
     }
+
     private synchronized void start() {
         if (!this.running) {
             this.thread = new Thread(this);

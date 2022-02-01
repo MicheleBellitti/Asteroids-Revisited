@@ -34,27 +34,27 @@ public int getKills(){return kills;}
     public void render(Graphics g){
         if(Game.color ==Color.white){
             g.setColor(Color.black);
-            g.drawString("HP",275,40);
-            g.drawRect(10,20,255,40);
-            if(HEALTH>=255/2) g.setColor(Color.GREEN);
-            else if(HEALTH>=255/5) g.setColor(Color.yellow.darker());
+            g.drawString("HP",275*Game.WIDTH/784,40*Game.getHEIGHT()/571);
+            g.drawRect(10*Game.WIDTH/784,20*Game.getHEIGHT()/571,255*Game.WIDTH/784,40*Game.getHEIGHT()/571);
+            if(HEALTH>=255*Game.WIDTH/784/2) g.setColor(Color.GREEN);
+            else if(HEALTH>=255*Game.WIDTH/784/5) g.setColor(Color.yellow.darker());
             else g.setColor(Color.red);
-            g.fillRect(10,20,HEALTH,40);
+            g.fillRect(10*Game.WIDTH/784,20*Game.getHEIGHT()/571,HEALTH*Game.WIDTH/784,40*Game.getHEIGHT()/571);
             g.setColor(Color.black);
         }
          else {
             g.setColor(Color.WHITE);
-            g.drawString("HP", 275, 40);
-            g.drawRect(10, 20, 255, 40);
-            if (HEALTH >= 255 / 2) g.setColor(Color.GREEN);
-            else if (HEALTH >= 255 / 5) g.setColor(Color.yellow.darker());
+            g.drawString("HP", 275*Game.WIDTH/784, 40*Game.getHEIGHT()/571);
+            g.drawRect(10*Game.WIDTH/784, 20*Game.getHEIGHT()/571, 255*Game.WIDTH/784, 40*Game.getHEIGHT()/571);
+            if (HEALTH >= (255*Game.WIDTH/784)/ 2) g.setColor(Color.GREEN);
+            else if (HEALTH >= (255*Game.WIDTH/784) / 5) g.setColor(Color.yellow.darker());
             else g.setColor(Color.red);
-            g.fillRect(10, 20, HEALTH, 40);
+            g.fillRect(10*Game.WIDTH/784, 20*Game.getHEIGHT()/571, HEALTH*Game.WIDTH/784, 40*Game.getHEIGHT()/571);
             g.setColor(Color.WHITE); // Commento
         }
-        g.drawString("Level:"+ level,10,80);
-        g.drawString("Score:"+ score,10,100);
-        g.drawString("Kills:"+ kills,10,120);
+        g.drawString("Level:"+ level,10*Game.WIDTH/784,80*Game.getHEIGHT()/571);
+        g.drawString("Score:"+ score,10*Game.WIDTH/784,100*Game.getHEIGHT()/571);
+        g.drawString("Kills:"+ kills,10*Game.WIDTH/784,120*Game.getHEIGHT()/571);
     }
 
     public int getHEALTH() {

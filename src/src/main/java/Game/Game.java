@@ -29,7 +29,7 @@ import java.util.Random;
 public class Game extends Canvas implements Runnable {
     @Serial
     private static final long serialVersionUID = new Random().nextLong();
-
+    public Player player;
     public SpriteSheet Sprite;
     public static int WIDTH = 800;
     public static int HEIGHT = 600;
@@ -112,7 +112,8 @@ public class Game extends Canvas implements Runnable {
         coinhit=new GameSound("Coinraccolto.wav");
         playerhit=new GameSound("PLAYERCOLPITO.wav");
         play= new GameSound("Street Fighter III 3rd Strike-The Theme of Q.wav");
-        this.handler.addGameObject(new Player((float)this.getBounds().getWidth()/2, (float) this.getBounds().height, 0.0F, 0.0F, ID.Player));
+        player=new Player((float)this.getBounds().getWidth()/2, (float) this.getBounds().height, 0.0F, 0.0F, ID.Player);
+        this.handler.addGameObject(player);
         for (int i = 0; i < 15*WIDTH/784; i++) {
             this.handler.addGameObject(new Enemy((float)r1.nextInt(WIDTH)+i, 0.0F, 0, 4f, ID.Enemy));
             this.J *= -1;
@@ -601,6 +602,9 @@ public class Game extends Canvas implements Runnable {
 
 
         if(Game.on) {
+            if(!handler.objList.contains(player)){
+                player=new Player((float) (getBounds().getWidth()/2), (float) (getBounds().getHeight()-100),0,0,ID.Player);
+            }
             if(Game.sound) {
                 gameoversound.stop();
                 play.loop();
@@ -642,8 +646,8 @@ public class Game extends Canvas implements Runnable {
             hud.setScore(0);
             hud.setKills(0);
             RemoveAllButPlayer(this.handler);
-            handler.objList.get(0).setX(350.0F); // reset coordinate x  player
-            handler.objList.get(0).setY((float) (HEIGHT - 75));// reset coordinate y player
+            handler.objList.get(0).setX((float)getBounds().getWidth()/2); // reset coordinate x  player
+            handler.objList.get(0).setY((float) (HEIGHT - 100));// reset coordinate y player
             for (int i = 0; i < 15; i++) { //spawn nemici
                 this.handler.addGameObject(new Enemy((float)r1.nextInt(WIDTH), 0.0F, 1.2f*J, 2.0F, ID.Enemy));
                 this.J *= -1;

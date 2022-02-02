@@ -84,14 +84,14 @@ public class MyMouseListener extends MouseAdapter {
         mx=e.getX();
         my=e.getY();
         if(tmp!=null && Game.isOn()){
-            GameObject tmpBullet=new Bullet(tmp.getX() + 16, tmp.getY() + 16, 0,0 , ID.Bullet);
+            GameObject tmpBullet=new Bullet(Game.getPlayer().getX() + 16, Game.getPlayer().getY() + 16, 0,0 , ID.Bullet);
             handler.objList.offerFirst(tmpBullet);
             if(Game.sound) {
                 bulletsound = new GameSound("Bulletshot.wav");
                 bulletsound.play();
                 bulletsound.setVolume(-7.5F);
             }
-            float angle=(float) Math.atan2(my-tmp.getY()-16,mx-tmp.getX()-16);
+            float angle=(float) Math.atan2(my-Game.getPlayer().getY()-16,mx-Game.getPlayer().getX()-16);
             int bullVel=10;
             tmpBullet.setVelX((float) (bullVel*Math.cos(angle)));
             tmpBullet.setVelY((float) (bullVel*Math.sin(angle)));

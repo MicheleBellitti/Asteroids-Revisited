@@ -13,62 +13,62 @@ Database/DataSaving.java
  Database.DataSaving
 Objects/Bullet.java
  Objects.Bullet
-Util/Handler.java
- Util.Handler
-Objects/Coin.java
- Objects.Coin
 Objects/ShipEnemy.java
  Objects.ShipEnemy
+Objects/Coin.java
+ Objects.Coin
 Screens/StartMenu.java
  Screens.StartMenu
-Listeners/LeaderBoardML.java
- Listeners.LeaderBoardML
-Listeners/OptionMouseListener.java
- Listeners.OptionMouseListener
+Screens/MovementSettings.java
+ Screens.MovementSettings
+Util/Hud.java
+ Util.Hud
 Screens/SoundSettings.java
  Screens.SoundSettings
 Screens/OptionPanel.java
  Screens.OptionPanel
 Screens/GamePause.java
  Screens.GamePause
-Listeners/MyMouseListener.java
- Listeners.MyMouseListener
+Listeners/GameOverScreenMouseListener.java
+ Listeners.GameOverScreenMouseListener
 Screens/Difficulty.java
  Screens.Difficulty
-Listeners/DifficultyMouseListener.java
- Listeners.DifficultyMouseListener
-Util/Spawner.java
- Util.Spawner
+Objects/Player2.java
+ Objects.Player2
+Screens/Sfondo.java
+ Screens.Sfondo
 Objects/Enemy.java
  Objects.Enemy
 Screens/Leaderboard.java
  Screens.Leaderboard
 Objects/Player.java
  Objects.Player
+Screens/GameOverScreen.java
+ Screens.GameOverScreen
+Listeners/LeaderBoardML.java
+ Listeners.LeaderBoardML
+Listeners/OptionMouseListener.java
+ Listeners.OptionMouseListener
+Listeners/MSMouseListener.java
+ Listeners.MSMouseListener
+Util/Handler.java
+ Util.Handler
+Listeners/SoundSettingsMouseListener.java
+ Listeners.SoundSettingsMouseListener
+Listeners/GamePauseMouseListener.java
+ Listeners.GamePauseMouseListener
+Listeners/SfondoMouseListener.java
+ Listeners.SfondoMouseListener
+Game/Window.java
+ Game.Window
+Listeners/DifficultyMouseListener.java
+ Listeners.DifficultyMouseListener
+Util/Spawner.java
+ Util.Spawner
 Listeners/MyKeyListener.java
  Listeners.MyKeyListener
-Screens/MovementSettings.java
- Screens.MovementSettings
-Util/Hud.java
- Util.Hud
 Game/Game.java
  Game.Game
  Game.Game$1
-Game/Window.java
- Game.Window
-Listeners/GameOverScreenMouseListener.java
- Listeners.GameOverScreenMouseListener
-Listeners/GamePauseMouseListener.java
- Listeners.GamePauseMouseListener
-Objects/Player2.java
- Objects.Player2
-Listeners/SfondoMouseListener.java
- Listeners.SfondoMouseListener
-Screens/Sfondo.java
- Screens.Sfondo
-Screens/GameOverScreen.java
- Screens.GameOverScreen
-Listeners/SoundSettingsMouseListener.java
- Listeners.SoundSettingsMouseListener
-Listeners/MSMouseListener.java
- Listeners.MSMouseListener
+Listeners/MyMouseListener.java
+ Listeners.MyMouseListener

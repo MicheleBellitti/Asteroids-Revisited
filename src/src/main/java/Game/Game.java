@@ -29,7 +29,7 @@ import java.util.Random;
 public class Game extends Canvas implements Runnable {
     @Serial
     private static final long serialVersionUID = new Random().nextLong();
-    public Player player;
+    public static Player player;
     public SpriteSheet Sprite;
     public static int WIDTH = 800;
     public static int HEIGHT = 600;
@@ -72,6 +72,12 @@ public class Game extends Canvas implements Runnable {
     private Leaderboard ld;
 
 
+    public static Player getPlayer() {
+        if(player == null)
+            player = new Player(WIDTH/2,HEIGHT-100,0,0,ID.Player);
+        return player;
+    }
+
     public Game() throws SQLException {
         new Window(WIDTH, HEIGHT, title, this);
 
@@ -113,7 +119,7 @@ public class Game extends Canvas implements Runnable {
         playerhit=new GameSound("PLAYERCOLPITO.wav");
         play= new GameSound("Street Fighter III 3rd Strike-The Theme of Q.wav");
         player=new Player((float)this.getBounds().getWidth()/2, (float) this.getBounds().height, 0.0F, 0.0F, ID.Player);
-        this.handler.addGameObject(player);
+        //this.handler.addGameObject(player);
         for (int i = 0; i < 15*WIDTH/784; i++) {
             this.handler.addGameObject(new Enemy((float)r1.nextInt(WIDTH)+i, 0.0F, 0, 4f, ID.Enemy));
             this.J *= -1;
@@ -123,8 +129,6 @@ public class Game extends Canvas implements Runnable {
 
 
 
-  
-    
 
     public SpriteSheet getSprite() {
         return Sprite;
@@ -602,9 +606,7 @@ public class Game extends Canvas implements Runnable {
 
 
         if(Game.on) {
-            if(!handler.objList.contains(player)){
-                player=new Player((float) (getBounds().getWidth()/2), (float) (getBounds().getHeight()-100),0,0,ID.Player);
-            }
+
             if(Game.sound) {
                 gameoversound.stop();
                 play.loop();
@@ -617,9 +619,9 @@ public class Game extends Canvas implements Runnable {
             this.spawner.tick();
             this.hud.tick();
 
-            hud.setHEALTH(hud.getHEALTH()- 2 * Ecollision(getObject(this.handler, ID.Player, 0), this.handler, ID.Enemy));
-            hud.setHEALTH(hud.getHEALTH()- 4 * Ecollision(getObject(this.handler, ID.Player, 0), this.handler, ID.ShipEnemy));
-            Ccollision(getObject(this.handler, ID.Player, 0), this.handler, ID.Coin);
+            hud.setHEALTH(hud.getHEALTH()- 2 * Ecollision(player, this.handler, ID.Enemy));
+            hud.setHEALTH(hud.getHEALTH()- 4 * Ecollision(player, this.handler, ID.ShipEnemy));
+            Ccollision(player, this.handler, ID.Coin);
             RemoveBullet(this.handler);
             Bcollision(this.handler);
             if (tickTimer == 65 * difficulty) {
@@ -646,8 +648,8 @@ public class Game extends Canvas implements Runnable {
             hud.setScore(0);
             hud.setKills(0);
             RemoveAllButPlayer(this.handler);
-            handler.objList.get(0).setX((float)getBounds().getWidth()/2); // reset coordinate x  player
-            handler.objList.get(0).setY((float) (HEIGHT - 100));// reset coordinate y player
+            player.setX((float)getBounds().getWidth()/2); // reset coordinate x  player
+            player.setY((float) (HEIGHT - 100));// reset coordinate y player
             for (int i = 0; i < 15; i++) { //spawn nemici
                 this.handler.addGameObject(new Enemy((float)r1.nextInt(WIDTH), 0.0F, 1.2f*J, 2.0F, ID.Enemy));
                 this.J *= -1;

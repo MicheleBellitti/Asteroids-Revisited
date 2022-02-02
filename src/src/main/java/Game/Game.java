@@ -683,7 +683,7 @@ public class Game extends Canvas implements Runnable {
     }
     public static void main(String[] args) throws SQLException {
 
-        new Game();
+        EventQueue.invokeLater(new Game());
         try {
             DBManager.close();
         } catch (SQLException e) {

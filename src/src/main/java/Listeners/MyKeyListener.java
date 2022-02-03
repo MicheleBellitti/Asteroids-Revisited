@@ -116,7 +116,7 @@ public class MyKeyListener extends KeyAdapter  {
                 if (key == KeyEvent.VK_DOWN) {
                     keyDown[1]=false;//tmp.setVelY(0);
                 }
-                if (key == KeyEvent.VK_LEFT)
+           if (key == KeyEvent.VK_LEFT)
                     keyDown[2]=false; //tmp.setVelX(0);
                 if (key == KeyEvent.VK_RIGHT) {
                     keyDown[3]=false; //tmp.setVelX(0);

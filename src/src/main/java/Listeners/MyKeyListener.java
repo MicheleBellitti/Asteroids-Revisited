@@ -25,9 +25,9 @@ public class MyKeyListener extends KeyAdapter  {
     @Override
     public void keyPressed(KeyEvent e) {
         int key = e.getKeyCode();
-        for(int i=0;i<handler.objList.size();i++) {
-            GameObject tmp = handler.objList.get(i);
-            if (tmp.getId() == ID.Player && changed) {
+
+            GameObject tmp = Game.getPlayer();
+            if  (changed) {
                 if (key == KeyEvent.VK_W) {
                     tmp.setVelY(-4);
                     keyDown[0]=true;
@@ -44,8 +44,7 @@ public class MyKeyListener extends KeyAdapter  {
                     tmp.setVelX(4);
                     keyDown[3]=true;
                 }
-            }
-            else  if (tmp.getId() == ID.Player && !changed) {
+            else  if (!changed) {
                 if (key == KeyEvent.VK_UP) {
                     tmp.setVelY(-4);
                     keyDown[0]=true;
@@ -89,8 +88,8 @@ public class MyKeyListener extends KeyAdapter  {
     @Override
     public void keyReleased(KeyEvent e) {
         int key = e.getKeyCode();
-        for(int i=0;i<handler.objList.size();i++) {
-            GameObject tmp = handler.objList.get(i);
+
+            GameObject tmp = Game.getPlayer();
             if (tmp.getId() == ID.Player && changed) {
                 if (key == KeyEvent.VK_W) {
                     keyDown[0]=false;//tmp.setVelY(0);
@@ -129,6 +128,5 @@ public class MyKeyListener extends KeyAdapter  {
                     tmp.setVelX(0);
                 }
             }
-        }
     }
 }

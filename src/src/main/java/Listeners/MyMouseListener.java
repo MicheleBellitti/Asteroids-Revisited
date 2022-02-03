@@ -17,14 +17,7 @@ public class MyMouseListener extends MouseAdapter {
     public MyMouseListener(Handler handler){
         this.handler=handler;
     }
-    public void FindPlayer(){
-        for(int i=0;i<handler.objList.size();i++){
-            if(handler.objList.get(i).getId()== ID.Player || handler.objList.get(i).getId()== ID.Enemy){
-                tmp= handler.objList.get(i);
-                break;
-            }
-        }
-    }
+
     public void mouseClicked(MouseEvent e) {
         int mx, my;
         mx = e.getX();
@@ -77,25 +70,25 @@ public class MyMouseListener extends MouseAdapter {
                 }
             }
         }
-        else FindPlayer();
+
     }
     public void mousePressed(MouseEvent e) {
         int mx,my;
         mx=e.getX();
         my=e.getY();
-        if(tmp!=null && Game.isOn()){
-            GameObject tmpBullet=new Bullet(tmp.getX() + 16, tmp.getY() + 16, 0,0 , ID.Bullet);
+        if( Game.isOn()){
+            GameObject tmpBullet=new Bullet(Game.getPlayer().getX() + 16, Game.getPlayer().getY() + 16, 0,0 , ID.Bullet);
             handler.objList.offerFirst(tmpBullet);
             if(Game.sound) {
                 bulletsound = new GameSound("Bulletshot.wav");
                 bulletsound.play();
                 bulletsound.setVolume(-7.5F);
             }
-            float angle=(float) Math.atan2(my-tmp.getY()-16,mx-tmp.getX()-16);
+            float angle=(float) Math.atan2(my-Game.getPlayer().getY()-16,mx-Game.getPlayer().getX()-16);
             int bullVel=10;
             tmpBullet.setVelX((float) (bullVel*Math.cos(angle)));
             tmpBullet.setVelY((float) (bullVel*Math.sin(angle)));
         }
-        else FindPlayer();
+
     }
 }

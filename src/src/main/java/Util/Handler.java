@@ -11,6 +11,7 @@ public class Handler extends java.util.logging.Handler {
     public final LinkedList<GameObject> objList= new LinkedList<>();
 
     public void tick(){
+        Game.Game.getPlayer().tick();
         for(int i=0;i<objList.size();i++){
             GameObject tmp=objList.get(i);
             tmp.tick();
@@ -19,6 +20,7 @@ public class Handler extends java.util.logging.Handler {
         }
     }
     public void render(Graphics g){
+        Game.Game.getPlayer().render(g);
         for(int i=0;i<objList.size();i++){
             GameObject tmp=objList.get(i);
             tmp.render(g);

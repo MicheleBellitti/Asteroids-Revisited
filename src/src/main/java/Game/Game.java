@@ -31,8 +31,8 @@ public class Game extends Canvas implements Runnable {
     private static final long serialVersionUID = new Random().nextLong();
     public static Player player;
     public SpriteSheet Sprite;
-    public static int WIDTH = 800;
-    public static int HEIGHT = 600;
+    public static int WIDTH;
+    public static int HEIGHT;
     public static boolean sound = false;
     static int difficulty= 2;
    public  int gamesplayed=0;
@@ -79,7 +79,7 @@ public class Game extends Canvas implements Runnable {
     }
 
     public Game() throws SQLException {
-        new Window(WIDTH, HEIGHT, title, this);
+        new Window(800, 600, title, this);
 
         mn= new StartMenu();
         Sprite=new SpriteSheet();
@@ -96,7 +96,7 @@ public class Game extends Canvas implements Runnable {
         movementSettings=new MovementSettings();
         this.addComponentListener(new ComponentAdapter(){
             public void componentResized(ComponentEvent e){
-                if(getBounds().width!=WIDTH || getBounds().height!=HEIGHT){
+                if(getBounds().getWidth()!=WIDTH || getBounds().getHeight()!=HEIGHT){
 
                     WIDTH=getBounds().width;
                     HEIGHT=getBounds().height;
@@ -119,9 +119,9 @@ public class Game extends Canvas implements Runnable {
         playerhit=new GameSound("PLAYERCOLPITO.wav");
         play= new GameSound("Street Fighter III 3rd Strike-The Theme of Q.wav");
         player=new Player((float)this.getBounds().getWidth()/2, (float) this.getBounds().height, 0.0F, 0.0F, ID.Player);
-        //this.handler.addGameObject(player);
-        for (int i = 0; i < 15*WIDTH/784; i++) {
-            this.handler.addGameObject(new Enemy((float)r1.nextInt(WIDTH)+i, 0.0F, 0, 4f, ID.Enemy));
+
+        for (int i = 1; i < 15*getBounds().getWidth()/786; i++) {
+            this.handler.addGameObject(new Enemy((float)50*(i), 0.0F, 0.5f*J, 4f, ID.Enemy));
             this.J *= -1;
         }
         this.stop();
@@ -650,8 +650,8 @@ public class Game extends Canvas implements Runnable {
             RemoveAllButPlayer(this.handler);
             player.setX((float)getBounds().getWidth()/2); // reset coordinate x  player
             player.setY((float) (HEIGHT - 100));// reset coordinate y player
-            for (int i = 0; i < 15; i++) { //spawn nemici
-                this.handler.addGameObject(new Enemy((float)r1.nextInt(WIDTH), 0.0F, 1.2f*J, 2.0F, ID.Enemy));
+            for (int i = 0; i < 15*getBounds().getWidth()/786; i++) { //spawn nemici
+                this.handler.addGameObject(new Enemy((float)50*(i+1), 0.0F, 1.2f*J, 2.0F, ID.Enemy));
                 this.J *= -1;
             }
         }

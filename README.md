@@ -24,7 +24,7 @@ To install Asteroids Revisited, follow these steps:
 
 ![Asteroids Revisited Gameplay Screenshot](images/asteroids-gameplay.png)
 
-In Asteroids Revisited, the player controls a spaceship and must navigate through an asteroid field while shooting down the asteroids to earn points. The game gets progressively harder as the player advances through the levels.
+In Asteroids Revisited, the player controls a spaceship and must navigate through an asteroid field while shooting down the asteroids and different enemies to earn points. The game gets progressively harder as the player advances through the levels.
 
 ## Features
 
